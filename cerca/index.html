@@ -4,178 +4,214 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Comparació de Carabasses Ecològiques i Convencionals</title>
+
   <style>
-    /* Reset bàsic i estil base */
+    /* ======= RESET I BASE ======= */
     * {
       box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fafafa;
-      color: #222;
       margin: 0;
-      line-height: 1.6;
-      padding: 1rem;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 0;
     }
-    h1 {
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      color: #222;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      line-height: 1.7;
+    }
+
+    /* ======= CAPÇALERA ======= */
+    header {
       text-align: center;
-      color: #2a7ae2;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 3px solid #e3f2fd;
     }
+
+    h1 {
+      font-size: 1.9rem;
+      color: #1a4fb8;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #2a7ae2;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #2a7ae2;
+      padding-left: 0.5rem;
+    }
+
     p {
       margin-bottom: 1rem;
+      text-align: justify;
     }
-    ul {
-      background: #e3f2fd;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
+
+    /* ======= TARGETES D'INFORMACIÓ ======= */
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 8px rgb(42 122 226 / 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
       list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1.2rem;
     }
-    ul li {
-      margin-bottom: 0.75rem;
+
+    li {
+      margin-bottom: 0.6rem;
     }
+
+    /* ======= IMATGES ======= */
+    figure {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
     img {
       max-width: 100%;
-      display: block;
-      margin: 1rem auto;
-      border-radius: 8px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
       cursor: pointer;
     }
+
     img:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
-    /* Estil per al peu de pàgina o fonts menors */
-    small {
-      display: block;
-      margin-top: -0.5rem;
-      margin-bottom: 1.5rem;
-      font-style: italic;
+
+    figcaption {
+      font-size: 0.9rem;
       color: #555;
+      margin-top: 0.5rem;
+      font-style: italic;
     }
-    /* Enllaços estilitzats */
-    a {
-      color: #2a7ae2;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    a:hover,
-    a:focus {
-      color: #1a4fb8;
-      text-decoration: underline;
-    }
-    /* Fragments de text destacat */
-    u {
-      text-decoration-thickness: 2px;
-      text-underline-offset: 3px;
-      color: #2a7ae2;
-    }
-    b {
+
+    /* ======= TEXT DESTACAT ======= */
+    strong, b {
       color: #1a4fb8;
     }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem 0.75rem;
-      }
+    em {
+      color: #2a7ae2;
+    }
+
+    a {
+      color: #1a4fb8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ======= PEU DE PÀGINA ======= */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* ======= RESPONSIVE ======= */
+    @media (max-width: 700px) {
       h1 {
         font-size: 1.5rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+      body {
+        padding: 1.5rem 1rem;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Comparem una carabassa ecològica i convencional: Quin té més nutrients segons la ciència i segons la IA?</h1>
+    <h1>Comparació de Carabasses Ecològiques i Convencionals</h1>
+    <p><em>Quina és més nutritiva segons la ciència i segons la intel·ligència artificial?</em></p>
   </header>
 
-  <section>
-    <p>He trobat diferents articles científics que estudien el meu tema i els trobareu a continuació en format APA7. APA7 és una forma d'escriure un article científic.</p>
-  </section>
+  <main>
+    <section class="card">
+      <h2>Introducció als articles</h2>
+      <p>He trobat diferents articles científics que estudien aquest tema i els trobareu a continuació en format APA7. És una manera d’escriure i citar articles científics de forma estandarditzada.</p>
+      <ul>
+        <li>Article de la <strong>University of Agronomic Sciences and Veterinary Medicine of Bucharest (Romania)</strong>, publicat el 2022 a la revista <em>Scientific Papers Series Management, Economic Engineering in Agriculture and Rural Development</em>.</li>
+        <li>En el format APA7, primer s’escriuen els cognoms dels autors seguits de les inicials, després l’any entre parèntesis, i finalment el títol i la revista.</li>
+      </ul>
 
-  <section>
-    <h2>Introducció als articles</h2>
-    <ul>
-      <li>
-        Aquest article sobre el que parlaré ara és de: <strong>University of Agronomic Sciences and Veterinary Medicine of Bucharest, Romania</strong>, 59. Scientific Papers Series Management, Economic Engineering in Agriculture and Rural Development, Vol. 22, 10 pàgines, 2022.
-      </li>
-      <li>Sempre posem primer els autors pel cognom i les inicials del nom, després l'any en parèntesi, el títol, en acabat el nom de la revista abreujat.</li>
-    </ul>
-
-    <figure>
-      <img src="cap1.png" alt="Taula comparativa de propietats de la carabassa abans i després de fertilitzant químic" />
-      <figcaption> El que es pot veure a la taula es que la carbasa convencional al 2013 i 2014 es molta mes massa que la bio, pero que al 2013 tenia molta mes massa que al 2014 en els dos casos, tant en el bio, com en el covencional</figcaption>
-      <img src="error.png" alt="Taula comparativa de propietats de la carabassa abans i després de fertilitzant químic" />
-      <P>
-        Per desgracia en el moment de donar-li el document a ChatGPT em deia constant ment que no tenia acces al document asi que no he pogut fer que em digues res sobre el document
-      </P>
-    </figure>
-
-  <section>
-    <ul>
-      <li>
-        Aquest article sobre el que parlaré ara és del <strong>Ce Press</strong>, <em>Nutritional characterization and antioxidant properties of various edible portions of Cucurbita maxima: A potential source of nutraceuticals</em>, Volume 9, Issue 6e16628, June 2023.
-      </li>
-    </ul>
-
-    <figure>
-      <img src="text.png" alt="Taula de nutrients segons tipus de cultiu de carabassa" />
-      <figcaption>
-       Aquesta taula parla sobre i compara la qualitat de la carbasa en la K (potasi), Mg (magnesi), Ca (calci) i P (fosfor) i es pot veure que la cascara de la carbasa es molt mes rica en la gran malloria de coses en canvi la pulpa es molt mes pobre en casi tot
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="txf.png" alt="Gràfic comparatiu ChatGPT 1" />
-    
-    </figure>
-
-  </section>
-
-  <section>
-    <ul>
-      <li>
-        Aquest article és de <strong>Frontiers</strong> i parla sobre: <em>Organic fertilizer increases pumpkin production by improving soil fertility</em>, publicat el 14 de novembre de 2024, DOI: 10.3389/fpls.2024.1467931.
-      </li>
-    </ul>
-
-    <figure>
-      <img src="xx.png" alt="Imatge relacionada amb article Frontiers sobre fertilitzants orgànics" />
-    </figure>
-
-    <p>
-      De totes les taules que he trobar, he pogut veure que aquesta es la mes interesant de totes, ja que em parla sobre diferents varietats de carbases i em compara directament la convencional i la organica. De aquesta taula he pogut extreure que la organica es molt mes millor per a la salud i es molt mes rica en nutrients
-    </p>
-
-    <p>
-      Durant la busqueda dels articles i mentre que li anaba preguntant a Chat GPT m'he trobar amb un altre error molt important. El cual era que al donar-li un article el qual parlaba sobre les carbases i els seus componenents el Chat GPT h'ha dit aquesta cosa, la qual no tenia res a beure amb el tema el qual tenia que parlar
-    </p>
-  </section>
       <figure>
-      <img src="chat1.png" alt="Gràfic 1" />
-      <img src="chat2.png" alt="Gràfic 2" />
-      <img src="chat3.png" alt="Gràfic 3" />
-      <img src="chat22.png" alt="Gràfic 4" />
-    </figure>
-  <section>
-    <ul>
-      <li>
-    <p>
-      A ChatGPT li he enviat el document per comprovar que ell em deia el mateix que deia al document. He pogut comprovar que ell em donava dades errònies fins i tot dient que l'article que jo li havia enviat es referia per complert a Nigèria i la desnutrició a les zones rurals. Després que em digués aquesta barbaritat li he anat preguntant coses a les quals es referia l'article i ell em continua mantenint la mentida fins i tot preguntant-me si volia que em busqués algun article referent amb les carabasses.
-      Després de veure que no sap ni llegir un document que li acabava de donar, li he tornat a enviar el document que li havia donat al principi i em deia que aquest article sí que parlava sobre les carabasses. Tot seguit li he dit que els dos articles que li havia donat eren completament iguals i ell ha sigut capaç de dir-me que els dos documents eren iguals sense saber reconèixer el seu propi error.
-    </p>
-         </li>
-    </ul>
+        <img src="cap1.png" alt="Taula comparativa de propietats de la carabassa abans i després del fertilitzant químic" />
+        <figcaption>La taula mostra que la carabassa convencional dels anys 2013 i 2014 té més massa que la bio, però que en ambdós casos la massa disminueix el 2014.</figcaption>
+      </figure>
 
-  </section>
+      <p>Per desgràcia, en el moment de donar-li el document a ChatGPT, em deia constantment que no tenia accés al fitxer. Per això no vaig poder obtenir la seva anàlisi del contingut.</p>
+    </section>
 
+    <section class="card">
+      <ul>
+        <li>Article del <strong>Ce Press</strong>: <em>Nutritional characterization and antioxidant properties of various edible portions of Cucurbita maxima: A potential source of nutraceuticals</em>, volum 9, número 6e16628, juny de 2023.</li>
+      </ul>
+
+      <figure>
+        <img src="text.png" alt="Taula de nutrients segons tipus de cultiu de carabassa" />
+        <figcaption>Aquesta taula compara la qualitat de la carabassa en nutrients com el potassi (K), magnesi (Mg), calci (Ca) i fòsfor (P). Es pot veure que la pell és molt més rica en minerals, mentre que la polpa és més pobra en la majoria d’elements.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="txf.png" alt="Gràfic comparatiu elaborat per ChatGPT" />
+      </figure>
+    </section>
+
+    <section class="card">
+      <ul>
+        <li>Article publicat a <strong>Frontiers</strong>: <em>Organic fertilizer increases pumpkin production by improving soil fertility</em>, 14 de novembre de 2024, DOI: 10.3389/fpls.2024.1467931.</li>
+      </ul>
+
+      <figure>
+        <img src="xx.png" alt="Gràfic sobre fertilitzants orgànics i rendiment de carabasses" />
+      </figure>
+
+      <p>D’entre totes les taules que he trobat, aquesta és la més interessant, ja que compara diferents varietats de carabasses i mostra clarament que la producció orgànica és més beneficiosa per a la salut i més rica en nutrients.</p>
+
+      <p>Durant la cerca d’articles, vaig trobar un error rellevant: en donar un document a ChatGPT, ell interpretava malament el contingut i deia que tractava sobre la desnutrició a Nigèria, quan en realitat parlava de carabasses. Fins i tot, després de corregir-lo, va continuar defensant la seva resposta errònia.</p>
+    </section>
+
+    <section class="card">
+      <figure>
+        <img src="chat1.png" alt="Resposta 1 de ChatGPT" />
+        <img src="chat2.png" alt="Resposta 2 de ChatGPT" />
+        <img src="chat3.png" alt="Resposta 3 de ChatGPT" />
+        <img src="chat22.png" alt="Resposta 4 de ChatGPT" />
+        <figcaption>Captures de pantalla mostrant respostes incorrectes de ChatGPT sobre el contingut dels articles científics.</figcaption>
+      </figure>
+
+      <p>En resum, vaig comprovar que ChatGPT pot donar respostes errònies si no pot llegir o interpretar correctament un document, i que cal revisar sempre la informació que proporciona abans de donar-la per certa.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><small>Projecte elaborat per <strong>David Bermejo</strong> – Octubre de 2025</small></p>
+  </footer>
 </body>
 </html>
