@@ -1,38 +1,168 @@
-<html>
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-  <meta> <charset="UTF-8"><!-- Això es un comentari, set es conjunt i chart es caracters i UTF-8 permet accents i ç-->
-</head><body>
-  <h1>Comparem una carabassa ecològica i convencional: Quin té més nutrients segons la ciència i segons la IA? </h1>
-  <p>He trobat diferents articles científics que estudien el meu tema i els trobareu a continuació en format APA7. APA7 és una forma d'escriure un article científic.</p>
-  <ul><!--unordered list, llista desordenada-->
-    <li>Aquest article sobre el que parlare ara es de: University of Agronomic Sciences and Veterinary Medicine of Bucharest, Romania, 59. Scientific Papers Series Management, Economic Engineering in Agriculture and Rural Development
-Vol. 22, 10 pagines 2022</li><!--list item, element d'una llista-->
-    <li>Sempre posem primer els autors pel cognom i les inicials del nom, després l'any en parèntesi, el títol, en acabat el nom de la revista abreujat.</li>
-  </ul>
-  <img src="captura1.png">
-  <p>
-    Aquesta taula compara les propietats (pH, sals solubles i el contingut de les formes solubles). Mostrant que la carabassa abans que s'utilitzi el fertilitzant químic té més pH, sals solubles i en el cas del contingut de les formes solubles és més baix abans que es fes servir el fertilitzant que després.
-  </p>
-  <img src="chat1.png">
-      <img src="chat2.png">
-  <img src="chat3.png">
-    <img src="chat22.png">
-  <p>
-A ChatGPT li he enviat el document per comprovar que ell em deia el mateix que deia al document. He pogut comprovar que ell em donava dades errònies fins i tot dient que l'article que jo li havia enviat es referia per complert a Nigèria i la desnutrició a les zones rurals. Després que em digués aquesta barbaritat li he anat preguntant coses a les quals es referia l'article i ell em continua mantenint la mentida fins i tot preguntant-me si volia que em busqués algun article referent amb les carabasses.
-Després de veure que no sap ni llegir un document que li acabava de donar, li he tornat a enviar el document que li havia donat al principi i em deia que aquest article sí que parlava sobre les carabasses. Tot seguit li he dit que els dos articles que li havia donat eren completament iguals i ell ha sigut capaç de dir-me que els dos documents eren iguals sense saber reconèixer el seu propi error.
-  </p>
-    <li>Aquest article sobre el que parlare ara es del Ce Press, Nutritional characterization and antioxidant properties of various edible portions of Cucurbita maxima: A potential source of nutraceuticals, Volume 9, Issue 6e16628June 2023</li><!--list item, element d'una llista-->
-  <img src="tabla1.png">
-  <p>En questa taula el que es pot observar a simple vista es que la carbasa amb terra mullada es molt mes rica en la humitat, peerque s'ha cultivat en una terra mullada sempre. Pero la que s'ha cultivat en terra seca es pot veure que es molt mes rica en fibra, greixos, proteines i carboidrats i residus minerals</p>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comparació de Carabasses Ecològiques i Convencionals</title>
+  <style>
+    /* Reset bàsic i estil base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fafafa;
+      color: #222;
+      margin: 0;
+      line-height: 1.6;
+      padding: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #2a7ae2;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    ul {
+      background: #e3f2fd;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 8px rgb(42 122 226 / 0.2);
+      list-style-type: disc;
+    }
+    ul li {
+      margin-bottom: 0.75rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    img:hover {
+      transform: scale(1.02);
+    }
+    /* Estil per al peu de pàgina o fonts menors */
+    small {
+      display: block;
+      margin-top: -0.5rem;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: #555;
+    }
+    /* Enllaços estilitzats */
+    a {
+      color: #2a7ae2;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: #1a4fb8;
+      text-decoration: underline;
+    }
+    /* Fragments de text destacat */
+    u {
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      color: #2a7ae2;
+    }
+    b {
+      color: #1a4fb8;
+    }
 
-  <img src="chat11.png">
-  <img src="chat33.png">
-  <p>Desores de revisar la taula, li he demanat a Chat GPT que ell tambe la observes i m'espliques el que hi habia a la taula, per sort, o per desgracia, m'ha dit exactament el que hi habia a la taula de vritat, asi que, li vaig felicitar i ell em va respondre que si volia que em fesi una taula o la puses en esquema per als deures</p>
-  <li>Aquest article es Frontiers i parla sobre: Organic fertilizer increases pumpkin production by improving soil fertility
-PUBLISHED 14 November 2024
-DOI 10.3389/fpls.2024.1467931</li><!--list item, element d'una llista-->
-    <img src="gpt2.png">
-  <p></p>  
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.75rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Comparem una carabassa ecològica i convencional: Quin té més nutrients segons la ciència i segons la IA?</h1>
+  </header>
+
+  <section>
+    <p>He trobat diferents articles científics que estudien el meu tema i els trobareu a continuació en format APA7. APA7 és una forma d'escriure un article científic.</p>
+  </section>
+
+  <section>
+    <h2>Introducció als articles</h2>
+    <ul>
+      <li>
+        Aquest article sobre el que parlaré ara és de: <strong>University of Agronomic Sciences and Veterinary Medicine of Bucharest, Romania</strong>, 59. Scientific Papers Series Management, Economic Engineering in Agriculture and Rural Development, Vol. 22, 10 pàgines, 2022.
+      </li>
+      <li>Sempre posem primer els autors pel cognom i les inicials del nom, després l'any en parèntesi, el títol, en acabat el nom de la revista abreujat.</li>
+    </ul>
+
+    <figure>
+      <img src="captura1.png" alt="Taula comparativa de propietats de la carabassa abans i després de fertilitzant químic" />
+      <figcaption>Aquesta taula compara les propietats (pH, sals solubles i contingut de les formes solubles). Mostrant que la carabassa abans que s'utilitzi el fertilitzant químic té més pH, sals solubles i en el cas del contingut de les formes solubles és més baix abans que es fes servir el fertilitzant que després.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="chat1.png" alt="Gràfic 1" />
+      <img src="chat2.png" alt="Gràfic 2" />
+      <img src="chat3.png" alt="Gràfic 3" />
+      <img src="chat22.png" alt="Gràfic 4" />
+    </figure>
+
+    <p>
+      A ChatGPT li he enviat el document per comprovar que ell em deia el mateix que deia al document. He pogut comprovar que ell em donava dades errònies fins i tot dient que l'article que jo li havia enviat es referia per complert a Nigèria i la desnutrició a les zones rurals. Després que em digués aquesta barbaritat li he anat preguntant coses a les quals es referia l'article i ell em continua mantenint la mentida fins i tot preguntant-me si volia que em busqués algun article referent amb les carabasses.
+      Després de veure que no sap ni llegir un document que li acabava de donar, li he tornat a enviar el document que li havia donat al principi i em deia que aquest article sí que parlava sobre les carabasses. Tot seguit li he dit que els dos articles que li havia donat eren completament iguals i ell ha sigut capaç de dir-me que els dos documents eren iguals sense saber reconèixer el seu propi error.
+    </p>
+  </section>
+
+  <section>
+    <ul>
+      <li>
+        Aquest article sobre el que parlaré ara és del <strong>Ce Press</strong>, <em>Nutritional characterization and antioxidant properties of various edible portions of Cucurbita maxima: A potential source of nutraceuticals</em>, Volume 9, Issue 6e16628, June 2023.
+      </li>
+    </ul>
+
+    <figure>
+      <img src="tabla1.png" alt="Taula de nutrients segons tipus de cultiu de carabassa" />
+      <figcaption>
+        En aquesta taula es pot observar que la carbassa amb terra mullada és molt més rica en humitat, perquè s'ha cultivat en una terra mullada sempre. Però la que s'ha cultivat en terra seca és molt més rica en fibra, greixos, proteïnes, carbohidrats i residus minerals.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src="chat11.png" alt="Gràfic comparatiu ChatGPT 1" />
+      <img src="chat33.png" alt="Gràfic comparatiu ChatGPT 2" />
+    </figure>
+
+    <p>
+      Després de revisar la taula, li he demanat a ChatGPT que també l'observés i m'expliqués què hi havia a la taula. Per sort, o per desgràcia, m'ha dit exactament el que hi havia a la taula de veritat, així que li vaig felicitar i ell em va respondre que si volia que em fes una taula o la posés en esquema per als deures.
+    </p>
+  </section>
+
+  <section>
+    <ul>
+      <li>
+        Aquest article és de <strong>Frontiers</strong> i parla sobre: <em>Organic fertilizer increases pumpkin production by improving soil fertility</em>, publicat el 14 de novembre de 2024, DOI: 10.3389/fpls.2024.1467931.
+      </li>
+    </ul>
+
+    <figure>
+      <img src="gpt2.png" alt="Imatge relacionada amb article Frontiers sobre fertilitzants orgànics" />
+    </figure>
+  </section>
+
 </body>
 </html>
-
