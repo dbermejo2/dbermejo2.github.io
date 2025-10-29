@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Web de David</title>
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+
   <style>
-    /* Paleta de colores */
+    /* ======= PALETA DE COLORS ======= */
     :root {
       --color-primary: #4a90e2;
       --color-primary-dark: #357ABD;
@@ -20,7 +23,6 @@
       --color-accent: #e94e77;
     }
 
-    /* Reset básico para body */
     body {
       background-color: var(--color-bg-light);
       color: var(--color-text-light);
@@ -36,7 +38,7 @@
       color: var(--color-text-dark);
     }
 
-    /* Navbar estilizada */
+    /* ======= NAVBAR ======= */
     nav.navbar {
       background-color: var(--color-primary);
       box-shadow: 0 4px 10px rgb(74 144 226 / 0.4);
@@ -54,8 +56,7 @@
       user-select: none;
       transition: color 0.3s ease;
     }
-    .navbar-brand:hover,
-    .navbar-brand:focus {
+    .navbar-brand:hover {
       color: var(--color-accent);
       text-decoration: none;
     }
@@ -72,23 +73,19 @@
       border-color: var(--color-accent);
     }
 
-    /* Navbar links */
     .nav-link {
       color: #e3e6f3;
       font-weight: 600;
       transition: color 0.3s ease;
     }
-    .nav-link:hover,
-    .nav-link:focus {
+    .nav-link:hover {
       color: var(--color-accent);
       text-decoration: underline;
     }
 
-    /* Dropdown menus */
     .dropdown-menu {
       border-radius: 8px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-      transition: background-color 0.3s ease;
       min-width: 180px;
       font-weight: 500;
     }
@@ -96,20 +93,12 @@
       background-color: #222;
       box-shadow: 0 6px 20px rgba(0,0,0,0.8);
     }
-    .dropdown-item {
-      color: var(--color-text-light);
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-    body[data-bs-theme="dark"] .dropdown-item {
-      color: var(--color-text-dark);
-    }
-    .dropdown-item:hover,
-    .dropdown-item:focus {
+
+    .dropdown-item:hover {
       background-color: var(--color-accent);
       color: #fff !important;
     }
 
-    /* Botón toggle tema */
     #themeToggle {
       font-size: 1.5rem;
       border: none;
@@ -120,34 +109,16 @@
       padding: 0.25rem 0.5rem;
       border-radius: 6px;
     }
-    #themeToggle:hover,
-    #themeToggle:focus {
+    #themeToggle:hover {
       color: var(--color-accent);
-      outline: none;
       background-color: rgba(255, 255, 255, 0.15);
     }
-    body[data-bs-theme="light"] #themeToggle {
-      color: var(--color-primary-dark);
-    }
-    body[data-bs-theme="light"] #themeToggle:hover,
-    body[data-bs-theme="light"] #themeToggle:focus {
-      background-color: rgba(53, 122, 189, 0.2);
-      color: var(--color-accent);
-    }
 
-    /* Navbar toggler */
     .navbar-toggler {
       border: none;
       padding: 0.25rem 0.5rem;
-      transition: filter 0.3s ease;
-    }
-    .navbar-toggler:hover,
-    .navbar-toggler:focus {
-      filter: brightness(0.8);
-      outline: none;
     }
 
-    /* Logo responsive */
     @media (max-width: 576px) {
       .logo {
         width: 35px;
@@ -161,15 +132,14 @@
       }
     }
 
-    /* Main container */
+    /* ======= CONTINGUT ======= */
     main.container {
       flex-grow: 1;
-      max-width: 720px;
+      max-width: 900px;
       margin-top: 3rem;
       margin-bottom: 4rem;
     }
 
-    /* Títulos */
     h1 {
       color: var(--color-primary);
       margin-bottom: 1.5rem;
@@ -179,47 +149,81 @@
       color: var(--color-accent);
     }
 
-    /* Texto principal */
     p.lead {
       font-size: 1.25rem;
       line-height: 1.6;
-      margin-bottom: 1rem;
       text-align: center;
     }
 
-    /* Link estilo */
     a {
       color: var(--color-primary);
       font-weight: 600;
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    a:hover,
-    a:focus {
+    a:hover {
       color: var(--color-accent);
       text-decoration: underline;
     }
 
+    /* ======= TARGETES ======= */
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    figure {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    img:hover {
+      transform: scale(1.03);
+    }
+
+    figcaption {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #e0e0e0;
+    }
   </style>
 </head>
+
 <body data-bs-theme="light">
-  <!-- Navbar -->
+  <!-- ======= NAVBAR ======= -->
   <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top" aria-label="Navegació principal">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#" aria-label="Inici Web de David">
-        <img src="logo.png" alt="Logo Web de David" class="logo me-2" />
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="https://dbermejo2.github.io/logo.png" alt="Logo Web de David" class="logo me-2" />
         <span>Web de David</span>
       </a>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Mostra menú de navegació"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -227,67 +231,40 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <!-- Projecte 1 -->
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="proj1Dropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              aria-haspopup="true"
-            >
-              <i class="fa-solid fa-diagram-project me-1" aria-hidden="true"></i> Cerca IA vs Google acadèmic
+            <a class="nav-link dropdown-toggle" href="#" id="proj1Dropdown" role="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-diagram-project me-1"></i> Cerca IA vs Google Acadèmic
             </a>
             <ul class="dropdown-menu" aria-labelledby="proj1Dropdown">
-              <li>
-                <a class="dropdown-item" href="https://dbermejo2.github.io/cerca/">
-                  <i class="fa-solid fa-code me-1" aria-hidden="true"></i> Recerca Carbasa
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="fa-solid fa-database me-1" aria-hidden="true"></i> Projecte 1.2
-                </a>
-              </li>
+              <li><a class="dropdown-item" href="https://dbermejo2.github.io/cerca/">
+                <i class="fa-solid fa-code me-1"></i> Recerca Carabassa
+              </a></li>
+              <li><a class="dropdown-item" href="#">
+                <i class="fa-solid fa-database me-1"></i> Projecte 1.2
+              </a></li>
             </ul>
           </li>
 
           <!-- Projecte 2 -->
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="proj2Dropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              aria-haspopup="true"
-            >
-              <i class="fa-solid fa-folder-open me-1" aria-hidden="true"></i> 22 dies en 22 peus
+            <a class="nav-link dropdown-toggle" href="#" id="proj2Dropdown" role="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-folder-open me-1"></i> 22 dies en 22 peus
             </a>
             <ul class="dropdown-menu" aria-labelledby="proj2Dropdown">
-              <li>
-                 <a class="dropdown-item" href="https://dbermejo2.github.io/introduccio/">
-                  <i class="fa-solid fa-code me-1" aria-hidden="true"></i> Introduccio al projecte
-    
-                </a>
-              </li>
-              <li>
-                 <a class="dropdown-item" href="https://dbermejo2.github.io/vectors/">
-                  <i class="fa-solid fa-code me-1" aria-hidden="true"></i> Calculem el rumb amb vectors
-                </a>
-                  <a class="dropdown-item" href="https://dbermejo2.github.io/distancies/">
-                  <i class="fa-solid fa-code me-1" aria-hidden="true"></i> Calculem distancies amb GPS
-                </a>
-
-                                
-              </li>
+              <li><a class="dropdown-item" href="https://dbermejo2.github.io/introduccio">
+                <i class="fa-solid fa-chart-line me-1"></i> Introducció al projecte
+              </a></li>
+              <li><a class="dropdown-item" href="https://dbermejo2.github.io/vectors">
+                <i class="fa-solid fa-cogs me-1"></i> Calculem rumb amb vectors
+              </a></li>
+              <li><a class="dropdown-item" href="https://dbermejo2.github.io/Distancies">
+                <i class="fa-solid fa-ruler me-1"></i> Calculem distàncies amb GPS
+              </a></li>
             </ul>
           </li>
         </ul>
 
-        <button id="themeToggle" aria-label="Canviar entre mode clar i mode fosc" title="Canviar tema">
-          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        <button id="themeToggle" aria-label="Canviar entre mode clar i fosc" title="Canviar tema">
+          <i class="fa-solid fa-moon"></i>
         </button>
       </div>
     </div>
