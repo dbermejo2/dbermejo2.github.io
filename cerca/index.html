@@ -213,17 +213,24 @@
     }
   </style>
 </head>
-
 <body data-bs-theme="light">
-  <!-- ======= NAVBAR ======= -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top" aria-label="Navegació principal">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="https://dbermejo2.github.io/logo.png" alt="Logo Web de David" class="logo me-2" />
+      <a class="navbar-brand d-flex align-items-center" href="#" aria-label="Inici Web de David">
+        <img src="logo.png" alt="Logo Web de David" class="logo me-2" />
         <span>Web de David</span>
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Mostra menú de navegació"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -231,37 +238,59 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <!-- Projecte 1 -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="proj1Dropdown" role="button" data-bs-toggle="dropdown">
-              <i class="fa-solid fa-diagram-project me-1"></i> Cerca IA vs Google Acadèmic
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="proj1Dropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <i class="fa-solid fa-diagram-project me-1" aria-hidden="true"></i> Cerca IA vs Google acadèmic
             </a>
             <ul class="dropdown-menu" aria-labelledby="proj1Dropdown">
-              <li><a class="dropdown-item" href="https://dbermejo2.github.io/cerca/">
-                <i class="fa-solid fa-code me-1"></i> Recerca Carabassa
-              </a></li>
-              <li><a class="dropdown-item" href="#">
-                <i class="fa-solid fa-database me-1"></i> Projecte 1.2
-              </a></li>
+              <li>
+                <a class="dropdown-item" href="https://dbermejo2.github.io/cerca/">
+                  <i class="fa-solid fa-code me-1" aria-hidden="true"></i> Recerca Carbasa
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  <i class="fa-solid fa-database me-1" aria-hidden="true"></i> Projecte 1.2
+                </a>
+              </li>
             </ul>
           </li>
 
           <!-- Projecte 2 -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="proj2Dropdown" role="button" data-bs-toggle="dropdown">
-              <i class="fa-solid fa-folder-open me-1"></i> 22 dies en 22 peus
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="proj2Dropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <i class="fa-solid fa-folder-open me-1" aria-hidden="true"></i> 22 dies en 22 peus
             </a>
             <ul class="dropdown-menu" aria-labelledby="proj2Dropdown">
-              <li><a class="dropdown-item" href="https://dbermejo2.github.io/introduccio">
-                <i class="fa-solid fa-chart-line me-1"></i> Introducció al projecte
-              </a></li>
-              <li><a class="dropdown-item" href="https://dbermejo2.github.io/vectors">
-                <i class="fa-solid fa-cogs me-1"></i> Calculem rumb amb vectors
-              </a></li>
-              <li><a class="dropdown-item" href="https://dbermejo2.github.io/Distancies">
-                <i class="fa-solid fa-ruler me-1"></i> Calculem distàncies amb GPS
-              </a></li>
-            </ul>
-          </li>
-        </ul>
+              <li>
+                 <a class="dropdown-item" href="https://dbermejo2.github.io/introduccio/">
+                  <i class="fa-solid fa-code me-1" aria-hidden="true"></i> Introduccio al projecte
+    
+                </a>
+              </li>
+              <li>
+                 <a class="dropdown-item" href="https://dbermejo2.github.io/vectors/">
+                  <i class="fa-solid fa-code me-1" aria-hidden="true"></i> Calculem el rumb amb vectors
+                </a>
+                  <a class="dropdown-item" href="https://dbermejo2.github.io/distancies/">
+                  <i class="fa-solid fa-code me-1" aria-hidden="true"></i> Calculem distancies amb GPS
+                </a>
+
 
         <button id="themeToggle" aria-label="Canviar entre mode clar i fosc" title="Canviar tema">
           <i class="fa-solid fa-moon"></i>
