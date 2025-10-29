@@ -15,7 +15,7 @@
     /* ======= PALETA DE COLORS ======= */
     :root {
       --color-primary: #4a90e2;
-      --color-primary-dark: #357ABD;
+      --color-primary-dark: #357abd;
       --color-bg-light: #f8f9fa;
       --color-bg-dark: #121212;
       --color-text-light: #212529;
@@ -204,12 +204,12 @@
     }
 
     footer {
+      background-color: var(--color-primary);
+      color: white;
       text-align: center;
-      margin-top: 3rem;
-      padding-top: 1rem;
+      padding: 1rem 0;
+      margin-top: auto;
       font-size: 0.9rem;
-      color: #555;
-      border-top: 1px solid #e0e0e0;
     }
   </style>
 </head>
@@ -218,10 +218,9 @@
   <!-- ======= NAVBAR ======= -->
   <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top" aria-label="Navegació principal">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="https://dbermejo2.github.io/logo.png" alt="Logo Web de David" class="logo me-2" />
-        <span>Web de David</span> 
-        <a href=dbermejo2.github.io>
+      <a class="navbar-brand d-flex align-items-center" href="https://dbermejo2.github.io/">
+        <img src="https://dbermejo2.github.io/logo.png" alt="Logotip de la Web de David" class="logo me-2" />
+        <span>Web de David</span>
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -237,7 +236,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="proj1Dropdown">
               <li><a class="dropdown-item" href="https://dbermejo2.github.io/cerca/">
-                <i class="fa-solid fa-code me-1"></i> Recerca Carabassa
+                <i class="fa-solid fa-code me-1"></i> Recerca sobre la carabassa
               </a></li>
               <li><a class="dropdown-item" href="#">
                 <i class="fa-solid fa-database me-1"></i> Projecte 1.2
@@ -255,10 +254,10 @@
                 <i class="fa-solid fa-chart-line me-1"></i> Introducció al projecte
               </a></li>
               <li><a class="dropdown-item" href="https://dbermejo2.github.io/vectors">
-                <i class="fa-solid fa-cogs me-1"></i> Calculem rumb amb vectors
+                <i class="fa-solid fa-cogs me-1"></i> Calcular el rumb amb vectors
               </a></li>
               <li><a class="dropdown-item" href="https://dbermejo2.github.io/Distancies">
-                <i class="fa-solid fa-ruler me-1"></i> Calculem distàncies amb GPS
+                <i class="fa-solid fa-ruler me-1"></i> Calcular distàncies amb GPS
               </a></li>
             </ul>
           </li>
@@ -274,29 +273,29 @@
   <!-- ======= CONTINGUT PRINCIPAL ======= -->
   <main class="container">
     <header>
-      <h1>Comparació de Carabasses Ecològiques i Convencionals</h1>
+      <h1>Comparació de carabasses ecològiques i convencionals</h1>
       <p class="lead"><em>Quina és més nutritiva segons la ciència i segons la intel·ligència artificial?</em></p>
     </header>
 
     <section class="card">
       <h2>Introducció als articles</h2>
-      <p>He trobat diferents articles científics que estudien aquest tema i els trobareu a continuació en format APA7. És una manera d’escriure i citar articles científics de forma estandarditzada.</p>
+      <p>He trobat diversos articles científics que estudien aquest tema i els trobareu a continuació en format APA7. És una manera d’escriure i citar articles científics de forma estandarditzada.</p>
       <ul>
         <li>Article de la <strong>University of Agronomic Sciences and Veterinary Medicine of Bucharest (Romania)</strong>, publicat el 2022 a la revista <em>Scientific Papers Series Management, Economic Engineering in Agriculture and Rural Development</em>.</li>
-        <li>En el format APA7, primer s’escriuen els cognoms dels autors seguits de les inicials, després l’any entre parèntesis, i finalment el títol i la revista.</li>
+        <li>En el format APA7, primer s’escriuen els cognoms dels autors seguits de les inicials, després l’any entre parèntesis i, finalment, el títol i la revista.</li>
       </ul>
 
       <figure>
-        <img src="cap1.png" alt="Taula comparativa de propietats de la carabassa abans i després del fertilitzant químic" />
+        <img src="cap1.png" alt="Taula comparativa de propietats de la carabassa" />
         <figcaption>La taula mostra que la carabassa convencional dels anys 2013 i 2014 té més massa que la bio, però que en ambdós casos la massa disminueix el 2014.</figcaption>
       </figure>
 
-      <p>Per desgràcia, en el moment de donar-li el document a ChatGPT, em deia constantment que no tenia accés al fitxer. Per això no vaig poder obtenir la seva anàlisi del contingut.</p>
+      <p>En el moment de donar-li el document a ChatGPT, deia constantment que no tenia accés al fitxer. Per això no vaig poder obtenir-ne l’anàlisi del contingut.</p>
     </section>
 
     <section class="card">
       <ul>
-        <li>Article de <strong>Ce Press</strong>: <em>Nutritional characterization and antioxidant properties of various edible portions of Cucurbita maxima: A potential source of nutraceuticals</em>, volum 9, número 6e16628, juny de 2023.</li>
+        <li>Article de <strong>Ce Press</strong>: <em>Nutritional characterization and antioxidant properties of various edible portions of <i>Cucurbita maxima</i>: A potential source of nutraceuticals</em>, volum 9, número 6e16628, juny de 2023.</li>
       </ul>
 
       <figure>
@@ -323,7 +322,7 @@
 
     <section class="card">
       <ul>
-        <li>Durant la cerca d’articles, vaig trobar un error rellevant: en donar un document a ChatGPT, ell interpretava malament el contingut i deia que tractava sobre la desnutrició a Nigèria, quan en realitat parlava de carabasses. Fins i tot, després de corregir-lo, va continuar defensant la seva resposta errònia.</li>
+        <li>Durant la cerca d’articles, vaig trobar un error rellevant: en donar un document a ChatGPT, interpretava malament el contingut i deia que tractava sobre la desnutrició a Nigèria, quan en realitat parlava de carabasses. Fins i tot després de corregir-lo, continuava defensant la seva resposta errònia.</li>
       </ul>
 
       <figure>
@@ -331,48 +330,53 @@
         <img src="chat2.png" alt="Resposta 2 de ChatGPT" />
         <img src="chat3.png" alt="Resposta 3 de ChatGPT" />
         <img src="chat22.png" alt="Resposta 4 de ChatGPT" />
-        <figcaption>Captures de pantalla mostrant respostes incorrectes de ChatGPT sobre el contingut dels articles científics.</figcaption>
+        <figcaption>Captures de pantalla que mostren respostes incorrectes de ChatGPT sobre el contingut dels articles científics.</figcaption>
       </figure>
 
-      <p>En resum, vaig comprovar que ChatGPT pot donar respostes errònies si no pot llegir o interpretar correctament un document, i que cal revisar sempre la informació que proporciona abans de donar-la per certa.</p>
+      <p>En resum, vaig comprovar que ChatGPT pot donar respostes errònies si no pot llegir o interpretar correctament un document. Per això, cal revisar sempre la informació abans de donar-la per certa.</p>
     </section>
 
-       <section class="card">
+    <section class="card">
       <ul>
-        <li>Article de <strong>Jasper O.G Elechi</strong> del departament de Ciència i Tecnologia dels Aliments, Universitat Federal d'Agricultura, Makurdi - Nigèria i de <strong>Juliana I, Sule</strong> del departament de Química Industrial, Universitat Tecnològica Modibbo Adama, Yola - Nigèria. El qual va ser publicat per el <strong>Nutrition i food security research center</strong>: <em>Influence of Traditional Food Processing Systems on Food Safety, Chemical
-Compositions, and Functional Properties of Pumpkin (Cucurbita pepo L) Seed Flour</em>, número 2476-7425, 15 de gener del 2022.</li>
+        <li>Article de <strong>Jasper O.G. Elechi</strong> (Departament de Ciència i Tecnologia dels Aliments, Universitat Federal d’Agricultura, Makurdi - Nigèria) i <strong>Juliana I. Sule</strong> (Departament de Química Industrial, Universitat Tecnològica Modibbo Adama, Yola - Nigèria), publicat pel <strong>Nutrition and Food Security Research Center</strong>: <em>Influence of Traditional Food Processing Systems on Food Safety, Chemical Compositions, and Functional Properties of Pumpkin (<i>Cucurbita pepo</i> L.) Seed Flour</em>, número 2476-7425, 15 de gener del 2022.</li>
       </ul>
 
       <figure>
-        <img src="1.png" />
-        <p>En aquesta taula es pot observar com els sistemes tradicionals de cultivatge de carbases pot afectar als diferents tipus de carbases. En aquesta taula es pot veure com pot variar la quantitat, tamany, quantitat de proteines, humitat, etc
-        En aquest </p>
-          <img src="2.png" /> 
-        <img src="3.png" />
-          <img src="4.png" />
-          <img src="5.png" />
-          <img src="6.png" />
-        <figcaption>Aquesta taula compara la qualitat de la carabassa en nutrients com el potassi (K), magnesi (Mg), calci (Ca) i fòsfor (P). Es pot veure que la pell és molt més rica en minerals, mentre que la polpa és més pobra en la majoria d’elements.</figcaption>
+        <img src="1.png" alt="Resultats comparatius dels tipus de carabasses" />
+        <p>En aquesta taula es pot observar com els sistemes tradicionals de cultiu de carabasses poden afectar diferents varietats, amb variacions en la quantitat, mida, proteïnes o humitat.</p>
+        <img src="2.png" alt="Resultats addicionals de carabasses" /> 
+        <img src="3.png" alt="Taula de comparació química" />
+        <img src="4.png" alt="Dades sobre propietats funcionals" />
+        <img src="5.png" alt="Taula sobre humitat i proteïnes" />
+        <img src="6.png" alt="Taula sobre propietats nutricionals" />
+        <figcaption>Les taules mostren com els processos tradicionals influeixen en les propietats nutricionals i físiques de les carabasses cultivades.</figcaption>
       </figure>
 
-
-
-
-    <p>Aquestes diferències són significatives? Es veurà tot a <a href="https://pompeu.neocities.org/t/">T de Student</a>.</p>
+      <p>Aquestes diferències són significatives? Es pot comprovar a la secció <a href="https://pompeu.neocities.org/t/">T de Student</a>.</p>
+    </section>
   </main>
 
   <footer>
-    <p><small>Projecte elaborat per <strong>David Bermejo</strong> – Setembre del 2025 al juliol del 2026</small></p>
+    <p><small>Projecte elaborat per <strong>David Bermejo</strong> – setembre del 2025 al juliol del 2026</small></p>
   </footer>
 
   <!-- ======= SCRIPT CANVI DE TEMA ======= -->
   <script>
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
+
+    // Recorda el tema seleccionat
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-bs-theme', savedTheme);
+    themeToggle.innerHTML = savedTheme === 'dark'
+      ? '<i class="fa-solid fa-sun"></i>'
+      : '<i class="fa-solid fa-moon"></i>';
+
     themeToggle.addEventListener('click', () => {
       const currentTheme = body.getAttribute('data-bs-theme');
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
       body.setAttribute('data-bs-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
       themeToggle.innerHTML = newTheme === 'dark'
         ? '<i class="fa-solid fa-sun"></i>'
         : '<i class="fa-solid fa-moon"></i>';
