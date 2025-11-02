@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Web de David</title>
 
-  <!-- Descripció per SEO -->
-  <meta name="description" content="Comparació de carabasses ecològiques i convencionals segons articles científics i la intel·ligència artificial.">
+  <!-- SEO -->
+  <meta name="description" content="Comparació científica entre carabasses ecològiques i convencionals, basada en articles científics i anàlisi amb IA." />
+  <meta name="author" content="David Bermejo" />
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -22,7 +23,7 @@
       --color-bg-light: #f8f9fa;
       --color-bg-dark: #121212;
       --color-text-light: #212529;
-      --color-text-dark: #e0e0e0;
+      --color-text-dark: #f2f2f2;
       --color-accent: #e94e77;
     }
 
@@ -30,7 +31,7 @@
       background-color: var(--color-bg-light);
       color: var(--color-text-light);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.5s ease, color 0.5s ease;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -82,7 +83,7 @@
     .nav-link {
       color: #e3e6f3;
       font-weight: 600;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease-in-out;
     }
 
     .nav-link:hover {
@@ -113,7 +114,7 @@
       background: transparent;
       color: #fff;
       cursor: pointer;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease-in-out;
       padding: 0.25rem 0.5rem;
       border-radius: 6px;
     }
@@ -160,6 +161,13 @@
       color: var(--color-accent);
     }
 
+    h2 {
+      color: var(--color-primary-dark);
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
     p.lead {
       font-size: 1.25rem;
       line-height: 1.6;
@@ -189,8 +197,8 @@
     }
 
     body[data-bs-theme="dark"] .card {
-      background-color: #1e1e1e;
-      color: #e0e0e0;
+      background-color: #1f1f1f;
+      color: #f2f2f2;
     }
 
     .card:hover {
@@ -200,14 +208,16 @@
 
     figure {
       text-align: center;
-      margin: 1.5rem 0;
+      margin: 2rem auto;
+      max-width: 90%;
     }
 
-    img, video {
+    img {
       max-width: 100%;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
     img:hover {
@@ -221,6 +231,7 @@
       font-style: italic;
     }
 
+    /* ======= FOOTER ======= */
     footer {
       background-color: var(--color-primary);
       color: white;
@@ -230,8 +241,9 @@
       font-size: 0.9rem;
     }
 
-    body[data-bs-theme="dark"] footer {
-      background-color: var(--color-primary-dark);
+    footer a {
+      color: #fff;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -271,20 +283,15 @@
               <i class="fa-solid fa-folder-open me-1"></i> 22 dies en 22 peus
             </a>
             <ul class="dropdown-menu" aria-labelledby="proj2Dropdown">
-              <li><a class="dropdown-item" href="https://dbermejo2.github.io/introduccio">
-                <i class="fa-solid fa-chart-line me-1"></i> Introducció al projecte
-              </a></li>
-              <li><a class="dropdown-item" href="https://dbermejo2.github.io/vectors">
-                <i class="fa-solid fa-cogs me-1"></i> Calcular el rumb amb vectors
-              </a></li>
-              <li><a class="dropdown-item" href="https://dbermejo2.github.io/Distancies">
-                <i class="fa-solid fa-ruler me-1"></i> Calcular distàncies amb GPS
-              </a></li>
+              <li><a class="dropdown-item" href="https://dbermejo2.github.io/introduccio"><i class="fa-solid fa-chart-line me-1"></i> Introducció al projecte</a></li>
+              <li><a class="dropdown-item" href="https://dbermejo2.github.io/vectors"><i class="fa-solid fa-cogs me-1"></i> Calcular el rumb amb vectors</a></li>
+              <li><a class="dropdown-item" href="https://dbermejo2.github.io/Distancies"><i class="fa-solid fa-ruler me-1"></i> Calcular distàncies amb GPS</a></li>
             </ul>
           </li>
         </ul>
 
         <button id="themeToggle" aria-label="Canviar entre mode clar i fosc" title="Canviar tema">
+          <span class="visually-hidden">Canviar tema</span>
           <i class="fa-solid fa-moon"></i>
         </button>
       </div>
@@ -298,22 +305,89 @@
       <p class="lead"><em>Quina és més nutritiva segons la ciència i segons la intel·ligència artificial?</em></p>
     </header>
 
-    <!-- (Seccions anteriors intactes) -->
-
-    <section class="card">
-      <h2>Vídeo explicatiu</h2>
+    <!-- Articles -->
+    <article class="card">
+      <h2>Introducció als articles</h2>
+      <p>He trobat diversos articles científics que estudien aquest tema i els trobareu a continuació en format APA7. És una manera d’escriure i citar articles científics de forma estandarditzada.</p>
+      <ul>
+        <li>Article de la <strong>University of Agronomic Sciences and Veterinary Medicine of Bucharest (Romania)</strong>, publicat el 2022 a la revista <em>Scientific Papers Series Management, Economic Engineering in Agriculture and Rural Development</em>.</li>
+        <li>En el format APA7, primer s’escriuen els cognoms dels autors seguits de les inicials, després l’any entre parèntesis i, finalment, el títol i la revista.</li>
+      </ul>
       <figure>
-        <video controls poster="cap1.png">
-          <source src="video111.mp4" type="video/mp4">
-          El teu navegador no admet la reproducció de vídeo HTML5.
-        </video>
-        <figcaption>Vídeo resum del projecte sobre carabasses ecològiques i convencionals.</figcaption>
+        <img src="cap1.png" alt="Taula comparativa de propietats nutricionals de la carabassa convencional i ecològica" />
+        <figcaption>La taula mostra que la carabassa convencional dels anys 2013 i 2014 té més massa que la bio, però en ambdós casos la massa disminueix el 2014.</figcaption>
       </figure>
-    </section>
+      <p>En el moment de proporcionar-li el document a ChatGPT, deia constantment que no tenia accés al fitxer. Per això, no vaig poder obtenir-ne l’anàlisi del contingut.</p>
+    </article>
+
+    <article class="card">
+      <ul>
+        <li>Article de <strong>Ce Press</strong>: <em>Nutritional characterization and antioxidant properties of various edible portions of <i>Cucurbita maxima</i>: A potential source of nutraceuticals</em>, volum 9, número 6e16628, juny de 2023.</li>
+      </ul>
+      <figure>
+        <img src="text.png" alt="Taula de nutrients segons tipus de cultiu de carabassa" />
+        <figcaption>Aquesta taula compara la qualitat de la carabassa en nutrients com el potassi (K), magnesi (Mg), calci (Ca) i fòsfor (P).</figcaption>
+      </figure>
+      <figure>
+        <img src="txf.png" alt="Gràfic comparatiu elaborat per ChatGPT" />
+      </figure>
+    </article>
+
+    <article class="card">
+      <ul>
+        <li>Article publicat a <strong>Frontiers</strong>: <em>Organic fertilizer increases pumpkin production by improving soil fertility</em>, 14 de novembre de 2024, DOI: 10.3389/fpls.2024.1467931.</li>
+      </ul>
+      <figure>
+        <img src="xx.png" alt="Gràfic sobre fertilitzants orgànics i rendiment de carabasses" />
+      </figure>
+      <p>Aquesta taula mostra que la producció orgànica és més beneficiosa per a la salut i més rica en nutrients.</p>
+    </article>
+
+    <article class="card">
+      <ul>
+        <li>Aquest article d’<strong>Elechi</strong> i <strong>Sule</strong> parla sobre la influència del sistema tradicional de cultiu en les carabasses i com això pot afectar-ne la composició química.</li>
+      </ul>
+      <figure>
+        <img src="1.png" alt="Resultats comparatius dels tipus de carabasses" />
+        <p>En aquesta taula es pot observar com els sistemes tradicionals de cultiu afecten diferents varietats, amb variacions en quantitat, mida, proteïnes o humitat.</p>
+        <img src="2.png" alt="Resultats addicionals de nutrients de carabasses" />
+        <figcaption>Les taules mostren com els processos tradicionals influeixen en les propietats nutricionals i físiques de les carabasses cultivades.</figcaption>
+      </figure>
+    </article>
+
+    <article class="card">
+      <ul>
+        <li>Durant la cerca d’articles, vaig detectar un error rellevant: ChatGPT interpretava erròniament el contingut d’un document sobre carabasses com si fos sobre desnutrició a Nigèria.</li>
+      </ul>
+      <figure>
+        <img src="chat1.png" alt="Resposta 1 de ChatGPT" />
+        <img src="chat2.png" alt="Resposta 2 de ChatGPT" />
+        <img src="chat3.png" alt="Resposta 3 de ChatGPT" />
+        <img src="chat22.png" alt="Resposta 4 de ChatGPT" />
+        <figcaption>Captures de pantalla que mostren respostes incorrectes de ChatGPT sobre el contingut dels articles científics.</figcaption>
+      </figure>
+      <p>Vaig comprovar que ChatGPT pot donar respostes errònies si no pot llegir o interpretar correctament un document. Cal revisar sempre la informació abans de donar-la per certa.</p>
+      <p>Aquestes diferències són significatives? Es pot comprovar a la secció <a href="https://pompeu.neocities.org/t/">T de Student</a>.</p>
+    </article>
+
+    <article class="card">
+      <div class="ratio ratio-16x9">
+        <video controls title="Vídeo sobre comparació de carabasses ecològiques i convencionals">
+          <source src="video111.mp4" type="video/mp4">
+          El teu navegador no suporta vídeo HTML5.
+        </video>
+      </div>
+    </article>
   </main>
 
+  <!-- ======= PEU DE PÀGINA ======= -->
   <footer>
-    <p><small>Projecte elaborat per <strong>David Bermejo</strong> – setembre del 2025 al novembre del 2025</small></p>
+    <p class="mb-0">
+      <small>
+        Projecte elaborat per <strong>David Bermejo</strong> – setembre a novembre del 2025<br>
+        <a href="mailto:david@example.com">Contacta’m</a>
+      </small>
+    </p>
   </footer>
 
   <!-- ======= SCRIPT CANVI DE TEMA ======= -->
@@ -321,6 +395,7 @@
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
 
+    // Recorda el tema seleccionat
     const savedTheme = localStorage.getItem('theme') || 'light';
     body.setAttribute('data-bs-theme', savedTheme);
     themeToggle.innerHTML = savedTheme === 'dark'
@@ -337,5 +412,8 @@
         : '<i class="fa-solid fa-moon"></i>';
     });
   </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
