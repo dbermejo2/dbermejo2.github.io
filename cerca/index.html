@@ -56,136 +56,172 @@ object-fit:cover;
 <body data-bs-theme="light">
 
 <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light shadow sticky-top">
+  <div class="container-fluid">
 
-<nav class="navbar navbar-expand-lg navbar-light shadow sticky-top bg-body">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="logo.png" alt="Logo Web de David" style="width:45px;height:45px;border-radius:50%" class="me-2">
+      Web de David
+    </a>
 
-<div class="container-fluid">
+    <button class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<a class="navbar-brand d-flex align-items-center" href="https://dbermejo2.github.io/">
+    <div class="collapse navbar-collapse" id="navbarNav">
 
-<img
-src="https://dbermejo2.github.io/logo.png"
-alt="Logotip Web de David"
-width="45"
-height="45"
-class="rounded-circle me-2">
+      <ul class="navbar-nav me-auto">
 
-<span>Web de David</span>
+        <!-- PROJECTES DE RECERCA -->
+        <li class="nav-item dropdown">
 
-</a>
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
 
-<button class="navbar-toggler"
-type="button"
-data-bs-toggle="collapse"
-data-bs-target="#navbarNav">
+            <i class="fa-solid fa-diagram-project me-1"></i>
+            Recerca IA vs. Google Academic
 
-<span class="navbar-toggler-icon"></span>
+          </a>
 
-</button>
+          <ul class="dropdown-menu">
 
-<div class="collapse navbar-collapse" id="navbarNav">
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/cerca/">
 
-<ul class="navbar-nav me-auto">
+                <i class="fa-solid fa-seedling"></i>
+                Recerca Carbasa
 
-<!-- PROJECTES DE RECERCA -->
+              </a>
+            </li>
 
-<li class="nav-item dropdown">
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/contaminacio/">
 
-<a class="nav-link dropdown-toggle"
-href="#"
-role="button"
-data-bs-toggle="dropdown">
+                <i class="fa-solid fa-head-side-mask"></i>
+                Contaminacio i salut respiratoria a Gavà
 
-<i class="fa-solid fa-diagram-project me-1"></i>
-Projectes de recerca
+              </a>
+            </li>
 
-</a>
+          </ul>
+        </li>
 
-<ul class="dropdown-menu">
 
-<li>
-<a class="dropdown-item"
-href="https://dbermejo2.github.io/cerca/">
+        <!-- PROJECTE 22 DIES -->
+        <li class="nav-item dropdown">
 
-<i class="fa-solid fa-seedling"></i>
-Recerca Carbassa
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
 
-</a>
-</li>
+            <i class="fa-solid fa-folder-open me-1"></i>
+            Projecte 22 dies en 22 peus
 
-<li>
-<a class="dropdown-item"
-href="https://dbermejo2.github.io/contaminacio/">
+          </a>
 
-<i class="fa-solid fa-head-side-mask"></i>
-Contaminació i salut respiratòria a Gavà
+          <ul class="dropdown-menu">
 
-</a>
-</li>
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/introduccio/">
 
-</ul>
-</li>
+                <i class="fa-solid fa-file-lines"></i>
+                Introduccio al projecte
 
-<!-- PROJECTE 22 DIES -->
+              </a>
+            </li>
 
-<li class="nav-item dropdown">
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/vectors/">
 
-<a class="nav-link dropdown-toggle"
-href="#"
-role="button"
-data-bs-toggle="dropdown">
+                <i class="fa-solid fa-compass"></i>
+                Calculem el rumb
 
-<i class="fa-solid fa-folder-open me-1"></i>
-Projecte 22 dies en 22 peus
+              </a>
+            </li>
 
-</a>
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/distancies/">
 
-<ul class="dropdown-menu">
+                <i class="fa-solid fa-arrows-left-right-to-line"></i>
+                Calculem distancies
 
-<li>
-<a class="dropdown-item"
-href="https://dbermejo2.github.io/introduccio/">
+              </a>
+            </li>
 
-<i class="fa-solid fa-file-lines"></i>
-Introducció al projecte
+          </ul>
+        </li>
 
-</a>
-</li>
+        <!-- Projecte 3 -->
+        <li class="nav-item dropdown">
 
-<li>
-<a class="dropdown-item"
-href="https://dbermejo2.github.io/vectors/">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
 
-<i class="fa-solid fa-compass"></i>
-Calculem el rumb
+            <i class="fa-solid fa-folder-open me-1"></i>
+            Contaminacio i salud al Baix Llovregat
 
-</a>
-</li>
+          </a>
 
-<li>
-<a class="dropdown-item"
-href="https://dbermejo2.github.io/distancies/">
+          <ul class="dropdown-menu">
 
-<i class="fa-solid fa-arrows-left-right-to-line"></i>
-Calculem distàncies
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/epi/">
 
-</a>
-</li>
+                <i class="fa-solid fa-head-side-mask"></i>
+                Environmental Epidemiological Analysis
 
-</ul>
-</li>
+              </a>
+            </li>
 
-</ul>
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/dlnm/">
 
-<button id="themeToggle" class="btn btn-outline-secondary">
+                <i class="fa-solid fa-smog"></i>
+                Distributed Lag Non-linear Models
 
-<i class="fa-solid fa-moon"></i>
+              </a>
+            </li>
 
-</button>
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/epidemiologia/">
 
-</div>
-</div>
-</nav>
+                <i class="fa-solid fa-industry"></i>
+                Resultats de Gavà 
+
+              </a>
+            </li>
+                        <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/contaminacio/">
+
+                <i class="fa-solid fa-head-side-mask"></i>
+                Contaminacio i salut respiratoria a Gavà
+
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+
+      </ul>
+    
 
 <!-- CONTENIDO -->
 
