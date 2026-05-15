@@ -1,444 +1,189 @@
 <!DOCTYPE html>
-<html lang="ca" data-bs-theme="light">
+<html lang="ca">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web de David</title>
 
-<title>🌫️ Contaminació i infeccions respiratòries · Gavà</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
 
-<!-- Icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- MathJax -->
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#eef3f0;
-    color:#1e2e26;
-    line-height:1.6;
-    padding:24px;
-}
-
-/* ===== NAVBAR ===== */
-
-#mainNavbar{
-    background:rgba(255,255,255,0.82);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,0.3);
-    border-radius:20px;
-    margin:10px;
-    padding:10px 18px;
-    z-index:1000;
-}
-
-.navbar-brand,
-.nav-link{
-    color:#133b2f !important;
-    font-weight:500;
-}
-
-.nav-link:hover{
-    color:#2e7d5e !important;
-}
-
-.dropdown-menu{
-    border:none;
-    border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    padding:10px;
-}
-
-.dropdown-item{
-    border-radius:12px;
-    padding:10px 14px;
-}
-
-.dropdown-item:hover{
-    background:#eef5f1;
-}
-
-.logo{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    object-fit:cover;
-}
-
-/* ===== CONTENIDOR ===== */
-
-.container-custom{
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    flex-direction:column;
-    gap:24px;
-}
-
-/* ===== CARDS ===== */
-
-.card-custom{
-    background:rgba(255,255,255,0.96);
-    border-radius:28px;
-    padding:32px;
-    border:1px solid #d7e5dd;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.06),
-        0 2px 8px rgba(0,0,0,0.03);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.card-custom:hover{
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 14px 38px rgba(0,0,0,0.08),
-        0 4px 12px rgba(0,0,0,0.04);
-}
-
-/* ===== TEXT ===== */
-
-h1{
-    font-size:2.4rem;
-    font-weight:700;
-    color:#103c2e;
-    margin-bottom:10px;
-}
-
-h2{
-    font-size:1.7rem;
-    font-weight:650;
-    margin-bottom:20px;
-    border-left:7px solid #2e7d5e;
-    padding-left:18px;
-    color:#1f5a44;
-}
-
-h3{
-    font-size:1.3rem;
-    font-weight:600;
-    margin:20px 0 12px;
-    color:#1f5a44;
-}
-
-p{
-    font-size:1.03rem;
-    color:#2f473d;
-}
-
-strong{
-    color:#103c2e;
-}
-
-/* ===== BADGES ===== */
-
-.badge-custom{
-    background:#d9ece3;
-    color:#0f4c3a;
-    padding:8px 18px;
-    border-radius:50px;
-    font-size:0.92rem;
-    font-weight:500;
-}
-
-.city-highlight{
-    background:#1b4e3f;
-    color:white;
-    padding:10px 24px;
-    border-radius:60px;
-    font-weight:600;
-}
-
-/* ===== GRID ===== */
-
-.data-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:18px;
-    margin-top:25px;
-}
-
-.stat-box{
-    background:#f5faf7;
-    border-radius:22px;
-    padding:20px;
-    border:1px solid #bfd9cd;
-}
-
-.stat-number{
-    font-size:2.3rem;
-    font-weight:700;
-    color:#0f4a35;
-}
-
-.stat-label{
-    font-size:0.92rem;
-    text-transform:uppercase;
-    color:#527564;
-}
-
-/* ===== POLLUTANTS ===== */
-
-.pollutant-bar{
-    background:#e1ede6;
-    border-radius:28px;
-    padding:18px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:18px;
-    margin-top:20px;
-}
-
-.exceed{
-    background:#fff0ed;
-    color:#b13e3e;
-    padding:4px 10px;
-    border-radius:20px;
-    font-weight:600;
-}
-
-/* ===== TABLES ===== */
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    overflow:hidden;
-    border-radius:18px;
-    background:white;
-    margin:24px 0;
-}
-
-th{
-    background:#1f5a44;
-    color:white;
-    padding:14px;
-    font-weight:600;
-}
-
-td{
-    padding:13px;
-    border-bottom:1px solid #e3ece7;
-}
-
-tr:nth-child(even){
-    background:#f7fbf9;
-}
-
-/* ===== FORMULAS ===== */
-
-.formula-block{
-    background:#f0f7f3;
-    border-left:8px solid #1f7a5c;
-    border-radius:24px;
-    padding:24px;
-    margin:24px 0;
-    font-size:1.08rem;
-}
-
-/* ===== STEPS ===== */
-
-.step{
-    margin-bottom:40px;
-}
-
-.step-header{
-    display:flex;
-    align-items:center;
-    gap:16px;
-    margin-bottom:16px;
-}
-
-.step-num{
-    width:46px;
-    height:46px;
-    border-radius:16px;
-    background:#1b4e3f;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:700;
-    font-size:1.3rem;
-}
-
-/* ===== FOOTNOTE ===== */
-
-.footnote{
-    margin-top:20px;
-    padding-top:14px;
-    border-top:1px dashed #aac0b6;
-    color:#547362;
-    font-size:0.92rem;
-}
-
-.small-mono{
-    font-family:monospace;
-    background:#edf3ef;
-    padding:3px 10px;
-    border-radius:18px;
-}
-
-/* ===== DARK MODE ===== */
-
-body[data-bs-theme="dark"]{
-    background:#121212;
-    color:#f2f2f2;
-}
-
-body[data-bs-theme="dark"] .card-custom{
-    background:#1f1f1f;
-    border:1px solid #2d2d2d;
-}
-
-body[data-bs-theme="dark"] p,
-body[data-bs-theme="dark"] li,
-body[data-bs-theme="dark"] td{
-    color:#dddddd;
-}
-
-body[data-bs-theme="dark"] h1,
-body[data-bs-theme="dark"] h2,
-body[data-bs-theme="dark"] h3,
-body[data-bs-theme="dark"] strong{
-    color:white;
-}
-
-body[data-bs-theme="dark"] table{
-    background:#222;
-}
-
-body[data-bs-theme="dark"] th{
-    background:#295843;
-}
-
-body[data-bs-theme="dark"] tr:nth-child(even){
-    background:#262626;
-}
-
-body[data-bs-theme="dark"] .formula-block{
-    background:#1b2b24;
-    border-left:8px solid #46a57a;
-}
-
-body[data-bs-theme="dark"] #mainNavbar{
-    background:rgba(25,25,25,0.82);
-}
-
-body[data-bs-theme="dark"] .nav-link,
-body[data-bs-theme="dark"] .navbar-brand{
-    color:white !important;
-}
-
-/* ===== RESPONSIVE ===== */
-
-@media(max-width:768px){
-
-    body{
-        padding:14px;
-    }
-
-    h1{
-        font-size:1.9rem;
-    }
-
-    h2{
-        font-size:1.4rem;
-    }
-
-    .card-custom{
-        padding:22px;
-    }
-
-}
-
-</style>
 </head>
 
-<body>
+<body data-bs-theme="light">
 
 <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light shadow sticky-top">
+  <div class="container-fluid">
 
-<nav id="mainNavbar" class="navbar navbar-expand-lg shadow-sm">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="logo.png" alt="Logo Web de David" style="width:45px;height:45px;border-radius:50%" class="me-2">
+      Web de David
+    </a>
 
-<div class="container-fluid">
+    <button class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<a class="navbar-brand d-flex align-items-center" href="https://mberniol.github.io">
+    <div class="collapse navbar-collapse" id="navbarNav">
 
-<img src="https://izeddi.github.io/logo.png" class="logo me-2">
+      <ul class="navbar-nav me-auto">
 
-<span class="fw-bold">Web de Marc</span>
+        <!-- PROJECTES DE RECERCA -->
+        <li class="nav-item dropdown">
 
-</a>
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
 
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-<span class="navbar-toggler-icon"></span>
-</button>
+            <i class="fa-solid fa-diagram-project me-1"></i>
+            Recerca IA vs. Google Academic
 
-<div class="collapse navbar-collapse" id="navbarNav">
+          </a>
 
-<ul class="navbar-nav me-auto">
+          <ul class="dropdown-menu">
 
-<li class="nav-item dropdown">
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/cerca/">
 
-<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-<i class="fa-solid fa-diagram-project me-1"></i>
-Cerca IA vs Google Academic
-</a>
+                <i class="fa-solid fa-seedling"></i>
+                Recerca Carbasa
 
-<ul class="dropdown-menu">
+              </a>
+            </li>
 
-<li>
-<a class="dropdown-item" href="https://mberniol.github.io/cerca">
-<i class="fa-solid fa-seedling me-1"></i>
-Recerca del carbassó
-</a>
-</li>
+            
 
-</ul>
-</li>
+          </ul>
+        </li>
 
-<li class="nav-item dropdown">
 
-<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-<i class="fa-solid fa-folder-open me-1"></i>
-22 dies en 22 peus
-</a>
+        <!-- PROJECTE 22 DIES -->
+        <li class="nav-item dropdown">
 
-<ul class="dropdown-menu">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
 
-<li><a class="dropdown-item" href="#">Introducció al projecte</a></li>
-<li><a class="dropdown-item" href="#">Càlcul de rumbs amb vectors</a></li>
-<li><a class="dropdown-item" href="#">Distàncies amb GPS</a></li>
+            <i class="fa-solid fa-folder-open me-1"></i>
+            Projecte 22 dies en 22 peus
 
-</ul>
+          </a>
 
-</li>
+          <ul class="dropdown-menu">
 
-</ul>
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/introduccio/">
 
-</div>
+                <i class="fa-solid fa-file-lines"></i>
+                Introduccio al projecte
 
-</div>
+              </a>
+            </li>
 
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/vectors/">
+
+                <i class="fa-solid fa-compass"></i>
+                Calculem el rumb
+
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/distancies/">
+
+                <i class="fa-solid fa-arrows-left-right-to-line"></i>
+                Calculem distancies
+
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+        <!-- Projecte 3 -->
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            <i class="fa-solid fa-folder-open me-1"></i>
+            Contaminacio i salud al Baix Llovregat
+
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/epi/">
+
+                <i class="fa-solid fa-head-side-mask"></i>
+                Environmental Epidemiological Analysis
+
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/dlnm/">
+
+                <i class="fa-solid fa-smog"></i>
+                Distributed Lag Non-linear Models
+
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/epidemiologia/">
+
+                <i class="fa-solid fa-industry"></i>
+                Resultats de Gavà 
+
+              </a>
+            </li>
+                        <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/contaminacio/">
+
+                <i class="fa-solid fa-head-side-mask"></i>
+                Contaminacio i salut respiratoria a Gavà
+
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+
+      </ul>
+
+      <!-- BOTÓN TEMA -->
+      <button id="themeToggle">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+    </div>
+  </div>
 </nav>
+
+
 
 <!-- CONTINGUT -->
 
