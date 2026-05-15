@@ -6,9 +6,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌫️ Problema · Contaminació i infeccions respiratòries · Gavà </title>
+    <title>🌫️ Problema · Contaminació i infeccions respiratòries · Gavà</title>
     <!-- MathJax per renderitzar equacions -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -182,185 +185,123 @@
             .card { padding: 20px 16px; }
             h1 { font-size: 1.9rem; }
         }
+        /* Navbar fija arriba */
+#mainNavbar {
+  background-color: #ffffff; /* fondo sólido */
+  z-index: 1030;             /* más alto que el contenido */
+  border-radius: 0;       
+  transition: background-color 0.3s ease;
+}
+
+/* Navbar oscuro */
+body[data-bs-theme="dark"] #mainNavbar {
+  background-color: #2c2c2c;
+}
+
+
+/* Texto y hamburguesa */
+#mainNavbar .navbar-brand,
+#mainNavbar .nav-link,
+#themeToggle {
+  color: #000; /* claro */
+}
+
+body[data-bs-theme="dark"] #mainNavbar .navbar-brand,
+body[data-bs-theme="dark"] #mainNavbar .nav-link,
+body[data-bs-theme="dark"] #themeToggle {
+  color: #fff; /* oscuro */
+}
+
+/* Hamburguesa */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,0,0,0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+body[data-bs-theme="dark"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+/* 4. Logo circular i adaptatiu */
+    .logo {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    @media (max-width: 576px) {
+      .logo {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    @media (min-width: 992px) {
+      .logo {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7f7f7;
+
+    }
+  body[data-bs-theme="dark"] {
+      background: #1f1f1f;
+    }
+  body[data-bs-theme="dark"] .navbar {
+      background: rgba(40, 40, 40, 0.6);
+    }
+  body[data-bs-theme="dark"] .card, body[data-bs-theme="dark"] video {
+      box-shadow: 0 4px 20px rgba(255,255,255,0.05);
+    }
     </style>
 </head>
-<body data-bs-theme="light">
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light shadow sticky-top">
+<body>
+<nav id="mainNavbar" class="navbar navbar-expand-lg shadow" style="border-radius:16px; margin:10px; padding:8px 16px;">
   <div class="container-fluid">
-
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="https://dbermejo2.github.io/logo.png" alt="Logo Web de David" style="width:45px;height:45px;border-radius:50%" class="me-2">
-      Web de David
+    <!-- Logo y texto -->
+    <a class="navbar-brand d-flex align-items-center" href="https://mberniol.github.io">
+      <img src="https://izeddi.github.io/logo.png" alt="Logo" class="logo rounded-circle me-2">
+      <span class="fw-bold">Web de Marc</span>
     </a>
 
-    <button class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-
-      <ul class="navbar-nav me-auto">
-
-        <!-- PROJECTES DE RECERCA -->
-        <li class="nav-item dropdown">
-
-          <a class="nav-link dropdown-toggle"
-             href="#"
-             role="button"
-             data-bs-toggle="dropdown">
-
-            <i class="fa-solid fa-diagram-project me-1"></i>
-            Recerca IA vs. Google Academic
-
-          </a>
-
-          <ul class="dropdown-menu">
-
-            <li>
-              <a class="dropdown-item"
-                 href="https://dbermejo2.github.io/cerca/">
-
-                <i class="fa-solid fa-seedling"></i>
-                Recerca Carbasa
-
-              </a>
-            </li>
-
-            <li>
-              <a class="dropdown-item"
-                 href="https://dbermejo2.github.io/contaminacio/">
-
-                <i class="fa-solid fa-head-side-mask"></i>
-                Contaminacio i salut respiratoria a Gavà
-
-              </a>
-            </li>
-
-          </ul>
-        </li>
-
-
-        <!-- PROJECTE 22 DIES -->
-        <li class="nav-item dropdown">
-
-          <a class="nav-link dropdown-toggle"
-             href="#"
-             role="button"
-             data-bs-toggle="dropdown">
-
-            <i class="fa-solid fa-folder-open me-1"></i>
-            Projecte 22 dies en 22 peus
-
-          </a>
-
-          <ul class="dropdown-menu">
-
-            <li>
-              <a class="dropdown-item"
-                 href="https://dbermejo2.github.io/introduccio/">
-
-                <i class="fa-solid fa-file-lines"></i>
-                Introduccio al projecte
-
-              </a>
-            </li>
-
-            <li>
-              <a class="dropdown-item"
-                 href="https://dbermejo2.github.io/vectors/">
-
-                <i class="fa-solid fa-compass"></i>
-                Calculem el rumb
-
-              </a>
-            </li>
-
-            <li>
-              <a class="dropdown-item"
-                 href="https://dbermejo2.github.io/distancies/">
-
-                <i class="fa-solid fa-arrows-left-right-to-line"></i>
-                Calculem distancies
-
-              </a>
-            </li>
-
-          </ul>
-        </li>
-
-        <!-- Projecte 3 -->
-        <li class="nav-item dropdown">
-
-          <a class="nav-link dropdown-toggle"
-             href="#"
-             role="button"
-             data-bs-toggle="dropdown">
-
-            <i class="fa-solid fa-folder-open me-1"></i>
-            Contaminacio i salud al Baix Llovregat
-
-          </a>
-
-          <ul class="dropdown-menu">
-
-            <li>
-              <a class="dropdown-item"
-                 href="https://dbermejo2.github.io/epi/">
-
-                <i class="fa-solid fa-head-side-mask"></i>
-                Environmental Epidemiological Analysis
-
-              </a>
-            </li>
-
-            <li>
-              <a class="dropdown-item"
-                 href="https://dbermejo2.github.io/dlnm/">
-
-                <i class="fa-solid fa-smog"></i>
-                Distributed Lag Non-linear Models
-
-              </a>
-            </li>
-
-            <li>
-              <a class="dropdown-item"
-                 href="https://dbermejo2.github.io/epidemiologia/">
-
-                <i class="fa-solid fa-industry"></i>
-                Resultats de Gavà 
-
-              </a>
-            </li>
-                        <li>
-              <a class="dropdown-item"
-                 href="https://dbermejo2.github.io/contaminacio/">
-
-                <i class="fa-solid fa-head-side-mask"></i>
-                Contaminacio i salut respiratoria a Gavà
-
-              </a>
-            </li>
-
-          </ul>
-        </li>
-
-
-      </ul>
-
-      <!-- BOTÓN TEMA -->
-      <button id="themeToggle">
-        <i class="fa-solid fa-moon"></i>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
       </button>
-
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="proj1Dropdown" role="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-diagram-project me-1"></i> Cerca IA vs Google Academic
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="proj1Dropdown">
+              <li><a class="dropdown-item" href="https://mberniol.github.io/cerca"><i class="fa-solid fa-seedling me-1"></i>Recerca Carabassó</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="proj2Dropdown" role="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-folder-open me-1"></i> 22 dies en 22 peus
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="proj2Dropdown">
+              <li><a class="dropdown-item" href="https://mberniol.github.io/introduccio"><i class="fa-solid fa-file-lines me-1"></i> Introducció al Projecte</a></li>
+              <li><a class="dropdown-item" href="https://mberniol.github.io/vectors"><i class="fa-solid fa-compass me-1"></i> Calculem rumbs amb vectors</a></li>
+              <li><a class="dropdown-item" href="https://mberniol.github.io/distancies"><i class="fa-solid fa-arrows-left-right-to-line me-1"></i> Calculem distancies amb GPS</a></li>
+            </ul>
+          </li>
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="proj3Dropdown" role="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-folder-open me-1"></i> Contaminació i Salut al Baix Llobregat
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="proj3Dropdown">
+              <li><a class="dropdown-item" href="https://mberniol.github.io/contaminacio"><i class="fa-solid fa-head-side-mask me-1"></i>Contaminació i Salut Respiratòria a Gavà</a></li>
+              <li><a class="dropdown-item" href="https://mberniol.github.io/epi"><i class="fa-solid fa-head-side-mask me-1"></i>Environmental Epidemiological Analysis</a></li>
+              <li><a class="dropdown-item" href="https://mberniol.github.io/dlnm"><i class="fa-solid fa-smog me-1"></i> Distributed Lag Non-linear Models</a></li>
+              <li><a class="dropdown-item" href="https://mberniol.github.io/epidemiologia"><i class="fa-solid fa-industry me-1"></i> Resultats de Gavà</a></li>
+            </ul>
+          </li>
+        </ul>
     </div>
-  </div>
-</nav>
+  </nav>
+    
 <div class="container">
     <!-- TÍTOL I CONTEXT -->
     <div class="card">
@@ -368,22 +309,22 @@
             <div>
                 <h1>🌫️ Com afecta la contaminació aèria a les incidències d'infeccions respiratòries diàries?</h1>
                 <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px;">
-                    <span class="badge">📍 Martorell · 2012 – 2025</span>
-                    <span class="badge">📊 5108 dies analitzats</span>
+                    <span class="badge">📍 Gavà · 2011 – 2025</span>
+                    <span class="badge">📊 5185 dies analitzats</span>
                     <span class="badge">🧪 Epidemiologia ambiental</span>
                 </div>
             </div>
-            <div class="city-highlight">🏭 Martorell · dades dels servidors XPVCA, Meteocat i SIVIC</div>
+            <div class="city-highlight">🏭 Gavà · dades dels servidors XPVCA, Meteocat i SIVIC</div>
         </div>
         <p style="margin-top: 20px; font-size: 1.1rem; background: #e6f0ea; padding: 12px 24px; border-radius: 50px;">
-            <strong>Problema clàssic:</strong> A partir del conjunt de dades diàries de qualitat de l'aire (NO₂, NOX, PM10, PM2.5, O₃, SO₂) i incidència d'infeccions respiratòries (per 1000 habitants) registrades a Martorell entre 2012 i 2025, es demana avaluar l'associació entre la contaminació i la salut respiratòria, calcular indicadors de risc i interpretar els pics detectats.
+            <strong>Problema clàssic:</strong> A partir del conjunt de dades diàries de qualitat de l'aire (NO₂, NOX, O₃, C<sub>6</sub>H<sub>6</sub>, CO, SO₂ and NO) i incidència d'infeccions respiratòries (per 1000 habitants) registrades a Gavà entre 2011 i 2025, es demana avaluar l'associació entre la contaminació i la salut respiratòria, calcular indicadors de risc i interpretar els pics detectats.
         </p>
     </div>
 
     <!-- ENUNCIAT DEL PROBLEMA AMB DADES CONCRETES -->
     <div class="card">
         <h2>📋 Enunciat complet · dades proporcionades</h2>
-        <p><strong>Fitxer:</strong> <span class="small-mono">dades1.csv</span> (5108 dies vàlids). Columnes: data, incidencia_1000, pm2.5, pm10, no2, nox, o3, so2.</p>
+        <p><strong>Fitxer:</strong> <span class="small-mono">gava.csv</span> (5185 dies vàlids). Columnes: data, incidencia_1000, no2, nox, o3, c6h6, co, so2, no.</p>
         <div class="data-grid">
             <div class="stat-box"><span class="stat-number">5185</span><div class="stat-label">Dies analitzats</div></div>
             <div class="stat-box"><span class="stat-number">1.97</span><div class="stat-label">Incidència mitjana (casos/1000)</div></div>
@@ -392,14 +333,15 @@
         </div>
         <h3>🌫️ Mitjanes de contaminants i superacions de límits OMS (diaris)</h3>
         <div class="pollutant-bar">
-            <span><strong>NO₂</strong> 13.2 µg/m³ <span class="exceed">253 dies > límit 25</span></span>
+            <span><strong>NO₂</strong> 13.2 µg/m³ <span class="exceed">282 dies > límit 25</span></span>
             <span><strong>NOX</strong> 18.5 µg/m³ (sense límit OMS diari)</span>
-            <span><strong>O₃</strong> 57.4 µg/m³ <span class="exceed">0 > 100</span></span>
-            <span><strong>C₆H₆</strong> 0.7 µg/m³ <span class="exceed">16 > 45</span></span>
-            <span><strong>CO</strong> 0.3 µg/m³ <span class="exceed">11 > 15</span></span>
-            <span><strong>SO₂</strong> 3.3 µg/m³ <span class="exceed">0 > 40</span></span>
+            <span><strong>O₃</strong> 57.4 µg/m³ <span class="exceed">44 dies > límit 100</span></span>
+            <span><strong>C<sub>6</sub>H<sub>6</sub></strong> 0.7 µg/m³ <span class="exceed">0 dies > límit 5</span></span>
+            <span><strong>CO</strong> 0.3 µg/m³ <span class="exceed">0 dies > límit 4000</span></span>
+            <span><strong>SO₂</strong> 3.3 µg/m³ <span class="exceed">0 dies > límit 40</span></span>
+            <span><strong>NO</strong> 4.2 µg/m³ <span class="exceed">14 dies > límit 25</span></span>
         </div>
-        <p class="footnote" style="margin-top: 0;">* Dies amb registre: NO₂ 5037, O₃ 756, PM10 2442, PM2.5 61, SO₂ 751.</p>
+        <p class="footnote" style="margin-top: 0;">* Dies amb registre: C<sub>6</sub>H<sub>6</sub> 3930, CO 5100, NO 5139, NO₂ 5140, O₃ 5087, SO₂ 5114.</p>
         
         <div style="background: #faf7e6; padding: 16px 22px; border-radius: 24px; margin: 24px 0 8px;">
             <strong>📌 Preguntes del problema (a resoldre):</strong>
@@ -425,10 +367,10 @@
                 r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}} 
                 \]
                 \[
-                r_{\text{NO}_2,\text{incid}}(0) = 0.368 \quad (p < 0.0001,\; \text{significatiu ***})
+                r_{\text{NO}_2,\text{incid}}(0) = 0.255 \quad (p < 0.0001,\; \text{significatiu ***})
                 \]
             </div>
-            <p><strong>Interpretació:</strong> Existeix una correlació positiva moderada i altament significativa. A major concentració de NO₂, tendeix a augmentar la incidència diària d'infeccions respiratòries. El valor \(r=0.368\) explica aproximadament un \(13.5\%\) de la variabilitat compartida.</p>
+            <p><strong>Interpretació:</strong> Existeix una correlació positiva moderada i altament significativa. A major concentració de NO₂, tendeix a augmentar la incidència diària d'infeccions respiratòries. El valor \(r=0.255\) explica aproximadament un \(13.5\%\) de la variabilitat compartida.</p>
         </div>
 
         <!-- PAS 2 -->
@@ -436,22 +378,22 @@
             <div class="step-header"><span class="step-num">2</span><span style="font-size: 1.4rem; font-weight: 600;">Indicadors de risc (RR, AR, AR%)</span></div>
             <p>Dividim els dies segons si el NO₂ supera el valor guia diari de l'OMS (25 µg/m³):</p>
             <ul style="margin: 15px 0 15px 30px;">
-                <li>🔴 <strong>Exposició alta</strong> (NO₂ > 25): 3107 dies, incidència mitjana = \(1.60\) casos/1000</li>
-                <li>🟢 <strong>Exposició baixa</strong> (NO₂ ≤ 25): 1930 dies, incidència mitjana = \(1.38\) casos/1000</li>
+                <li>🔴 <strong>Exposició alta</strong> (NO₂ > 25): 282 dies, incidència mitjana = \(2.16\) casos/1000</li>
+                <li>🟢 <strong>Exposició baixa</strong> (NO₂ ≤ 25): 4858 dies, incidència mitjana = \(1.96\) casos/1000</li>
             </ul>
             <div class="formula-block">
                 \[
-                RR = \frac{I_{\text{exposats}}}{I_{\text{no exposats}}} = \frac{1.60}{1.38} \approx 1.159
+                RR = \frac{I_{\text{exposats}}}{I_{\text{no exposats}}} = \frac{2.16}{1.96} \approx 1.102
                 \]
                 \[
-                AR = I_{\text{exposats}} - I_{\text{no exposats}} = 1.60 - 1.38 = 0.22 \text{ casos/1000}
+                AR = I_{\text{exposats}} - I_{\text{no exposats}} = 2.16 - 1.96 = 0.2 \text{ casos/1000}
                 \]
                 \[
-                AR\% = \frac{AR}{I_{\text{exposats}}} \times 100 = \frac{0.22}{1.60} \times 100 \approx 13.75\%
+                AR\% = \frac{AR}{I_{\text{exposats}}} \times 100 = \frac{0.2}{2.16} \times 100 \approx 9.26\%
                 \]
             </div>
             <p>Interval de confiança del 95% per al RR: \([1.14,\,1.17]\), \(p<0.001\).</p>
-            <p><strong>Conclusió:</strong> RR > 1 indica un efecte nociu. El 13.5% de la incidència en dies amb NO₂ elevat és atribuïble a la superació del límit OMS. Això equival a un excés de 0.22 casos per cada 1000 habitants i dia.</p>
+            <p><strong>Conclusió:</strong> RR > 1 indica un efecte nociu. El 13.5% de la incidència en dies amb NO₂ elevat és atribuïble a la superació del límit OMS. Això equival a un excés de 0.2 casos per cada 1000 habitants i dia.</p>
         </div>
 
         <!-- PAS 3 -->
@@ -491,7 +433,7 @@
                 \text{Excés diari} = (\text{incidència pic} - \text{incidència basal}) \times \frac{\text{població}}{1000}
                 \]
             </div>
-            <p>Per a Martorell (~28.000 habitants), un pic de 5.27 suposa unes \( (5.27-1.38)\times 28 \approx 109 \) consultes extra aquell dia. Aquests pics reforcen la necessitat d'alertes per contaminació.</p>
+            <p>Per a Gavà (~28.000 habitants), un pic de 5.27 suposa unes \( (5.27-1.38)\times 28 \approx 109 \) consultes extra aquell dia. Aquests pics reforcen la necessitat d'alertes per contaminació.</p>
         </div>
 
         <!-- PAS 5 -->
@@ -523,534 +465,40 @@
         </div>
         <hr style="margin: 24px 0 12px; border-top: 2px solid #bdd6ca;">
         <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
-            <span style="background: #1b4e3f; color: white; padding: 6px 24px; border-radius: 60px;">📍 Dades reals processades · Martorell</span>
+            <span style="background: #1b4e3f; color: white; padding: 6px 24px; border-radius: 60px;">📍 Dades reals processades · Gavà</span>
             <span class="badge">🌫️ NO₂ · PM · O₃ · SO₂ · 5108 dies</span>
             <span style="margin-left: auto; font-style: italic;">Anàlisi estil OMS · Educatiu</span>
         </div>
         <p class="footnote" style="margin-top: 18px;">
-            * Els càlculs es basen en el conjunt de dades obtingudes de servidors de la Generalitat de Catalunya de Martorell i municipis propers. Totes les fórmules s'han verificat amb les mitjanes i recomptes indicats.
+            * Els càlculs es basen en el conjunt de dades obtingudes de servidors de la Generalitat de Catalunya de Gavà i municipis propers. Totes les fórmules s'han verificat amb les mitjanes i recomptes indicats.
         </p>
     </div>
 
     <!-- Nota final MathJax -->
     <div style="text-align: right; opacity: 0.7; font-size: 0.8rem;">Equacions renderitzades amb MathJax · Problema epidemiològic ambiental</div>
 </div>
-<h1>Model DLNM (model no lineal de retard distribuit)</h1>
-    <p>Auest model matematic va ser creat per Gasparrini <i>et all.</i>(2010)</p>
-    <p>Els contaminants tenen un temps de retard respecte a la salut, es a dir, no hi ha un efecte inmediat semptre.
-    Moltes vegades poden tindre un efecte mes tard</p>
-    <p>Aquests models no son lineals perque si fos lineal significaria que un augment de contaminacio provoca un augment de contaminacio provoca un augment proporcional de casos respiratoris. Encara que sembla logic no es exactament aixi perque un augment de 5 &micro;g/m<sup>3</sup> de NO<sub>2</sub> no es el mateix si augmenta de 5 a 10 com si augmenta de 40 a 45, es a dir, es una corba i no una recta. Els retars se anomenen  LAG i poden ser igual a 0 (no hi ha retard) o igual a qualsevol numero enre entre 0 i 14. Si LAG es igual a 14 vol dir que passen dos setmanes 
-<p>Gasparrini, A.; Armstrong, B.; Kenward, M.G (2010) Distributed lag non-linear models
-    Stat. Med. Sep 20;29(21):2224-34. doi: <a href="https://doi.org/10.1002/sim.3940">https://doi.org/10.1002/sim.3940"</a>.</p>
-<!-- BOOTSTRAP -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="module">
-    if (window.location.protocol === 'file:') {
-      document.getElementById('errorProtocol').style.display = 'block';
-      throw new Error('Open the project through a local server, not by double-clicking the HTML file.');
-    }
 
-    import { WebR } from 'https://webr.r-wasm.org/latest/webr.mjs';
-
-
-   
-    const els = {
-      demoDataset: document.getElementById('demoDataset'), // <-- Nova línia
-      fileInput: document.getElementById('csvFile'),
-      outcome: document.getElementById('outcomeVar'),
-      exposure: document.getElementById('exposureVar'),
-      confounders: document.getElementById('confounders'),
-      maxLag: document.getElementById('maxLag'),
-      includeTime: document.getElementById('includeTime'),
-      antiOverfit: document.getElementById('antiOverfit'),
-      autoClean: document.getElementById('autoCleanConfounders'),
-      runBtn: document.getElementById('runBtn'),
-      loadingMsg: document.getElementById('loadingMsg'),
-      errorBox: document.getElementById('errorBox'),
-      errorMsgText: document.getElementById('errorMsgText'),
-      warningBox: document.getElementById('warningBox'),
-      warningText: document.getElementById('warningText'),
-      dataInfoBox: document.getElementById('dataInfoBox'),
-      dataInfoText: document.getElementById('dataInfoText'),
-      modelSummary: document.getElementById('modelSummary'),
-      resultsSection: document.getElementById('resultsSection'),
-      fileStatus: document.getElementById('fileStatus'),
-      colInfo: document.getElementById('colInfo'),
-      plot3dImg: document.getElementById('plot3dImg'),
-      lagPlotImg: document.getElementById('lagPlotImg'),
-      plotColdImg: document.getElementById('plotColdImg'),
-      plotHeatImg: document.getElementById('plotHeatImg'),
-      plot3dCaption: document.getElementById('plot3dCaption'),
-      plotCaption: document.getElementById('plotCaption'),
-      coldCaption: document.getElementById('coldCaption'),
-      heatCaption: document.getElementById('heatCaption')
-    };
-
-    let webR = null;
-    let ready = false;
-    let lastData = { cols: [], rows: 0 };
-
-    function showError(message) {
-      els.errorMsgText.innerHTML = message;
-      els.errorBox.style.display = 'block';
-      els.loadingMsg.classList.add('d-none');
-      els.runBtn.disabled = false;
-      els.resultsSection.style.opacity = '0.65';
-    }
-
-    function hideMessages() {
-      els.errorBox.style.display = 'none';
-      els.warningBox.style.display = 'none';
-      els.dataInfoBox.style.display = 'none';
-      els.errorMsgText.innerHTML = '';
-      els.warningText.innerHTML = '';
-    }
-
-    function setStatus(kind, html) {
-      els.fileStatus.className = 'd-flex align-items-center fw-semibold rounded-3 p-2';
-      const base = kind === 'success'
-        ? 'bg-success bg-opacity-10 text-success'
-        : kind === 'danger'
-          ? 'bg-danger bg-opacity-10 text-danger'
-          : 'bg-primary bg-opacity-10 text-primary';
-      els.fileStatus.classList.add(...base.split(' '));
-      els.fileStatus.innerHTML = html;
-    }
-
-    function bytesToBase64(uint8) {
-      const chunkSize = 0x8000;
-      let binary = '';
-      for (let i = 0; i < uint8.length; i += chunkSize) {
-        binary += String.fromCharCode(...uint8.subarray(i, i + chunkSize));
-      }
-      return btoa(binary);
-    }
-
-    function fillSelect(selectEl, cols, keep = []) {
-      const current = selectEl.value;
-      selectEl.innerHTML = '';
-      for (const col of cols) {
-        const opt = new Option(col, col);
-        if (keep.includes(col)) opt.selected = true;
-        selectEl.add(opt);
-      }
-      if (current && cols.includes(current)) selectEl.value = current;
-    }
-
-    function guessDefaults(cols) {
-      const lower = new Map(cols.map(c => [c.toLowerCase(), c]));
-      const outcomeCandidates = ['casos_total', 'cases_total', 'incidencia_1000', 'incidence_1000'];
-      const exposureCandidates = ['no2', 'pm10', 'pm25', 'o3', 'temp_mean', 'temperature', 'rh', 'humidity'];
-
-      let outcome = outcomeCandidates.map(c => lower.get(c)).find(Boolean) || cols[0] || '';
-      let exposure = exposureCandidates.map(c => lower.get(c)).find(Boolean) || cols[1] || '';
-      if (outcome === exposure && cols.length > 1) exposure = cols.find(c => c !== outcome) || exposure;
-      return { outcome, exposure };
-    }
-
-    function filterConfounders(cols, outcome, exposure) {
-      return cols.filter(c => c !== outcome && c !== exposure && c !== 'date' && c !== 'time');
-    }
-
-    async function initWebR() {
-      try {
-        webR = new WebR();
-        await webR.init();
-        await webR.evalR(`
-          suppressPackageStartupMessages({
-            if (!requireNamespace('dlnm', quietly = TRUE)) {
-              webr::install('dlnm')
-            }
-            library(dlnm)
-            library(splines)
-          })
-        `);
-        ready = true;
-        setStatus('success', '<i class="fa-solid fa-circle-check me-2"></i>WebR Engine Ready');
-      } catch (err) {
-        setStatus('danger', '<i class="fa-solid fa-circle-xmark me-2"></i>Initialization Failed');
-        showError('Could not start R in the browser: ' + err.message);
-      }
-    }
-
-    function selectedConfounders() {
-      return Array.from(els.confounders.selectedOptions).map(opt => opt.value);
-    }
-
-    function buildRCode({ outcome, exposure, maxLag, confounders, includeTime, antiOverfit }) {
-      const confVec = confounders.length ? `c(${confounders.map(v => JSON.stringify(v)).join(', ')})` : 'character(0)';
-      const timeDfExpr = includeTime ? 'res_df_time <- max(4, min(30, round(nrow(df_clean) / 365 * 4)))' : 'res_df_time <- 0';
-      const lagDf = antiOverfit ? 2 : 3;
-      const expDf = 3;
-
-      return `
-        suppressPackageStartupMessages({
-          library(dlnm)
-          library(splines)
-        })
-
-        res_success <- FALSE
-        res_error <- ''
-        res_summary <- ''
-        res_fam <- ''
-        res_nobs <- 0
-        res_total <- nrow(df)
-        res_ncol <- ncol(df)
-        res_df_time <- 0
-        res_retries <- 0
-        removed_conf <- 0
-        removed_list <- ''
-        val_cold <- NA_real_
-        val_heat <- NA_real_
-        n_obs_cold <- 0
-        n_obs_heat <- 0
-        max_rr <- NA_real_
-
-        tryCatch({
-          df_clean <- df
-          if (!'time' %in% names(df_clean)) df_clean$time <- seq_len(nrow(df_clean))
-
-          y <- df_clean[[${JSON.stringify(outcome)}]]
-          x <- df_clean[[${JSON.stringify(exposure)}]]
-
-          if (all(is.na(y))) stop('Outcome is completely empty (all NA).')
-          if (all(is.na(x))) stop('Exposure is completely empty (all NA).')
-
-          # Keep only relevant variables and remove bad confounders.
-          conf_list <- ${confVec}
-          good_conf <- character(0)
-          if (length(conf_list) > 0) {
-            for (v in conf_list) {
-              if (!v %in% names(df_clean)) next
-              vv <- df_clean[[v]]
-              if (v %in% c(${JSON.stringify(outcome)}, ${JSON.stringify(exposure)}, 'date', 'time')) next
-              if (all(is.na(vv))) next
-              if (length(unique(na.omit(vv))) <= 1) next
-              if (is.factor(vv)) df_clean[[v]] <- as.numeric(vv)
-              good_conf <- c(good_conf, v)
-            }
-          }
-          removed_conf <- length(conf_list) - length(good_conf)
-          if (removed_conf > 0) removed_list <- paste(setdiff(conf_list, good_conf), collapse = ', ')
-
-          # Build analysis dataset.
-          keep_vars <- unique(c(${JSON.stringify(outcome)}, ${JSON.stringify(exposure)}, good_conf, 'time'))
-          df_model <- df_clean[, keep_vars, drop = FALSE]
-
-          # Drop rows with missing values in analysis variables only.
-          complete_idx <- complete.cases(df_model)
-          df_model <- df_model[complete_idx, , drop = FALSE]
-          if (nrow(df_model) < 50) stop('Too few complete observations after cleaning.')
-
-          y2 <- df_model[[${JSON.stringify(outcome)}]]
-          x2 <- df_model[[${JSON.stringify(exposure)}]]
-
-          # Decide family from outcome.
-          is_count <- all(y2 >= 0, na.rm = TRUE) && all(abs(y2 - round(y2)) < 1e-8, na.rm = TRUE)
-          res_fam <- if (is_count) 'quasipoisson' else 'gaussian'
-          fam_obj <- if (is_count) quasipoisson() else gaussian()
-
-          cb <- crossbasis(
-            x2,
-            lag = ${maxLag},
-            argvar = list(fun = 'ns', df = ${expDf}),
-            arglag = list(fun = 'ns', df = ${lagDf})
-          )
-
-          ${timeDfExpr}
-
-          rhs <- c('cb', if (length(good_conf) > 0) good_conf else character(0), if (${includeTime ? 'TRUE' : 'FALSE'}) paste0('ns(time, df=', res_df_time, ')') else character(0))
-          fml <- as.formula(paste('${outcome} ~', paste(rhs, collapse = ' + ')))
-
-          model <- glm(fml, data = df_model, family = fam_obj, na.action = na.exclude)
-          res_nobs <- nobs(model)
-          if (res_nobs < 50) stop('Too many rows removed during model fitting.')
-
-          cen_val <- median(x2, na.rm = TRUE)
-          if (!is.finite(cen_val)) cen_val <- mean(x2, na.rm = TRUE)
-          pred <- crosspred(cb, model, cen = cen_val, by = 0.1)
-
-          q_cold <- as.numeric(quantile(x2, 0.01, na.rm = TRUE, names = FALSE))
-          q_heat <- as.numeric(quantile(x2, 0.99, na.rm = TRUE, names = FALSE))
-          val_cold <- pred$predvar[which.min(abs(pred$predvar - q_cold))]
-          val_heat <- pred$predvar[which.min(abs(pred$predvar - q_heat))]
-          n_obs_cold <- sum(x2 <= val_cold, na.rm = TRUE)
-          n_obs_heat <- sum(x2 >= val_heat, na.rm = TRUE)
-          max_rr <- suppressWarnings(max(pred$allRRfit, na.rm = TRUE))
-
-          png('plot_3d.png', width = 960, height = 700, res = 110)
-          par(mar = c(2.5, 2.5, 2.5, 2))
-          plot(pred, '3d', xlab = '${exposure}', ylab = 'Lag (days)', zlab = 'Relative Risk',
-               main = '3D Response Surface', col = '#7dd3fc', theta = 230, phi = 30, ltheta = 120)
-          dev.off()
-
-          png('plot_overall.png', width = 860, height = 520, res = 110)
-          plot(pred, 'overall', xlab = '${exposure}', ylab = 'Relative Risk (RR)',
-               main = 'Overall Cumulative Effect', lwd = 3)
-          abline(h = 1, lty = 2, col = 'gray50')
-          dev.off()
-
-          png('plot_cold.png', width = 700, height = 480, res = 110)
-          plot(pred, 'slices', var = val_cold,
-               main = paste0('Lag Response: Extreme Cold (', round(val_cold, 2), ')'),
-               ylab = 'Relative Risk', xlab = 'Lag (days)', lwd = 3)
-          abline(h = 1, lty = 2, col = 'gray50')
-          dev.off()
-
-          png('plot_heat.png', width = 700, height = 480, res = 110)
-          plot(pred, 'slices', var = val_heat,
-               main = paste0('Lag Response: Extreme Heat (', round(val_heat, 2), ')'),
-               ylab = 'Relative Risk', xlab = 'Lag (days)', lwd = 3)
-          abline(h = 1, lty = 2, col = 'gray50')
-          dev.off()
-
-          res_summary <- paste(capture.output(summary(model)), collapse = '\n')
-          res_success <- TRUE
-        }, error = function(e) {
-          res_error <<- e$message
-        })
-      `;
-    }
-
- async function bufferToDf(buf) {
-  await webR.FS.writeFile('data.csv', new Uint8Array(buf));
-  await webR.evalR(`
-    df <- read.csv('data.csv', stringsAsFactors = FALSE, na.strings = c('NA','na','',' ','null','NULL'))
-    names(df) <- make.names(names(df), unique = TRUE)
-    for (nm in names(df)) {
-      if (nm == 'date') next
-      if (is.character(df[[nm]])) {
-        suppressWarnings({ num <- as.numeric(df[[nm]]) })
-        if (sum(!is.na(num)) > sum(!is.na(df[[nm]])) * 0.7) df[[nm]] <- num
-      }
-    }
-    if ('date' %in% names(df)) {
-      df$date <- as.Date(df$date, tryFormats = c('%Y-%m-%d', '%d/%m/%Y', '%m/%d/%Y'))
-    }
-    df$time <- seq_len(nrow(df))
-  `);
-}
-
-
-
-async function processLoadedData() {
-  const cols = await getRValue('names(df)', 'array');
-  const rows = await getRValue('nrow(df)', 'number');
-  if (!rows) throw new Error('El CSV està buit o no s\'ha pogut llegir.');
-
-  lastData = { cols, rows };
-  const defaults = guessDefaults(cols);
-
-  fillSelect(els.outcome, cols);
-  fillSelect(els.exposure, cols);
-  els.outcome.value = defaults.outcome;
-  els.exposure.value = defaults.exposure;
-
-  updateConfoundersFromSelection();
-  enableForm();
-
-  els.colInfo.innerHTML = `✅ Dataset carregat: <strong>${rows} files</strong> i <strong>${cols.length} variables</strong>.`;
-  setStatus('success', '<i class="fa-solid fa-circle-check me-2"></i>Dades Processades');
-}
-
-
-
-
-    async function getRValue(expr, type = 'string') {
-      const obj = await webR.evalR(expr);
-      if (type === 'boolean') return await obj.toBoolean();
-      if (type === 'number') return await obj.toNumber();
-      if (type === 'array') return await obj.toArray();
-      return await obj.toString();
-    }
-
-    async function loadPlot(path, imgEl) {
-      const bytes = await webR.FS.readFile(path);
-      imgEl.src = `data:image/png;base64,${bytesToBase64(bytes)}`;
-      imgEl.style.display = 'block';
-    }
-
-    function resetPlots() {
-      for (const el of [els.plot3dImg, els.lagPlotImg, els.plotColdImg, els.plotHeatImg]) {
-        el.removeAttribute('src');
-        el.style.display = 'none';
-      }
-      els.plot3dCaption.innerHTML = '<i class="fa-solid fa-cube fa-3x text-secondary d-block mb-3"></i>The 3D response surface will appear here.';
-      els.plotCaption.textContent = 'No plot generated yet.';
-      els.coldCaption.textContent = '';
-      els.heatCaption.textContent = '';
-    }
-
-    function enableForm() {
-      els.outcome.disabled = false;
-      els.exposure.disabled = false;
-      els.confounders.disabled = false;
-      els.runBtn.disabled = false;
-      els.outcome.classList.remove('bg-light');
-      els.exposure.classList.remove('bg-light');
-      els.confounders.classList.remove('bg-light');
-    }
-
-    function updateConfoundersFromSelection() {
-  const outcome = els.outcome.value;
-  const exposure = els.exposure.value;
-  const cols = lastData.cols;
-
-  const allowed = filterConfounders(cols, outcome, exposure);
-
-  // detectem noms possibles (robust)
-  const lowerMap = new Map(cols.map(c => [c.toLowerCase(), c]));
-
-  const defaultTemp =
-    lowerMap.get('temp_mean') ||
-    lowerMap.get('temperature') ||
-    lowerMap.get('temp');
-
-  const defaultRH =
-    lowerMap.get('rh') ||
-    lowerMap.get('humidity');
-
-  els.confounders.innerHTML = '';
-
-  for (const c of allowed) {
-    const isDefault = (c === defaultTemp || c === defaultRH);
-    const opt = new Option(c, c, false, isDefault);
-    els.confounders.add(opt);
-  }
-}
-
-    initWebR();
-
-els.fileInput.addEventListener('change', async (e) => {
-  hideMessages();
-  els.demoDataset.value = ""; // Reiniciem el dropdown d'exemples
-  const file = e.target.files?.[0];
-  if (!file || !ready) return;
-
-  try {
-    setStatus('info', '<span class="spinner-border spinner-border-sm me-2"></span>Llegint dades...');
-    const buf = await file.arrayBuffer();
-    await bufferToDf(buf);
-    await processLoadedData();
-  } catch (err) {
-    setStatus('danger', '<i class="fa-solid fa-circle-xmark me-2"></i>Error de lectura');
-    showError('Error llegint CSV: ' + err.message);
-  }
-});
-els.demoDataset.addEventListener('change', async (e) => {
-  const filename = e.target.value;
-  if (!filename) return; // Ha tornat a posar "Puja el teu arxiu"
-
-  hideMessages();
-  els.fileInput.value = ""; // Netejem l'input file
-  if (!ready) return;
-
-  try {
-    setStatus('info', '<span class="spinner-border spinner-border-sm me-2"></span>Descarregant dataset...');
+    <br>
+    <br>
+    <br>
     
-    // Obtenim l'arxiu via xarxa
-    const response = await fetch(filename);
-    if (!response.ok) throw new Error(`No s'ha pogut trobar l'arxiu ${filename} al servidor.`);
-    const buf = await response.arrayBuffer();
-
-    setStatus('info', '<span class="spinner-border spinner-border-sm me-2"></span>Processant dades...');
-    await bufferToDf(buf);
-    await processLoadedData();
-
-  } catch (err) {
-    setStatus('danger', '<i class="fa-solid fa-circle-xmark me-2"></i>Error de descàrrega');
-    showError('Error carregant dataset d\'exemple: ' + err.message);
-  }
-});
-
-    els.outcome.addEventListener('change', () => updateConfoundersFromSelection());
-    els.exposure.addEventListener('change', () => updateConfoundersFromSelection());
-
-    els.runBtn.addEventListener('click', async () => {
-      hideMessages();
-      resetPlots();
-
-      const outcome = els.outcome.value;
-      const exposure = els.exposure.value;
-      const maxLag = Number(els.maxLag.value);
-      const confounders = selectedConfounders().filter(v => v !== outcome && v !== exposure);
-      const includeTime = els.includeTime.checked;
-      const antiOverfit = els.antiOverfit.checked;
-
-      if (!outcome || !exposure) {
-        showError('Please select both Outcome and Exposure variables.');
-        return;
-      }
-      if (outcome === exposure) {
-        showError('Outcome and Exposure cannot be the same variable.');
-        return;
-      }
-
-      els.loadingMsg.classList.remove('d-none');
-      els.runBtn.disabled = true;
-      els.runBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Running...';
-      els.resultsSection.style.opacity = '0.65';
-      els.modelSummary.textContent = 'Processing model...';
-
-      try {
-        const code = buildRCode({ outcome, exposure, maxLag, confounders, includeTime, antiOverfit });
-        await webR.evalR(code);
-
-        const success = await getRValue('res_success', 'boolean');
-        if (!success) {
-          const msg = await getRValue('res_error', 'string');
-          throw new Error(msg || 'Unknown model error');
+    <div class="card">
+<h1>Model DLNM (Model no lineal de retard distribuït)</h1>
+        <div class="step">
+        <ul>
+    <li>Aquest model matemàtic va ser creat per Gasparrini <i>et al.</i> (2010)</li>
+    <li>Els contaminants tenen un temps de retard respecte a la salut, és a dir, no hi ha un efecte immediat sempre. Moltes vegades poden tenir un efecte més tard.</li>
+    <li>Aquests models no són lineals perquè si fos lineal significaria que un augment de contaminació provoca un augmnet proporcional de casos respiratoris. Això sembla molt lògic, encara que sembla lògic no és exactament així perquè un augment de 5 &micro;g/m<sup>3</sup> de NO<sub>2</sub> no és el mateix si augmenta de 5 a 10 com si augmenta de 40 a 45, és a dir, és una corba i no és una recta. Els retards s'anomenen LAG i poden ser igual a 0 (no hi ha retard) o igual a qualssevol numero entre 0 i 14. Si és igual a 14 significa que passen dues setmanes entre el PIC de contaminant i el PIC de problemes de salut.</li>
+    <li>Gasparrini, A.; Armstrong, C.; Kenward, M. G. (2010). Distributed lag non-linear models Stat. Med. 29 (21):2224-34. doi: <a href="https://doi.org/10.1002/sim.3940">https://doi.org/10.1002/sim.3940</a></li>
+        </ul>
+    </div>
+    </div>
+<script>
+    window.addEventListener('load', function() {
+        if (window.MathJax) {
+            MathJax.typesetPromise();
         }
-
-        const validRows = await getRValue('res_nobs', 'number');
-        const totalRows = await getRValue('res_total', 'number');
-        const totalCols = await getRValue('res_ncol', 'number');
-        const dfTime = await getRValue('res_df_time', 'number');
-        const retries = await getRValue('res_retries', 'number');
-        const famTxt = await getRValue('res_fam', 'string');
-        const vCold = await getRValue('val_cold', 'number');
-        const vHeat = await getRValue('val_heat', 'number');
-        const nCold = await getRValue('n_obs_cold', 'number');
-        const nHeat = await getRValue('n_obs_heat', 'number');
-        const maxRR = await getRValue('max_rr', 'number');
-        const removed = await getRValue('removed_conf', 'number');
-        const removedNames = await getRValue('removed_list', 'string');
-        const summary = await getRValue('res_summary', 'string');
-
-        if (removed > 0) {
-          els.warningText.innerHTML = `Automatically removed <b>${removed}</b> confounder(s): <code>${removedNames}</code>`;
-          els.warningBox.style.display = 'block';
-        }
-
-        els.dataInfoText.innerHTML = `
-          <ul class="mb-0 lh-lg">
-            <li><strong>Dataset used:</strong> <b>${validRows}</b> complete observations from <b>${totalRows}</b> total rows.</li>
-            <li><strong>Variables:</strong> <b>${totalCols}</b> columns available.</li>
-            <li><strong>Family:</strong> <b>${famTxt.toUpperCase()}</b>.</li>
-            <li><strong>Configuration:</strong> ${includeTime ? `<b>Temporal control:</b> ${dfTime} df${retries > 0 ? ` <span class="badge bg-warning text-dark ms-2">Auto-reduced ${retries} times</span>` : ''}` : '<span class="badge bg-secondary">No temporal control</span>'} | <b>Lag df:</b> ${antiOverfit ? 2 : 3} | <b>Max lag:</b> ${maxLag} days.</li>
-          </ul>`;
-        els.dataInfoBox.style.display = 'block';
-
-        await loadPlot('plot_3d.png', els.plot3dImg);
-        await loadPlot('plot_overall.png', els.lagPlotImg);
-        await loadPlot('plot_cold.png', els.plotColdImg);
-        await loadPlot('plot_heat.png', els.plotHeatImg);
-
-        els.plot3dCaption.innerHTML = `3D response surface for <b>${exposure}</b> over <b>${maxLag}</b> lag days.`;
-        els.plotCaption.innerHTML = `Overall cumulative effect of <b>${exposure}</b> on <b>${outcome}</b>.`;
-        els.coldCaption.innerHTML = `Extreme cold slice: <b>${Number.isFinite(vCold) ? vCold.toFixed(2) : 'NA'}</b> | observations: <b>${nCold}</b>.`;
-        els.heatCaption.innerHTML = `Extreme heat slice: <b>${Number.isFinite(vHeat) ? vHeat.toFixed(2) : 'NA'}</b> | observations: <b>${nHeat}</b>.`;
-        els.modelSummary.textContent = `General Linear Model (${famTxt})\nTime degrees of freedom: ${dfTime}\nAnti-overfitting mode: df=${antiOverfit ? 2 : 3}\nMax RR (estimated): ${Number.isFinite(maxRR) ? maxRR.toFixed(2) : 'NA'}\n\n${summary}`;
-
-        els.resultsSection.style.opacity = '1';
-      } catch (err) {
-        showError(`<b>WebR Engine Error:</b><br><code>${err.message}</code>`);
-      } finally {
-        els.loadingMsg.classList.add('d-none');
-        els.runBtn.disabled = false;
-        els.runBtn.innerHTML = '<i class="fa-solid fa-play-circle me-2"></i>Compute DLNM';
-      }
     });
-  </script>
+</script>
 </body>
 </html>
