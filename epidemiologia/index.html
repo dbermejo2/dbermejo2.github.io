@@ -1,504 +1,653 @@
-
-
-
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="ca" data-bs-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌫️ Problema · Contaminació i infeccions respiratòries · Gavà</title>
-    <!-- MathJax per renderitzar equacions -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-        }
-        body {
-            background: #eef3f0;
-            font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
-            padding: 24px;
-            color: #1e2e26;
-            line-height: 1.5;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-        .card {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(2px);
-            border-radius: 28px;
-            padding: 28px 32px;
-            box-shadow: 0 12px 28px -8px rgba(20,40,30,0.12);
-            border: 1px solid #cbdcd2;
-        }
-        h1 {
-            font-weight: 650;
-            font-size: 2.3rem;
-            letter-spacing: -0.01em;
-            color: #0a3227;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        h2 {
-            font-weight: 550;
-            font-size: 1.6rem;
-            margin: 18px 0 16px;
-            border-left: 8px solid #2e7d5e;
-            padding-left: 20px;
-            color: #1a4d3c;
-        }
-        h3 {
-            font-weight: 600;
-            font-size: 1.3rem;
-            margin: 20px 0 12px;
-            color: #1f5a44;
-        }
-        .badge {
-            background: #d9ece3;
-            padding: 5px 16px;
-            border-radius: 40px;
-            font-size: 0.95rem;
-            color: #0f4c3a;
-            font-weight: 500;
-        }
-        .city-highlight {
-            background: #1b4e3f;
-            color: white;
-            padding: 6px 22px;
-            border-radius: 60px;
-            font-weight: 600;
-            display: inline-block;
-            margin: 8px 0 4px;
-        }
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 18px;
-            margin: 25px 0 10px;
-        }
-        .stat-box {
-            background: #f5faf7;
-            border-radius: 20px;
-            padding: 18px 16px;
-            border: 1px solid #bfd9cd;
-            box-shadow: inset 0 1px 3px white, 0 3px 6px rgba(0,20,10,0.03);
-        }
-        .stat-number {
-            font-size: 2.3rem;
-            font-weight: 750;
-            color: #0f4a35;
-            line-height: 1.2;
-        }
-        .stat-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-            color: #3a6855;
-        }
-        .pollutant-bar {
-            background: #e1ede6;
-            border-radius: 48px;
-            padding: 14px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            gap: 14px 32px;
-            margin: 18px 0;
-        }
-        .exceed {
-            color: #b13e3e;
-            font-weight: 650;
-            background: #fff0ed;
-            padding: 2px 12px;
-            border-radius: 30px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.95rem;
-        }
-        th {
-            text-align: left;
-            background: #c7ded2;
-            padding: 12px 10px;
-            font-weight: 600;
-            color: #0a3022;
-        }
-        td {
-            padding: 10px;
-            border-bottom: 1px solid #c3d9ce;
-        }
-        .formula-block {
-            background: #f0f7f3;
-            border-radius: 24px;
-            padding: 22px 26px;
-            margin: 22px 0;
-            border-left: 8px solid #1f7a5c;
-            font-size: 1.1rem;
-        }
-        .step {
-            margin-bottom: 30px;
-        }
-        .step-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 14px;
-        }
-        .step-num {
-            background: #1b4e3f;
-            color: white;
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 18px;
-            font-weight: 700;
-            font-size: 1.4rem;
-        }
-        .footnote {
-            margin-top: 12px;
-            font-size: 0.9rem;
-            color: #3a6653;
-            border-top: 1px dashed #aac0b6;
-            padding-top: 16px;
-        }
-        .small-mono {
-            font-family: 'SF Mono', 'Fira Code', monospace;
-            background: #ecf3ef;
-            padding: 2px 8px;
-            border-radius: 20px;
-        }
-        @media (max-width: 650px) {
-            .card { padding: 20px 16px; }
-            h1 { font-size: 1.9rem; }
-        }
-        /* Navbar fija arriba */
-#mainNavbar {
-  background-color: #ffffff; /* fondo sólido */
-  z-index: 1030;             /* más alto que el contenido */
-  border-radius: 0;       
-  transition: background-color 0.3s ease;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🌫️ Contaminació i infeccions respiratòries · Gavà</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Navbar oscuro */
-body[data-bs-theme="dark"] #mainNavbar {
-  background-color: #2c2c2c;
+body{
+    font-family:'Poppins',sans-serif;
+    background:#eef3f0;
+    color:#1e2e26;
+    line-height:1.6;
+    padding:24px;
 }
 
+/* ===== NAVBAR ===== */
 
-/* Texto y hamburguesa */
-#mainNavbar .navbar-brand,
-#mainNavbar .nav-link,
-#themeToggle {
-  color: #000; /* claro */
+#mainNavbar{
+    background:rgba(255,255,255,0.82);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:20px;
+    margin:10px;
+    padding:10px 18px;
+    z-index:1000;
 }
 
-body[data-bs-theme="dark"] #mainNavbar .navbar-brand,
-body[data-bs-theme="dark"] #mainNavbar .nav-link,
-body[data-bs-theme="dark"] #themeToggle {
-  color: #fff; /* oscuro */
+.navbar-brand,
+.nav-link{
+    color:#133b2f !important;
+    font-weight:500;
 }
 
-/* Hamburguesa */
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,0,0,0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+.nav-link:hover{
+    color:#2e7d5e !important;
 }
 
-body[data-bs-theme="dark"] .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+.dropdown-menu{
+    border:none;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    padding:10px;
 }
-/* 4. Logo circular i adaptatiu */
-    .logo {
-      width: 40px;
-      height: 40px;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-    @media (max-width: 576px) {
-      .logo {
-        width: 30px;
-        height: 30px;
-      }
-    }
-    @media (min-width: 992px) {
-      .logo {
-        width: 50px;
-        height: 50px;
-      }
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f7f7f7;
 
+.dropdown-item{
+    border-radius:12px;
+    padding:10px 14px;
+}
+
+.dropdown-item:hover{
+    background:#eef5f1;
+}
+
+.logo{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+/* ===== CONTENIDOR ===== */
+
+.container-custom{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+/* ===== CARDS ===== */
+
+.card-custom{
+    background:rgba(255,255,255,0.96);
+    border-radius:28px;
+    padding:32px;
+    border:1px solid #d7e5dd;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.06),
+        0 2px 8px rgba(0,0,0,0.03);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card-custom:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 14px 38px rgba(0,0,0,0.08),
+        0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* ===== TEXT ===== */
+
+h1{
+    font-size:2.4rem;
+    font-weight:700;
+    color:#103c2e;
+    margin-bottom:10px;
+}
+
+h2{
+    font-size:1.7rem;
+    font-weight:650;
+    margin-bottom:20px;
+    border-left:7px solid #2e7d5e;
+    padding-left:18px;
+    color:#1f5a44;
+}
+
+h3{
+    font-size:1.3rem;
+    font-weight:600;
+    margin:20px 0 12px;
+    color:#1f5a44;
+}
+
+p{
+    font-size:1.03rem;
+    color:#2f473d;
+}
+
+strong{
+    color:#103c2e;
+}
+
+/* ===== BADGES ===== */
+
+.badge-custom{
+    background:#d9ece3;
+    color:#0f4c3a;
+    padding:8px 18px;
+    border-radius:50px;
+    font-size:0.92rem;
+    font-weight:500;
+}
+
+.city-highlight{
+    background:#1b4e3f;
+    color:white;
+    padding:10px 24px;
+    border-radius:60px;
+    font-weight:600;
+}
+
+/* ===== GRID ===== */
+
+.data-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    margin-top:25px;
+}
+
+.stat-box{
+    background:#f5faf7;
+    border-radius:22px;
+    padding:20px;
+    border:1px solid #bfd9cd;
+}
+
+.stat-number{
+    font-size:2.3rem;
+    font-weight:700;
+    color:#0f4a35;
+}
+
+.stat-label{
+    font-size:0.92rem;
+    text-transform:uppercase;
+    color:#527564;
+}
+
+/* ===== POLLUTANTS ===== */
+
+.pollutant-bar{
+    background:#e1ede6;
+    border-radius:28px;
+    padding:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:20px;
+}
+
+.exceed{
+    background:#fff0ed;
+    color:#b13e3e;
+    padding:4px 10px;
+    border-radius:20px;
+    font-weight:600;
+}
+
+/* ===== TABLES ===== */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:18px;
+    background:white;
+    margin:24px 0;
+}
+
+th{
+    background:#1f5a44;
+    color:white;
+    padding:14px;
+    font-weight:600;
+}
+
+td{
+    padding:13px;
+    border-bottom:1px solid #e3ece7;
+}
+
+tr:nth-child(even){
+    background:#f7fbf9;
+}
+
+/* ===== FORMULAS ===== */
+
+.formula-block{
+    background:#f0f7f3;
+    border-left:8px solid #1f7a5c;
+    border-radius:24px;
+    padding:24px;
+    margin:24px 0;
+    font-size:1.08rem;
+}
+
+/* ===== STEPS ===== */
+
+.step{
+    margin-bottom:40px;
+}
+
+.step-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:16px;
+}
+
+.step-num{
+    width:46px;
+    height:46px;
+    border-radius:16px;
+    background:#1b4e3f;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    font-size:1.3rem;
+}
+
+/* ===== FOOTNOTE ===== */
+
+.footnote{
+    margin-top:20px;
+    padding-top:14px;
+    border-top:1px dashed #aac0b6;
+    color:#547362;
+    font-size:0.92rem;
+}
+
+.small-mono{
+    font-family:monospace;
+    background:#edf3ef;
+    padding:3px 10px;
+    border-radius:18px;
+}
+
+/* ===== DARK MODE ===== */
+
+body[data-bs-theme="dark"]{
+    background:#121212;
+    color:#f2f2f2;
+}
+
+body[data-bs-theme="dark"] .card-custom{
+    background:#1f1f1f;
+    border:1px solid #2d2d2d;
+}
+
+body[data-bs-theme="dark"] p,
+body[data-bs-theme="dark"] li,
+body[data-bs-theme="dark"] td{
+    color:#dddddd;
+}
+
+body[data-bs-theme="dark"] h1,
+body[data-bs-theme="dark"] h2,
+body[data-bs-theme="dark"] h3,
+body[data-bs-theme="dark"] strong{
+    color:white;
+}
+
+body[data-bs-theme="dark"] table{
+    background:#222;
+}
+
+body[data-bs-theme="dark"] th{
+    background:#295843;
+}
+
+body[data-bs-theme="dark"] tr:nth-child(even){
+    background:#262626;
+}
+
+body[data-bs-theme="dark"] .formula-block{
+    background:#1b2b24;
+    border-left:8px solid #46a57a;
+}
+
+body[data-bs-theme="dark"] #mainNavbar{
+    background:rgba(25,25,25,0.82);
+}
+
+body[data-bs-theme="dark"] .nav-link,
+body[data-bs-theme="dark"] .navbar-brand{
+    color:white !important;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:768px){
+
+    body{
+        padding:14px;
     }
-  body[data-bs-theme="dark"] {
-      background: #1f1f1f;
+
+    h1{
+        font-size:1.9rem;
     }
-  body[data-bs-theme="dark"] .navbar {
-      background: rgba(40, 40, 40, 0.6);
+
+    h2{
+        font-size:1.4rem;
     }
-  body[data-bs-theme="dark"] .card, body[data-bs-theme="dark"] video {
-      box-shadow: 0 4px 20px rgba(255,255,255,0.05);
+
+    .card-custom{
+        padding:22px;
     }
-    </style>
+
+}
+
+</style>
 </head>
+
 <body>
-<nav id="mainNavbar" class="navbar navbar-expand-lg shadow" style="border-radius:16px; margin:10px; padding:8px 16px;">
-  <div class="container-fluid">
-    <!-- Logo y texto -->
-    <a class="navbar-brand d-flex align-items-center" href="https://mberniol.github.io">
-      <img src="https://izeddi.github.io/logo.png" alt="Logo" class="logo rounded-circle me-2">
-      <span class="fw-bold">Web de Marc</span>
-    </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="proj1Dropdown" role="button" data-bs-toggle="dropdown">
-              <i class="fa-solid fa-diagram-project me-1"></i> Cerca IA vs Google Academic
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="proj1Dropdown">
-              <li><a class="dropdown-item" href="https://mberniol.github.io/cerca"><i class="fa-solid fa-seedling me-1"></i>Recerca Carabassó</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="proj2Dropdown" role="button" data-bs-toggle="dropdown">
-              <i class="fa-solid fa-folder-open me-1"></i> 22 dies en 22 peus
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="proj2Dropdown">
-              <li><a class="dropdown-item" href="https://mberniol.github.io/introduccio"><i class="fa-solid fa-file-lines me-1"></i> Introducció al Projecte</a></li>
-              <li><a class="dropdown-item" href="https://mberniol.github.io/vectors"><i class="fa-solid fa-compass me-1"></i> Calculem rumbs amb vectors</a></li>
-              <li><a class="dropdown-item" href="https://mberniol.github.io/distancies"><i class="fa-solid fa-arrows-left-right-to-line me-1"></i> Calculem distancies amb GPS</a></li>
-            </ul>
-          </li>
-         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="proj3Dropdown" role="button" data-bs-toggle="dropdown">
-              <i class="fa-solid fa-folder-open me-1"></i> Contaminació i Salut al Baix Llobregat
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="proj3Dropdown">
-              <li><a class="dropdown-item" href="https://mberniol.github.io/contaminacio"><i class="fa-solid fa-head-side-mask me-1"></i>Contaminació i Salut Respiratòria a Gavà</a></li>
-              <li><a class="dropdown-item" href="https://mberniol.github.io/epi"><i class="fa-solid fa-head-side-mask me-1"></i>Environmental Epidemiological Analysis</a></li>
-              <li><a class="dropdown-item" href="https://mberniol.github.io/dlnm"><i class="fa-solid fa-smog me-1"></i> Distributed Lag Non-linear Models</a></li>
-              <li><a class="dropdown-item" href="https://mberniol.github.io/epidemiologia"><i class="fa-solid fa-industry me-1"></i> Resultats de Gavà</a></li>
-            </ul>
-          </li>
-        </ul>
-    </div>
-  </nav>
-    
-<div class="container">
-    <!-- TÍTOL I CONTEXT -->
-    <div class="card">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
-            <div>
-                <h1>🌫️ Com afecta la contaminació aèria a les incidències d'infeccions respiratòries diàries?</h1>
-                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px;">
-                    <span class="badge">📍 Gavà · 2011 – 2025</span>
-                    <span class="badge">📊 5185 dies analitzats</span>
-                    <span class="badge">🧪 Epidemiologia ambiental</span>
-                </div>
-            </div>
-            <div class="city-highlight">🏭 Gavà · dades dels servidors XPVCA, Meteocat i SIVIC</div>
-        </div>
-        <p style="margin-top: 20px; font-size: 1.1rem; background: #e6f0ea; padding: 12px 24px; border-radius: 50px;">
-            <strong>Problema clàssic:</strong> A partir del conjunt de dades diàries de qualitat de l'aire (NO₂, NOX, O₃, C<sub>6</sub>H<sub>6</sub>, CO, SO₂ and NO) i incidència d'infeccions respiratòries (per 1000 habitants) registrades a Gavà entre 2011 i 2025, es demana avaluar l'associació entre la contaminació i la salut respiratòria, calcular indicadors de risc i interpretar els pics detectats.
-        </p>
-    </div>
+<!-- NAVBAR -->
 
-    <!-- ENUNCIAT DEL PROBLEMA AMB DADES CONCRETES -->
-    <div class="card">
-        <h2>📋 Enunciat complet · dades proporcionades</h2>
-        <p><strong>Fitxer:</strong> <span class="small-mono">gava.csv</span> (5185 dies vàlids). Columnes: data, incidencia_1000, no2, nox, o3, c6h6, co, so2, no.</p>
-        <div class="data-grid">
-            <div class="stat-box"><span class="stat-number">5185</span><div class="stat-label">Dies analitzats</div></div>
-            <div class="stat-box"><span class="stat-number">1.97</span><div class="stat-label">Incidència mitjana (casos/1000)</div></div>
-            <div class="stat-box"><span class="stat-number">0.343</span><div class="stat-label">Correlació màxima (lag 0) · NOX</div></div>
-            <div class="stat-box"><span class="stat-number">15</span><div class="stat-label">Pics d'alta incidència detectats</div></div>
-        </div>
-        <h3>🌫️ Mitjanes de contaminants i superacions de límits OMS (diaris)</h3>
-        <div class="pollutant-bar">
-            <span><strong>NO₂</strong> 13.2 µg/m³ <span class="exceed">282 dies > límit 25</span></span>
-            <span><strong>NOX</strong> 18.5 µg/m³ (sense límit OMS diari)</span>
-            <span><strong>O₃</strong> 57.4 µg/m³ <span class="exceed">44 dies > límit 100</span></span>
-            <span><strong>C<sub>6</sub>H<sub>6</sub></strong> 0.7 µg/m³ <span class="exceed">0 dies > límit 5</span></span>
-            <span><strong>CO</strong> 0.3 µg/m³ <span class="exceed">0 dies > límit 4000</span></span>
-            <span><strong>SO₂</strong> 3.3 µg/m³ <span class="exceed">0 dies > límit 40</span></span>
-            <span><strong>NO</strong> 4.2 µg/m³ <span class="exceed">14 dies > límit 25</span></span>
-        </div>
-        <p class="footnote" style="margin-top: 0;">* Dies amb registre: C<sub>6</sub>H<sub>6</sub> 3930, CO 5100, NO 5139, NO₂ 5140, O₃ 5087, SO₂ 5114.</p>
-        
-        <div style="background: #faf7e6; padding: 16px 22px; border-radius: 24px; margin: 24px 0 8px;">
-            <strong>📌 Preguntes del problema (a resoldre):</strong>
-            <ol style="margin-top: 12px; padding-left: 28px;">
-                <li>Calcula el coeficient de correlació de Pearson entre NO₂ i incidència a lag 0 i interpreta'l.</li>
-                <li>Estima el Risc Relatiu (RR), el Risc Atribuïble (AR) i la Fracció Atribuïble (AR%) comparant dies amb NO₂ > 25 µg/m³ vs ≤ 25 µg/m³.</li>
-                <li>Explica què indiquen els valors de correlació per a diferents retards (lag 0 a lag 3).</li>
-                <li>Interpreta els pics detectats (gener 2022) i proposa una mesura de salut pública.</li>
-            </ol>
-        </div>
-    </div>
+<nav id="mainNavbar" class="navbar navbar-expand-lg shadow-sm">
 
-    <!-- RESOLUCIÓ PAS A PAS (amb fórmules MathJax) -->
-    <div class="card">
-        <h2>🧮 Resolució guiada · pas a pas</h2>
+<div class="container-fluid">
 
-        <!-- PAS 1 -->
-        <div class="step">
-            <div class="step-header"><span class="step-num">1</span><span style="font-size: 1.4rem; font-weight: 600;">Correlació NO₂ – incidència (lag 0)</span></div>
-            <p>Utilitzem el coeficient de correlació de Pearson per quantificar l'associació lineal. Amb les dades processades obtenim:</p>
-            <div class="formula-block">
-                \[
-                r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}} 
-                \]
-                \[
-                r_{\text{NO}_2,\text{incid}}(0) = 0.255 \quad (p < 0.0001,\; \text{significatiu ***})
-                \]
-            </div>
-            <p><strong>Interpretació:</strong> Existeix una correlació positiva moderada i altament significativa. A major concentració de NO₂, tendeix a augmentar la incidència diària d'infeccions respiratòries. El valor \(r=0.255\) explica aproximadament un \(13.5\%\) de la variabilitat compartida.</p>
-        </div>
+<a class="navbar-brand d-flex align-items-center" href="https://mberniol.github.io">
 
-        <!-- PAS 2 -->
-        <div class="step">
-            <div class="step-header"><span class="step-num">2</span><span style="font-size: 1.4rem; font-weight: 600;">Indicadors de risc (RR, AR, AR%)</span></div>
-            <p>Dividim els dies segons si el NO₂ supera el valor guia diari de l'OMS (25 µg/m³):</p>
-            <ul style="margin: 15px 0 15px 30px;">
-                <li>🔴 <strong>Exposició alta</strong> (NO₂ > 25): 282 dies, incidència mitjana = \(2.16\) casos/1000</li>
-                <li>🟢 <strong>Exposició baixa</strong> (NO₂ ≤ 25): 4858 dies, incidència mitjana = \(1.96\) casos/1000</li>
-            </ul>
-            <div class="formula-block">
-                \[
-                RR = \frac{I_{\text{exposats}}}{I_{\text{no exposats}}} = \frac{2.16}{1.96} \approx 1.102
-                \]
-                \[
-                AR = I_{\text{exposats}} - I_{\text{no exposats}} = 2.16 - 1.96 = 0.2 \text{ casos/1000}
-                \]
-                \[
-                AR\% = \frac{AR}{I_{\text{exposats}}} \times 100 = \frac{0.2}{2.16} \times 100 \approx 9.26\%
-                \]
-            </div>
-            <p>Interval de confiança del 95% per al RR: \([1.14,\,1.17]\), \(p<0.001\).</p>
-            <p><strong>Conclusió:</strong> RR > 1 indica un efecte nociu. El 13.5% de la incidència en dies amb NO₂ elevat és atribuïble a la superació del límit OMS. Això equival a un excés de 0.2 casos per cada 1000 habitants i dia.</p>
-        </div>
+<img src="https://izeddi.github.io/logo.png" class="logo me-2">
 
-        <!-- PAS 3 -->
-        <div class="step">
-            <div class="step-header"><span class="step-num">3</span><span style="font-size: 1.4rem; font-weight: 600;">Impacte retardat (lags) i patrons</span></div>
-            <p>La correlació es calcula desplaçant la sèrie de contaminant \(k\) dies respecte a la incidència. Per a NO₂ i NOX tenim:</p>
-            <table>
-                <tr><th>Contaminant</th><th>Lag 0</th><th>Lag 1</th><th>Lag 2</th><th>Lag 3</th></tr>
-                <tr><td>NO₂</td><td>0.368***</td><td>0.352***</td><td>0.310***</td><td>0.273***</td></tr>
-                <tr><td>NOX</td><td>0.411***</td><td>0.385***</td><td>0.340***</td><td>0.298***</td></tr>
-            </table>
-            <p class="small-mono" style="margin-top: 8px;">(*** p < 0.001)</p>
-            <div class="formula-block">
-                \[
-                r(k) = \frac{\sum_{t=k+1}^{N} (X_{t-k} - \bar{X})(Y_t - \bar{Y})}{\sqrt{\sum (X_{t-k} - \bar{X})^2 \sum (Y_t - \bar{Y})^2}}
-                \]
-            </div>
-            <p>La correlació més forta es troba a <strong>lag 0</strong>, però es manté elevada fins a lag 2. Això suggereix que l'efecte del NO₂ és força immediat (irritació aguda) i persisteix uns dos dies. L'absència d'un pic retardat important indica que el mecanisme principal és d'efecte agut.</p>
-        </div>
+<span class="fw-bold">Web de Marc</span>
 
-        <!-- PAS 4 -->
-        <div class="step">
-            <div class="step-header"><span class="step-num">4</span><span style="font-size: 1.4rem; font-weight: 600;">Anàlisi de pics i estacionalitat</span></div>
-            <p>El sistema ha detectat 15 pics (incidència > percentil 99). La majoria es concentren al <strong>gener de 2022</strong>, coincidint amb valors alts de NO₂ (entre 32 i 51 µg/m³).</p>
-            <table>
-                <tr><th>Data</th><th>Incidència</th><th>NO₂ (µg/m³)</th><th>Alerta</th></tr>
-                <tr><td>2022-01-17</td><td>5.27</td><td>35.4</td><td>⚠️ HIGH PEAK</td></tr>
-                <tr><td>2022-01-19</td><td>4.37</td><td>41.9</td><td>⚠️ HIGH PEAK</td></tr>
-                <tr><td>2022-01-10</td><td>4.36</td><td>46.1</td><td>⚠️ HIGH PEAK</td></tr>
-                <tr><td>2022-01-24</td><td>4.26</td><td>40.4</td><td>⚠️ HIGH PEAK</td></tr>
-                <tr><td>2022-01-18</td><td>3.94</td><td>43.2</td><td>⚠️ HIGH PEAK</td></tr>
-                <tr><td>...</td><td>...</td><td>...</td><td></td></tr>
-            </table>
-            <p>En aquests episodis la incidència multiplica per 3,5 la mitjana. Aplicant la fracció atribuïble, es pot estimar l'excés de casos:</p>
-            <div class="formula-block">
-                \[
-                \text{Excés diari} = (\text{incidència pic} - \text{incidència basal}) \times \frac{\text{població}}{1000}
-                \]
-            </div>
-            <p>Per a Gavà (~28.000 habitants), un pic de 5.27 suposa unes \( (5.27-1.38)\times 28 \approx 109 \) consultes extra aquell dia. Aquests pics reforcen la necessitat d'alertes per contaminació.</p>
-        </div>
+</a>
 
-        <!-- PAS 5 -->
-        <div class="step">
-            <div class="step-header"><span class="step-num">5</span><span style="font-size: 1.4rem; font-weight: 600;">Tendències temporals (2012-2025)</span></div>
-            <p>L'anàlisi de tendència mostra una lleugera reducció de la incidència mitjana a partir de 2020, possiblement per millores en la qualitat de l'aire i canvis en mobilitat. No obstant això, els hiverns continuen presentant pics associats a NO₂ elevat.</p>
-            <div style="display: flex; gap: 20px; justify-content: space-around; background: #e2eee7; border-radius: 24px; padding: 16px;">
-                <div><strong>2012-2019</strong><br>Incid. mitjana ≈ 1.58</div>
-                <div><strong>2020-2025</strong><br>Incid. mitjana ≈ 1.42</div>
-                <div><strong>Reducció</strong><br>≈ 10%</div>
-            </div>
-            <p style="margin-top: 20px;">Els mesos d'hivern (gener-febrer) concentren els valors més alts tant de NO₂ com d'incidència, confirmant el patró estacional típic de les infeccions respiratòries agreujades per contaminació.</p>
-        </div>
-    </div>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-    <!-- RESUM FINAL I CONCLUSIONS -->
-    <div class="card">
-        <h2>📝 Resum i conclusions del problema</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div>
-                <p>✔️ <strong>Associació significativa:</strong> \(r = 0.368\) (NO₂) i RR = 1.16.<br>
-                ✔️ <strong>Fracció atribuïble:</strong> 13.5% de la incidència en dies contaminants.<br>
-                ✔️ <strong>Efecte agut:</strong> màxima correlació a lag 0-1.<br>
-                ✔️ <strong>Pics d'alerta:</strong> gener 2022, amb incidències >5 per 1000.</p>
-            </div>
-            <div style="background: #f2f9f5; border-radius: 20px; padding: 16px;">
-                <strong>🌱 Mesures recomanades:</strong> reforçar la vigilància epidemiològica en episodis de contaminació, reduir el trànsit en dies d'estabilitat atmosfèrica i promoure l'ús de transport públic / zones de baixes emissions.
-            </div>
-        </div>
-        <hr style="margin: 24px 0 12px; border-top: 2px solid #bdd6ca;">
-        <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
-            <span style="background: #1b4e3f; color: white; padding: 6px 24px; border-radius: 60px;">📍 Dades reals processades · Gavà</span>
-            <span class="badge">🌫️ NO₂ · PM · O₃ · SO₂ · 5108 dies</span>
-            <span style="margin-left: auto; font-style: italic;">Anàlisi estil OMS · Educatiu</span>
-        </div>
-        <p class="footnote" style="margin-top: 18px;">
-            * Els càlculs es basen en el conjunt de dades obtingudes de servidors de la Generalitat de Catalunya de Gavà i municipis propers. Totes les fórmules s'han verificat amb les mitjanes i recomptes indicats.
-        </p>
-    </div>
+<div class="collapse navbar-collapse" id="navbarNav">
 
-    <!-- Nota final MathJax -->
-    <div style="text-align: right; opacity: 0.7; font-size: 0.8rem;">Equacions renderitzades amb MathJax · Problema epidemiològic ambiental</div>
+<ul class="navbar-nav me-auto">
+
+<li class="nav-item dropdown">
+
+<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+<i class="fa-solid fa-diagram-project me-1"></i>
+Cerca IA vs Google Academic
+</a>
+
+<ul class="dropdown-menu">
+
+<li>
+<a class="dropdown-item" href="https://mberniol.github.io/cerca">
+<i class="fa-solid fa-seedling me-1"></i>
+Recerca del carbassó
+</a>
+</li>
+
+</ul>
+</li>
+
+<li class="nav-item dropdown">
+
+<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+<i class="fa-solid fa-folder-open me-1"></i>
+22 dies en 22 peus
+</a>
+
+<ul class="dropdown-menu">
+
+<li><a class="dropdown-item" href="#">Introducció al projecte</a></li>
+<li><a class="dropdown-item" href="#">Càlcul de rumbs amb vectors</a></li>
+<li><a class="dropdown-item" href="#">Distàncies amb GPS</a></li>
+
+</ul>
+
+</li>
+
+</ul>
+
 </div>
 
-    <br>
-    <br>
-    <br>
-    
-    <div class="card">
-<h1>Model DLNM (Model no lineal de retard distribuït)</h1>
-        <div class="step">
-        <ul>
-    <li>Aquest model matemàtic va ser creat per Gasparrini <i>et al.</i> (2010)</li>
-    <li>Els contaminants tenen un temps de retard respecte a la salut, és a dir, no hi ha un efecte immediat sempre. Moltes vegades poden tenir un efecte més tard.</li>
-    <li>Aquests models no són lineals perquè si fos lineal significaria que un augment de contaminació provoca un augmnet proporcional de casos respiratoris. Això sembla molt lògic, encara que sembla lògic no és exactament així perquè un augment de 5 &micro;g/m<sup>3</sup> de NO<sub>2</sub> no és el mateix si augmenta de 5 a 10 com si augmenta de 40 a 45, és a dir, és una corba i no és una recta. Els retards s'anomenen LAG i poden ser igual a 0 (no hi ha retard) o igual a qualssevol numero entre 0 i 14. Si és igual a 14 significa que passen dues setmanes entre el PIC de contaminant i el PIC de problemes de salut.</li>
-    <li>Gasparrini, A.; Armstrong, C.; Kenward, M. G. (2010). Distributed lag non-linear models Stat. Med. 29 (21):2224-34. doi: <a href="https://doi.org/10.1002/sim.3940">https://doi.org/10.1002/sim.3940</a></li>
-        </ul>
-    </div>
-    </div>
+</div>
+
+</nav>
+
+<!-- CONTINGUT -->
+
+<div class="container-custom">
+
+<div class="card-custom">
+
+<h1>🌫️ Com afecta la contaminació atmosfèrica a les infeccions respiratòries?</h1>
+
+<div class="d-flex flex-wrap gap-3 mt-3">
+
+<span class="badge-custom">📍 Gavà · 2011–2025</span>
+<span class="badge-custom">📊 5185 dies analitzats</span>
+<span class="badge-custom">🧪 Epidemiologia ambiental</span>
+
+</div>
+
+<div class="city-highlight mt-4">
+🏭 Dades ambientals i epidemiològiques reals · Gavà
+</div>
+
+<p class="mt-4">
+
+<strong>Problema d'epidemiologia ambiental:</strong>
+
+A partir de les dades diàries de qualitat de l'aire
+(NO₂, NOX, O₃, C₆H₆, CO, SO₂ i NO)
+i de la incidència d'infeccions respiratòries
+registrades a Gavà entre 2011 i 2025,
+es vol estudiar la relació entre contaminació
+i salut respiratòria.
+
+</p>
+
+</div>
+
+<div class="card-custom">
+
+<h2>📋 Dades principals</h2>
+
+<div class="data-grid">
+
+<div class="stat-box">
+<div class="stat-number">5185</div>
+<div class="stat-label">Dies analitzats</div>
+</div>
+
+<div class="stat-box">
+<div class="stat-number">1.97</div>
+<div class="stat-label">Incidència mitjana</div>
+</div>
+
+<div class="stat-box">
+<div class="stat-number">0.343</div>
+<div class="stat-label">Correlació màxima</div>
+</div>
+
+<div class="stat-box">
+<div class="stat-number">15</div>
+<div class="stat-label">Pics detectats</div>
+</div>
+
+</div>
+
+<h3 class="mt-4">🌫️ Contaminants principals</h3>
+
+<div class="pollutant-bar">
+
+<span><strong>NO₂</strong> 13.2 µg/m³ <span class="exceed">282 dies > 25</span></span>
+
+<span><strong>O₃</strong> 57.4 µg/m³ <span class="exceed">44 dies > 100</span></span>
+
+<span><strong>SO₂</strong> 3.3 µg/m³</span>
+
+<span><strong>CO</strong> 0.3 µg/m³</span>
+
+</div>
+
+</div>
+
+<div class="card-custom">
+
+<h2>🧮 Correlació de Pearson</h2>
+
+<p>
+
+Per analitzar la relació lineal entre la contaminació
+i la incidència respiratòria utilitzem
+el coeficient de correlació de Pearson.
+
+</p>
+
+<div class="formula-block">
+
+\[
+r =
+\frac{
+\sum_{i=1}^{n}
+(x_i-\bar{x})(y_i-\bar{y})
+}{
+\sqrt{
+\sum(x_i-\bar{x})^2
+\sum(y_i-\bar{y})^2
+}
+}
+\]
+
+\[
+r_{NO_2} = 0.255
+\]
+
+</div>
+
+<p>
+
+Existeix una correlació positiva moderada:
+quan augmenta el NO₂,
+també tendeix a augmentar
+la incidència d'infeccions respiratòries.
+
+</p>
+
+</div>
+
+<div class="card-custom">
+
+<h2>🌱 Conclusions</h2>
+
+<p>
+
+✔️ Associació significativa entre NO₂ i incidència respiratòria.<br>
+✔️ Efecte agut principalment a lag 0–1.<br>
+✔️ Pics importants detectats durant el gener de 2022.<br>
+✔️ La contaminació atmosfèrica incrementa el risc respiratori.
+
+</p>
+
+<div class="formula-block">
+
+\[
+RR = 1.16
+\]
+
+\[
+AR\% = 13.5\%
+\]
+
+</div>
+
+<p>
+
+Es recomana reforçar les mesures de salut pública
+en episodis d'alta contaminació atmosfèrica.
+
+</p>
+
+</div>
+
+<div class="card-custom">
+
+<h2>📚 Model DLNM</h2>
+
+<ul>
+
+<li>
+El model DLNM va ser desenvolupat per
+Gasparrini <i>et al.</i> (2010).
+</li>
+
+<li>
+Els contaminants poden tenir efectes retardats
+sobre la salut respiratòria.
+</li>
+
+<li>
+Aquests models són no lineals:
+un increment de 5 µg/m³ de NO₂
+no té el mateix efecte si passa de 5 a 10
+que si passa de 40 a 45.
+</li>
+
+<li>
+Els retards s'anomenen <strong>lags</strong>
+i poden anar de 0 a 14 dies.
+</li>
+
+<li>
+
+Gasparrini, A.; Armstrong, B.; Kenward, M. G. (2010).  
+<i>Distributed Lag Non-Linear Models</i>.  
+Stat Med. 29(21):2224–2234.
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-    window.addEventListener('load', function() {
-        if (window.MathJax) {
-            MathJax.typesetPromise();
-        }
-    });
+window.addEventListener('load', () => {
+    if(window.MathJax){
+        MathJax.typesetPromise();
+    }
+});
 </script>
+
 </body>
 </html>
