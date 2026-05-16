@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air pollution, meteorological conditions and respiratory infections in Baix Llobregat</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <style>
+    /* 1. Submenús en mode fosc */
+    body[data-bs-theme="dark"] .dropdown-menu {
+      background-color: #2c2c2c !important;
+      border-color: #444;
+    }
+    body[data-bs-theme="dark"] .dropdown-item {
+      color: #f8f9fa !important;
+    }
+    body[data-bs-theme="dark"] .dropdown-item:hover,
+    body[data-bs-theme="dark"] .dropdown-item:focus {
+      background-color: #3c3c3c !important;
+      color: #ffffff !important;
+    }                                                                                                                                                                                                                                        /* Codi fet per Marc Berniola Osuna de 4t d'ESO */
+
+    /* 2. Botó mode fosc/clar només icona */
+    #themeToggle {
+      border: none;
+      background: transparent;
+      font-size: 1.3rem;
+      color: inherit;
+    }
+
+    /* 3. Hamburguesa blanca en mode fosc */
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,0,0,0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    body[data-bs-theme="dark"] .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* 4. Logo circular i adaptatiu */
+    .logo {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+    @media (max-width: 576px) {
+      .logo {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    @media (min-width: 992px) {
+      .logo {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body data-bs-theme="light">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top">
+    <div class="container-fluid">
+      <!-- 5. Logo i text -->
+      <a class="navbar-brand d-flex align-items-center" href="https://mberniol.github.io/">
+        <img src="https://mberniol.github.io/logo.png" alt="Logo" class="logo rounded-circle me-2">
+        <span class="fw-bold">Web de Marc</span>
+      </a>
+
+      <!-- Botó menú mòbil -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menú -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Projecte 1 -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="proj1Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i> Cerca IA vs Google Acadèmic
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="proj1Dropdown">
+              <li><a class="dropdown-item" href="https://mberniol.github.io/cerca"><i class="fa-solid fa-carrot"></i> Recerca Carbasó</a></li>
+            </ul>
+          </li>
+          <!-- Projecte 2 -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="proj2Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-ship"></i> Projecte 22 dies en 22 peus
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="proj2Dropdown">
+              <li><a class="dropdown-item" href="https://mberniol.github.io/introduccio"><i class="fa-solid fa-file-lines"></i> Introducció al projecte</a></li>
+              <li><a class="dropdown-item" href="https://mberniol.github.io/vectors"><i class="fa-regular fa-compass"></i> Calculem rumbs amb vectors</a></li>
+              <li><a class="dropdown-item" href="https://mberniol.github.io/distancies"><i class="fa-solid fa-arrows-left-right-to-line"></i> Calculem distàncies amb GPS</a></li>
+            </ul>
+          </li>
+          <!-- Projecte 3 -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="proj2Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-recycle me-1"></i> Projecte Contaminació i salut del Baix Llobregat
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="proj2Dropdown">
+              <li><a class="dropdown-item" href="https://mberniol.github.io/contaminacio"><i class="fa-solid fa-smog"></i> Recerca contaminació i salut respiratòria a Gavà</a></li>
+              <li><a class="dropdown-item" href="https://mberniol.github.io/epi"><i class="fa-solid fa-head-side-mask me-1"></i> Environmental Epidemiological Analysis</a></li>
+              <li><a class="dropdown-item" href="https://mberniol.github.io/dlnm"><i class="fa-solid fa-industry me-1"></i> Distributed Lag Non-linear Models</a></li>
+              <li><a class="dropdown-item" href="https://mberniol.github.io/epidemiologia"><i class="fa-solid fa-square-poll-vertical me-1"></i> Resultats de Gavà</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Botó mode clar/fosc -->
+        <button id="themeToggle" class="ms-2"><i class="fa-solid fa-moon"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contingut -->
+  <main class="container py-5">
+    <h1>Air pollution, meteorological conditions and respiratory infections in Baix Llobregat. A 14-year spatiotemporal analysis.</h1>
+    <br>
+    <p>The objectives of this research project are:</p>
+    <ul>
+      <li>David and Marc are studying all data from Gavà that is a city located in Baix Llobregat county.
+        In this county we are using data from <a href="https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/qualitat_de_laire/avaluacio/xarxa_de_vigilancia_i_previsio_de_la_contaminacio_atmosferica_xvpca/index.html">Air Pollution Prevention and Monitoring Network (XPVCA in catalan)</a>
+       corresponding to hourly data of air pollutants from year 2004 to 2025. Data included: benzene (C<sub>6</sub>H<sub>6</sub>), carbon monoxide (CO), nitric oxide (NO), nitrogen dioxide (NO<sub>2</sub>), nitrogen oxides (NOx), ozone (O<sub>3</sub>) and sulphur dioxide (SO<sub>2</sub>).</li>
+      <li>Meteorological data is not available from <a href="https://www.meteo.cat/observacions/xema">Meteocat XEMA (Meteorological data server of Catalonia)</a>,
+       so we choose the nearest meteorological station that is El Prat de Llobregat. The data structure is based on semi-hourly data that is, data every 30 minutes from 2011.
+       Data included: temperature, relative humidity, pressure, wind direction, wind speed and solar irradiance.</li>
+      <li>Respiratory infection data are collected from the <a href="https://sivic.salut.gencat.cat/">Information System for Infection Surveillance in Catalonia (SIVIC)</a> using data from region 75, that is Barcelona Metropolitan south region 122 and 123 are the identificators of the Primary care centre from Gavà.</li>
+    </ul>
+    <br>
+    <br>
+    <h3>Air Pollutants in Gavà (2004–2025)</h3>
+    <br>
+    <img src="Air pollution in Gavà (2004-2025).png">
+    <p>This image shows the time variation of several air pollutants measured in Gavà between 2004 and 2025, and it was generated in RStudio using a time variation analysis. The pollutants included in the study are C<sub>6</sub>H<sub>6</sub>, CO, NO, NO<sub>2</sub>, NOx, O<sub>3</sub> and SO<sub>2</sub>. The results show clear daily and weekly patterns. Traffic-related pollutants such as NO, NO<sub>2</sub> and NOx present noticeable peaks during the morning hours on weekdays, which are mainly associated with commuting traffic and higher human activity. These peaks tend to decrease during the afternoon and are generally lower during weekends, reflecting reduced traffic levels. In contrast, ozone (O<sub>3</sub>) shows an opposite behaviour, with lower concentrations in the early morning and higher values during the afternoon due to photochemical processes driven by solar radiation. The monthly variation also indicates seasonal differences, with higher ozone levels during spring and summer, while nitrogen oxides tend to be more elevated in winter when atmospheric dispersion is lower. Overall, the analysis illustrates how air pollution levels in Gavà are influenced by traffic emissions, daily activity patterns and seasonal meteorological conditions.</p>
+  <br>
+    <br>
+    <br>
+    <h3>Benzene (C<sub>6</sub>H<sub>6</sub>) in Gavà</h3>
+    <br>
+    <img src="timevariation_benzene.png">
+    <p>This image shows the evolution of benzene (C<sub>6</sub>H<sub>6</sub>) concentrations in Gavà over time, displaying the average levels by month and hour for each year. The colour scale represents the mean concentration, where warmer colours indicate higher values and cooler colours indicate lower ones. From the available data, benzene levels appear generally low and relatively stable, although some variations can be observed depending on the time of day and the period of the year. Higher concentrations tend to appear during certain hours of the day, which may be related to traffic activity and local emission sources. In the most recent years, especially from around 2019 onwards, some periods show slightly higher values compared with earlier years, although the overall pattern remains fairly consistent. This type of visualization helps to identify temporal patterns and possible changes in benzene levels over the years, highlighting how concentrations can vary depending on both seasonal factors and daily activity patterns.</p>
+  <br>
+    <br>
+    <h3>Carbon Monoxide (CO) in Gavà</h3>
+    <br>
+    <img src="timevariation_co.png">
+    <p>This image shows the trend level of carbon monoxide (CO) concentrations in Gavà over time, presenting the average values by month and hour for each year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and cooler colours indicate lower ones. Overall, CO concentrations remain relatively low but show some temporal variations depending on the time of day and the period of the year. Higher values can occasionally be observed during certain hours, which may be associated with traffic activity and urban emission sources. Across the years displayed, the general pattern remains fairly consistent, although some periods show slightly higher concentrations, especially in more recent years. This visualization helps to identify temporal patterns and understand how CO levels change over time according to daily activity and seasonal conditions.</p>
+<br>
+    <br>
+    <h3>Nitric Oxide (NO) in Gavà</h3>
+<br>
+    <img src="timevariation_no.png">
+    <p>This image shows the trend level of nitric oxide (NO) concentrations in Gavà over time, presenting the average values by month and hour for each year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and cooler colours indicate lower ones. In general, NO concentrations vary depending on the time of day and the period of the year. Higher values tend to appear during certain hours, especially in the morning and evening, which can be related to periods of greater traffic activity and urban emissions. Some seasonal differences can also be observed, with slightly higher concentrations in particular months, possibly influenced by meteorological conditions that affect the dispersion of pollutants. Although there are small variations between years, the overall pattern remains quite similar over time, with recurring daily peaks and comparable seasonal behaviour. This type of visualization helps to identify temporal patterns and makes it easier to understand how NO levels change according to daily human activity and seasonal conditions.</p>
+ <br>
+    <br>
+    <h3>Nitrogen Dioxide (NO<sub>2</sub>) in Gavà</h3>
+  <br>
+  <img src="timevariation_no2.png">
+<p>This image shows the trend level of nitrogen dioxide (NO<sub>2</sub>) concentrations in Gavà over time, presenting the average values by month and hour for each year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and cooler colours indicate lower ones. In general, NO<sub>2</sub> concentrations vary throughout the day and across different periods of the year. Higher values are usually observed during certain hours, especially in the morning and evening, which are commonly associated with higher traffic activity and urban emissions. Some seasonal differences can also be seen, with slightly higher concentrations during the colder months, when atmospheric conditions tend to limit the dispersion of pollutants. Although there are some differences between years, the overall pattern remains relatively consistent over time, with recurring daily peaks and similar seasonal behaviour. This visualization helps to identify temporal patterns and better understand how NO<sub>2</sub> levels change depending on daily human activity and seasonal conditions.</p>
+<br>
+    <br>
+    <h3>Nitrogen Oxides (NOx) in Gavà</h3>
+    <br>
+<img src="timevariation_nox.png">
+<p>This image shows the trend level of nitrogen oxides (NOx) concentrations in Gavà over time, presenting the average values by month and hour for each year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and cooler colours indicate lower ones. In general, NOx concentrations vary throughout the day and across different periods of the year. Higher values tend to appear during specific hours, especially in the morning and evening, which are commonly related to periods of increased traffic activity and urban emissions. Some seasonal differences can also be observed, with slightly higher concentrations during colder months, when atmospheric conditions can limit the dispersion of pollutants. Although there are variations between years, the overall pattern remains relatively similar over time, showing recurring daily peaks and comparable seasonal behaviour. This type of visualization helps to identify temporal patterns and provides a better understanding of how NOx levels change depending on daily human activity and seasonal conditions.</p>
+<br>
+    <br>
+    <h3>Ozone (O<sub>3</sub>) in Gavà</h3>
+    <img src="timevariation_o3.png">
+    <p>This image shows the trend level of ozone (O<sub>3</sub>) concentrations in Gavà over time, presenting the average values by month and hour for each year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and cooler colours indicate lower ones. In general, O<sub>3</sub> concentrations vary throughout the day and across different periods of the year. Higher values tend to appear during the central hours of the day, especially in the afternoon, when sunlight intensity is greater and photochemical reactions are more active. Seasonal differences can also be observed, with higher concentrations usually occurring during the warmer months, particularly in late spring and summer, when stronger solar radiation and higher temperatures favour the formation of ozone. Lower concentrations are more common during winter months and nighttime hours, when photochemical activity is weaker. Although there are some variations between years, the overall pattern remains relatively similar over time, showing recurring daily peaks during daylight hours and a clear seasonal cycle. This type of visualization helps to identify temporal patterns and provides a better understanding of how O<sub>3</sub> levels change depending on solar radiation, atmospheric chemistry, and seasonal environmental conditions.</p>
+  <br>
+    <br>
+    <h3>Sulphur Dioxide (SO<sub>2</sub>) in Gavà</h3>
+<br>
+    <img src="timevariation_so2.png">
+<p>This image shows the trend level of sulphur dioxide (SO<sub>2</sub>) concentrations in Gavà over time, presenting the average values by month and hour for each year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and cooler colours indicate lower ones. In general, SO<sub>2</sub> concentrations vary throughout the day and across different periods of the year. Higher values tend to appear during certain hours of the day, often around the middle of the day and early afternoon, while lower concentrations are more common during nighttime hours. Some seasonal differences can also be observed, with slightly higher concentrations appearing in certain months depending on the year, while other periods show lower and more stable levels. Although there are variations between years, the overall pattern remains relatively consistent, with moderate fluctuations in concentration levels over time. This type of visualization helps to identify temporal patterns and provides a better understanding of how SO<sub>2</sub> levels change depending on daily activity patterns and seasonal atmospheric conditions.</p>
+<br>
+    <br>
+    <br>
+    <h3>Benzene (C<sub>6</sub>H<sub>6</sub>) – Gavà</h3>
+    <br>
+<img src="calendarplot_benzene.png">
+<p>This image shows the trend level of benzene (C<sub>6</sub>H<sub>6</sub>) concentrations in Gavà during 2025, presenting the average values by day for each month of the year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and lighter colours indicate lower ones. In general, benzene concentrations vary throughout the year, with some days showing higher values highlighted in darker orange and reddish tones, while many other days remain at lower or moderate levels. Higher concentrations appear sporadically during certain periods, particularly in late winter and early summer months, whereas other months show more stable and lighter colour patterns indicating lower concentrations. Some seasonal differences can be observed, as certain months present slightly higher values on specific days, possibly related to local emissions, atmospheric conditions, or daily activity patterns. Although there are fluctuations across different days and months, the overall pattern remains relatively consistent, with moderate variations in benzene concentration levels over time. This type of visualization helps identify temporal patterns and provides a clearer understanding of how benzene levels change during different periods of the year.</p>
+<br>
+    <br>
+    <h3>Carbon monoxide (CO) – Gavà</h3>
+<br>
+<img src="calendarplot_co.png">
+<p>This image shows the trend level of carbon monoxide (CO) concentrations in Gavà during 2025, presenting the average values by day for each month of the year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and lighter colours indicate lower ones. In general, CO concentrations vary throughout the year, with several days showing higher values highlighted in darker orange and red tones, while other days remain at lower or moderate levels. Higher concentrations appear more frequently during late summer and early autumn, particularly in months such as September and October, where darker colours indicate more pronounced peaks. During the winter and spring months, the values tend to remain more moderate and stable, with fewer intense peaks. Some seasonal differences can therefore be observed, possibly influenced by local emission sources, meteorological conditions, and variations in daily human activities. Although daily fluctuations occur across the months, the general pattern remains relatively consistent, with moderate variations in carbon monoxide concentration levels throughout the year. This type of visualization helps to identify temporal patterns and provides a clearer understanding of how CO levels change during different periods of the year.</p>
+<br>
+    <br>
+    <h3>Nitric oxide (NO) – Gavà</h3>
+    <br>
+<img src="calendarplot_no.png">
+<p>This image shows the trend level of nitric oxide (NO) concentrations in Gavà during 2025, presenting the average values by day for each month of the year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and lighter colours indicate lower ones. In general, NO concentrations vary throughout the year, with several days showing higher values highlighted in darker orange and red tones, while other days remain at lower or moderate levels. Higher concentrations appear more frequently during the winter months, particularly in January, February, and December, where darker colours indicate more pronounced peaks. During the spring and summer months, the values tend to be lower and more stable, with lighter colours dominating most days. Some seasonal differences can therefore be observed, possibly influenced by traffic emissions, atmospheric dispersion conditions, and variations in daily human activity. Although daily fluctuations occur across the months, the general pattern remains relatively consistent, with moderate variations in nitric oxide concentration levels throughout the year. This type of visualization helps to identify temporal patterns and provides a clearer understanding of how NO levels change during different periods of the year.</p>
+<br>
+    <br>
+    <h3>Nitrogen dioxide (NO<sub>2</sub>) – Gavà</h3>
+<br>
+<img src="calendarplot_no2.png">
+<p>This image shows the trend level of nitrogen dioxide (NO<sub>2</sub>) concentrations in Gavà during 2025, presenting the average values by day for each month of the year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and lighter colours indicate lower ones. In general, NO<sub>2</sub>sub> concentrations vary throughout the year, with several days showing higher values highlighted in darker orange and red tones, while other days remain at lower or moderate levels. Higher concentrations appear more frequently during the winter months, particularly in January, February, and December, where darker colours indicate more pronounced peaks. During the spring and summer months, the values tend to be lower and more stable, with lighter colours dominating most days. Some seasonal differences can therefore be observed, possibly influenced by traffic emissions, atmospheric dispersion conditions, and variations in daily human activity. Although daily fluctuations occur across the months, the overall pattern remains relatively consistent, with moderate variations in nitrogen dioxide concentration levels throughout the year. This type of visualization helps to identify temporal patterns and provides a clearer understanding of how NO<sub>2</sub> levels change during different periods of the year.</p>
+<br>
+    <br>
+    <h3>Nitrogen oxides (NOx) – Gavà</h3>
+    <img src="calendarplot_nox.png">
+    <p>This image shows the trend level of nitrogen oxides (NOx) concentrations in Gavà during 2025, presenting the average values by day for each month of the year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and lighter colours indicate lower ones. In general, NOx concentrations vary throughout the year, with several days showing higher values highlighted in darker orange and red tones, while other days remain at lower or moderate levels. Higher concentrations appear more frequently during the winter months, particularly in January, February, and December, where darker colours indicate more pronounced peaks. During the spring and summer months, the values tend to be lower and more stable, with lighter colours dominating most days. Some seasonal differences can therefore be observed, possibly influenced by traffic emissions, atmospheric dispersion conditions, and variations in daily human activity. Although daily fluctuations occur across the months, the overall pattern remains relatively consistent, with moderate variations in nitrogen oxides concentration levels throughout the year. This type of visualization helps to identify temporal patterns and provides a clearer understanding of how NOx levels change during different periods of the year.</p>
+    <br>
+    <br>
+    <h3>Ozone (O<sub>3</sub>) – Gavà</h3>
+<br>
+    <img src="calendarplot_o3.png">
+<p>This image shows the trend level of ozone (O<sub>3</sub>) concentrations in Gavà during 2025, presenting the average values by day for each month of the year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and lighter colours indicate lower ones. In general, O<sub>3</sub> concentrations vary throughout the year, with several days showing higher values highlighted in darker orange and red tones, while other days remain at lower or moderate levels. Higher concentrations appear more frequently during the late spring and summer months, particularly from May to August, where darker colours indicate more pronounced peaks. During the winter months, the values tend to be lower and more stable, with lighter colours dominating most days. These seasonal differences are typical of ozone formation, which is strongly influenced by solar radiation, temperature, and photochemical reactions involving precursor pollutants. Although daily fluctuations occur across the months, the overall pattern shows a clear seasonal cycle, with higher ozone levels during warmer periods and lower concentrations in colder months. This type of visualization helps to identify temporal patterns and provides a clearer understanding of how O<sub>3</sub> levels change during different periods of the year.</p>
+<br>
+    <br>
+<h3>Sulphur dioxide (SO<sub>2</sub>) – Gavà</h3>
+<br>
+    <img src="calendarplot_so2.png">
+<p>This image shows the trend level of sulphur dioxide (SO<sub>2</sub>) concentrations in Gavà during 2025, presenting the average values by day for each month of the year. The colour scale represents the mean concentration, where warmer colours indicate higher levels and lighter colours indicate lower ones. In general, SO<sub>2</sub> concentrations vary throughout the year, with several days showing slightly higher values highlighted in darker orange and red tones, while many other days remain at relatively low or moderate levels. Occasional peaks can be observed during certain periods of the year, particularly in spring and early summer, where darker colours indicate temporary increases in concentration. During other months, especially in late summer and parts of winter, the values tend to remain more stable and generally lower, with lighter colours appearing more frequently. These variations may be influenced by factors such as industrial activity, fuel combustion, atmospheric dispersion conditions, and meteorological changes. Although daily fluctuations occur across the months, the overall pattern suggests relatively low sulphur dioxide concentrations throughout the year. This type of visualization helps to identify temporal patterns and provides a clearer understanding of how SO<sub>2</sub> levels change during different periods of the year.</p>
+<br>
+    <br>
+    <br>
+    <h3>SIVIC COVID-19 (Gavà – ABS 1)</h3>
+    <br>
+    <img src="covid1.png">
+<p>This image shows the evolution of daily COVID-19 cases recorded in the SIVIC surveillance system for Gavà (ABS 1) between 28 January 2020 and 9 February 2026. The horizontal axis represents the date, and the vertical axis represents the number of reported cases per day. Several waves of infection can be observed throughout the pandemic period. The largest peak appears around early 2022, when daily cases rise to more than 100 cases, which corresponds to the large wave linked to the spread of the Omicron variant. Earlier waves during 2020 and 2021 show smaller increases but still reflect significant transmission periods. After mid-2022, the number of cases decreases considerably and remains relatively low, with only occasional small spikes, suggesting lower circulation of the virus and possible changes in testing or reporting practices. In total, the dataset records 10,210 cases, with an average of 6.8 cases per day, illustrating the progression of the pandemic from multiple waves to a more stable and lower level of infection over time.</p>
+<br>
+    <br>
+<h3>SIVIC COVID-19 (Gavà – ABS 2)</h3>
+<br>
+    <img src="covid2.png">
+    <p>This image shows the evolution of daily COVID-19 cases recorded in the SIVIC epidemiological surveillance system for Gavà (ABS 2) between 5 December 2019 and 15 February 2026. The horizontal axis represents the date, and the vertical axis shows the number of reported cases per day. The graph displays several waves of infection throughout the pandemic period. The most prominent peak occurs in early 2022, when daily cases rise to around 160 cases, corresponding to the large wave associated with the spread of the Omicron variant. Earlier increases during 2020 and 2021 represent previous pandemic waves, with smaller but still significant rises in reported cases. After mid-2022, the number of daily cases decreases considerably and remains relatively low, with only occasional minor spikes, suggesting reduced transmission and possible changes in testing or reporting practices. In total, the dataset records 12,841 cases, with an average of 8.3 cases per day, illustrating the progression of the pandemic from multiple waves of infection to a more stable and lower level of circulation of the virus over time.</p>
+<br>
+    <br>
+    <h3>SIVIC FLU (Gavà – ABS 1)</h3>
+ <img src="flu1.png">
+<p>This image shows the evolution of daily influenza (grip) cases recorded in the SIVIC epidemiological surveillance system for Gavà (ABS 1) between 5 October 2011 and 18 February 2026. The horizontal axis represents the date, while the vertical axis shows the number of reported cases per day. The graph displays a clear seasonal pattern, with recurrent peaks appearing almost every winter period, which is typical of influenza transmission. Most years show moderate increases in cases during the colder months, followed by declines during spring and summer when influenza circulation is lower. Some seasons, such as 2017–2018, 2018–2019, and 2025–2026, show higher peaks, with daily cases reaching more than 20–30 cases, indicating stronger influenza outbreaks during those seasons. During the COVID-19 pandemic period (2020–2021), influenza activity appears noticeably reduced, which may be related to public health measures such as mask use, social distancing, and reduced mobility. In total, the dataset records 4,475 cases, with an average of 3.3 cases per day, highlighting the typical cyclical and seasonal nature of influenza circulation over time.</p>
+<br>
+    <br>
+    <h3>SIVIC FLU (Gavà – ABS 2)</h3>
+<br>
+<img src="flu2.png">
+<p>The image shows a time-series graph of flu (grip) cases recorded in the ABS Gavà-2 health area from October 5, 2011 to February 21, 2026. The horizontal axis represents the date, while the vertical axis shows the number of cases reported each day. Across the timeline, the graph displays many spikes where the number of cases increases quickly and then drops again. These spikes represent periods when flu outbreaks occur. Most of the time the number of cases stays low, often between zero and a few cases per day, but during certain moments the values rise sharply, sometimes reaching around 20–30 cases in a single day. The pattern repeats many times throughout the years, which suggests a seasonal behavior typical of influenza, where cases increase strongly during specific periods, usually winter, and remain much lower during the rest of the year. At the bottom of the dashboard, a summary indicates that a total of 4,550 cases were recorded during the whole period and that the average number of daily cases is about 3.2. Overall, the image illustrates how flu cases fluctuate over time with recurring peaks that correspond to epidemic waves.</p>
+<br>
+    <br>
+    <br>
+    <h3>FINAL CONCLUSION</h3>
+    <br>
+    <p>The results of this 14-year spatiotemporal analysis show that air pollution, meteorological conditions, and respiratory infections in Gavà follow clear temporal patterns strongly influenced by human activity and seasonal environmental factors. The analysis of air pollutants between 2004 and 2025 reveals consistent daily and weekly cycles, especially for traffic-related pollutants such as NO, NO<sub>2</sub>, and NOx, which show higher concentrations during morning and evening hours on weekdays due to commuting traffic and urban activity. In contrast, ozone presents an opposite pattern, with higher concentrations during the afternoon as a result of photochemical reactions driven by solar radiation. Seasonal variations are also evident, with nitrogen oxides tending to increase during winter when atmospheric dispersion is lower, while ozone reaches its highest levels during spring and summer when sunlight intensity and temperature are greater. Other pollutants such as benzene, carbon monoxide, and sulphur dioxide generally remain at relatively low and stable levels, although moderate variations appear depending on time of day, season, and local emission sources. The calendar visualizations for 2025 confirm these tendencies, showing that higher concentrations of traffic-related pollutants occur more frequently during colder months, while ozone peaks during warmer periods of the year. At the same time, the epidemiological data obtained from the SIVIC system reveal clear temporal patterns in respiratory infections. Influenza cases show a strong seasonal behavior, with recurring peaks during winter months and very low activity during spring and summer, although some seasons such as 2017–2018, 2018–2019, and 2025–2026 present stronger outbreaks. During the COVID-19 pandemic period, influenza activity dropped considerably, most likely due to public health measures such as mask use, social distancing, and reduced mobility. COVID-19 data show several waves of infection between 2020 and 2022, with the largest peak occurring in early 2022 during the spread of the Omicron variant, after which the number of cases decreased and remained relatively stable with only occasional spikes. Overall, this study highlights the close relationship between environmental conditions and respiratory health, showing that air pollution levels in Gavà are closely linked to traffic emissions, daily activity patterns, and seasonal meteorological conditions, while respiratory infections follow pronounced seasonal cycles and epidemic waves, demonstrating the importance of long-term environmental monitoring and epidemiological surveillance to better understand how environmental factors may influence public health in the Baix Llobregat region.</p>
+
+<br>
+    <br>
+    
+  <h1>What is the origin of air pollution in Gavà?</h1>
+<p>To know the origin of air pollution in Gavà is easy with RStudio.</p>
+<p>We only need data in columns named ws for wind speed, wd for wind direction and to choose a pollutant e.g.: NO<sub>2</sub>. These are conditions of the openair library in order to create a pollution rose with the instruction: <code>pollutionRose(cityall, pollutant="no2")</code></p>
+<p>As you can see in the following image Gavà air pollution comes from L'Hospitalet de Llobregat city area.</p>
+<img src="">
+<img src="">
+    
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Mode clar/fosc amb canvi d'icona
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+
+    themeToggle.addEventListener('click', () => {
+      if (document.body.getAttribute('data-bs-theme') === 'dark') {
+        document.body.setAttribute('data-bs-theme', 'light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        document.body.setAttribute('data-bs-theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    });
+  </script>
+</body>
+</html>
