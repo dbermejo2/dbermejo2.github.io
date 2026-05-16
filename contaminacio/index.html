@@ -1,530 +1,411 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Air Pollution & Respiratory Infections in Baix Llobregat</title>
-
-  <!-- Bootstrap -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air pollution, meteorological conditions and respiratory infections in Baix Llobregat</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
   <style>
 
-    :root{
-      --primary:#0d6efd;
-      --secondary:#4cc9f0;
-      --dark:#111827;
-      --light:#f8fafc;
-      --card:#ffffff;
+    /* Submenús en mode fosc */
+    body[data-bs-theme="dark"] .dropdown-menu {
+      background-color: #2c2c2c !important;
+      border-color: #444;
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    body[data-bs-theme="dark"] .dropdown-item {
+      color: #f8f9fa !important;
     }
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:#f4f7fb;
-      color:#1f2937;
-      line-height:1.7;
-      transition:0.3s;
+    body[data-bs-theme="dark"] .dropdown-item:hover,
+    body[data-bs-theme="dark"] .dropdown-item:focus {
+      background-color: #3c3c3c !important;
+      color: #ffffff !important;
     }
 
-    body[data-bs-theme="dark"]{
-      background:#0f172a;
-      color:#f1f5f9;
+    /* Botó mode clar/fosc */
+    #themeToggle {
+      border: none;
+      background: transparent;
+      font-size: 1.3rem;
+      color: inherit;
     }
 
-    /* =========================
-       NAVBAR
-    ========================= */
-
-    .navbar{
-      backdrop-filter:blur(14px);
-      background:rgba(255,255,255,0.85);
-      border-bottom:1px solid rgba(0,0,0,0.05);
-      padding:14px 0;
+    /* Hamburguesa */
+    .navbar-toggler {
+      border: none;
     }
 
-    body[data-bs-theme="dark"] .navbar{
-      background:rgba(15,23,42,0.92);
-      border-bottom:1px solid rgba(255,255,255,0.08);
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,0,0,0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 
-    .navbar-brand{
-      font-weight:800;
-      font-size:1.15rem;
+    body[data-bs-theme="dark"] .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 
-    .logo{
-      width:48px;
-      height:48px;
-      object-fit:cover;
-      border-radius:50%;
-      border:2px solid var(--primary);
+    /* Logo */
+    .logo {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
     }
 
-    .nav-link{
-      font-weight:500;
-    }
-
-    .dropdown-menu{
-      border:none;
-      border-radius:16px;
-      padding:10px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.12);
-    }
-
-    body[data-bs-theme="dark"] .dropdown-menu{
-      background:#1e293b;
-    }
-
-    body[data-bs-theme="dark"] .dropdown-item{
-      color:white;
-    }
-
-    body[data-bs-theme="dark"] .dropdown-item:hover{
-      background:#334155;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero{
-      padding:100px 20px 70px;
-      text-align:center;
-      background:linear-gradient(135deg,#0d6efd,#4cc9f0);
-      color:white;
-      border-radius:0 0 40px 40px;
-      margin-bottom:50px;
-    }
-
-    .hero h1{
-      font-size:3rem;
-      font-weight:800;
-      max-width:1000px;
-      margin:auto;
-    }
-
-    .hero p{
-      max-width:900px;
-      margin:25px auto 0;
-      font-size:1.1rem;
-      opacity:0.95;
-    }
-
-    /* =========================
-       SECTION
-    ========================= */
-
-    .section-card{
-      background:white;
-      border-radius:28px;
-      padding:40px;
-      margin-bottom:45px;
-      box-shadow:0 10px 35px rgba(0,0,0,0.06);
-      transition:0.3s;
-    }
-
-    .section-card:hover{
-      transform:translateY(-3px);
-    }
-
-    body[data-bs-theme="dark"] .section-card{
-      background:#1e293b;
-      box-shadow:none;
-    }
-
-    .section-title{
-      font-size:2rem;
-      font-weight:800;
-      margin-bottom:20px;
-      position:relative;
-      padding-left:18px;
-    }
-
-    .section-title::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:0;
-      width:6px;
-      height:100%;
-      border-radius:10px;
-      background:var(--primary);
-    }
-
-    /* =========================
-       TEXT
-    ========================= */
-
-    p{
-      font-size:1.05rem;
-      text-align:justify;
-    }
-
-    ul li{
-      margin-bottom:14px;
-    }
-
-    /* =========================
-       IMAGES
-    ========================= */
-
-    .main-img{
-      width:100%;
-      border-radius:22px;
-      margin:30px auto;
-      display:block;
-      box-shadow:0 12px 35px rgba(0,0,0,0.15);
-    }
-
-    .img-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:25px;
-      margin-top:30px;
-    }
-
-    .img-grid img{
-      width:100%;
-      border-radius:20px;
-      box-shadow:0 8px 25px rgba(0,0,0,0.12);
-      transition:0.3s;
-    }
-
-    .img-grid img:hover{
-      transform:scale(1.02);
-    }
-
-    /* =========================
-       BUTTON
-    ========================= */
-
-    #themeToggle{
-      border:none;
-      width:45px;
-      height:45px;
-      border-radius:50%;
-      background:rgba(0,0,0,0.05);
-      font-size:1.2rem;
-      transition:0.3s;
-    }
-
-    body[data-bs-theme="dark"] #themeToggle{
-      background:rgba(255,255,255,0.08);
-      color:white;
-    }
-
-    #themeToggle:hover{
-      transform:rotate(15deg);
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer{
-      text-align:center;
-      padding:50px 20px;
-      opacity:0.8;
-      font-size:0.95rem;
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media(max-width:768px){
-
-      .hero{
-        padding:70px 20px 50px;
+    @media (max-width: 576px) {
+      .logo {
+        width: 30px;
+        height: 30px;
       }
+    }
 
-      .hero h1{
-        font-size:2rem;
+    @media (min-width: 992px) {
+      .logo {
+        width: 50px;
+        height: 50px;
       }
-
-      .section-card{
-        padding:25px;
-      }
-
-      .section-title{
-        font-size:1.5rem;
-      }
-
     }
 
   </style>
+
 </head>
 
 <body data-bs-theme="light">
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top">
 
-      <a class="navbar-brand d-flex align-items-center gap-3" href="https://dbermejo2.github.io/">
-        <img src="https://dbermejo2.github.io/logo.png" class="logo" alt="Logo">
-        <span>Web de David</span>
+    <div class="container-fluid">
+
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="https://dbermejo2.github.io/">
+        <img src="https://dbermejo2.github.io/logo.png" alt="Logo" class="logo rounded-circle me-2">
+        <span class="fw-bold">Web de David</span>
       </a>
 
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <!-- Botó menú mòbil -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="menu">
+      <!-- Menú -->
+      <div class="collapse navbar-collapse" id="navbarNav">
 
-        <ul class="navbar-nav me-auto ms-4">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+          <!-- Projecte 1 -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+
+            <a class="nav-link dropdown-toggle" href="#" id="proj1Dropdown" role="button" data-bs-toggle="dropdown">
               <i class="fa-solid fa-magnifying-glass"></i>
-              AI vs Google Academic
+              Cerca IA vs Google Acadèmic
             </a>
 
             <ul class="dropdown-menu">
+
               <li>
                 <a class="dropdown-item" href="https://dbemejo2.github.io/cerca">
                   <i class="fa-solid fa-carrot"></i>
-                  Carbasó Research
+                  Recerca Carbasó
                 </a>
               </li>
+
             </ul>
+
           </li>
 
+          <!-- Projecte 2 -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+
+            <a class="nav-link dropdown-toggle" href="#" id="proj2Dropdown" role="button" data-bs-toggle="dropdown">
               <i class="fa-solid fa-ship"></i>
-              22 Days in 22 Feet
+              Projecte 22 dies en 22 peus
             </a>
 
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="https://dbermejo2.github.io/introduccio">Project Introduction</a></li>
-              <li><a class="dropdown-item" href="https://dbermejo2.github.io/vectors">Vectors & Navigation</a></li>
-              <li><a class="dropdown-item" href="https://dbermejo2.github.io/distancies">GPS Distances</a></li>
+
+              <li>
+                <a class="dropdown-item" href="https://dbermejo2.github.io/introduccio">
+                  <i class="fa-solid fa-file-lines"></i>
+                  Introducció al projecte
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="https://dbermejo2.github.io/vectors">
+                  <i class="fa-regular fa-compass"></i>
+                  Calculem rumbs amb vectors
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="https://dbermejo2.github.io/distancies">
+                  <i class="fa-solid fa-arrows-left-right-to-line"></i>
+                  Calculem distàncies amb GPS
+                </a>
+              </li>
+
             </ul>
+
+          </li>
+
+          <!-- Projecte 3 -->
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="proj3Dropdown" role="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-recycle me-1"></i>
+              Projecte Contaminació i salut del Baix Llobregat
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="https://dbermejo2.github.io/contaminacio">
+                  <i class="fa-solid fa-smog"></i>
+                  Recerca contaminació i salut respiratòria a Gavà
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="https://dbermejo2.github.io/epi">
+                  <i class="fa-solid fa-head-side-mask me-1"></i>
+                  Environmental Epidemiological Analysis
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="https://dbermejo2.github.io/dlnm">
+                  <i class="fa-solid fa-industry me-1"></i>
+                  Distributed Lag Non-linear Models
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="https://dbermejo2.github.io/epidemiologia">
+                  <i class="fa-solid fa-square-poll-vertical me-1"></i>
+                  Resultats de Gavà
+                </a>
+              </li>
+
+            </ul>
+
           </li>
 
         </ul>
 
-        <button id="themeToggle">
+        <!-- Mode clar/fosc -->
+        <button id="themeToggle" class="ms-2">
           <i class="fa-solid fa-moon"></i>
         </button>
 
       </div>
 
     </div>
+
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- Contingut -->
+  <main class="container py-5">
 
-    <div class="container">
+    <h1>
+      Air pollution, meteorological conditions and respiratory infections in Baix Llobregat.
+      A 14-year spatiotemporal analysis.
+    </h1>
 
-      <h1>
-        Air Pollution, Meteorological Conditions and Respiratory Infections in Baix Llobregat
-      </h1>
+    <br>
 
-      <p>
-        A 14-year spatiotemporal analysis exploring the relationship between air pollution,
-        meteorology and respiratory infections in Gavà and the Baix Llobregat region.
-      </p>
+    <p>The objectives of this research project are:</p>
+
+    <ul>
+
+      <li>
+        David and Marc are studying all data from Gavà that is a city located in Baix Llobregat county.
+      </li>
+
+      <li>
+        Meteorological data are collected from Meteocat XEMA stations.
+      </li>
+
+      <li>
+        Respiratory infection data are collected from the SIVIC surveillance system.
+      </li>
+
+    </ul>
+
+    <br><br>
+
+    <h3>Air Pollutants in Gavà (2004–2025)</h3>
+
+    <br>
+
+    <img src="Estadisticas.png" class="img-fluid">
+
+    <p>
+      This image shows the time variation of several air pollutants measured in Gavà between 2004 and 2025.
+    </p>
+
+    <br><br>
+
+    <h3>Benzene (C₆H₆) in Gavà</h3>
+
+    <br>
+
+    <img src="Benzetotal.png" class="img-fluid">
+
+    <p>
+      This image shows the evolution of benzene concentrations in Gavà over time.
+    </p>
+
+    <br><br>
+
+    <h3>Carbon Monoxide (CO) in Gavà</h3>
+
+    <br>
+
+    <img src="COtotal.png" class="img-fluid">
+
+    <p>
+      This image shows the evolution of carbon monoxide concentrations in Gavà over time.
+    </p>
+
+    <br><br>
+
+    <h3>Nitric Oxide (NO) in Gavà</h3>
+
+    <br>
+
+    <img src="NOtotal.png" class="img-fluid">
+
+    <p>
+      This image shows the evolution of nitric oxide concentrations in Gavà over time.
+    </p>
+
+    <br><br>
+
+    <h3>Nitrogen Dioxide (NO₂) in Gavà</h3>
+
+    <br>
+
+    <img src="NO2total.png" class="img-fluid">
+
+    <p>
+      This image shows the evolution of nitrogen dioxide concentrations in Gavà over time.
+    </p>
+
+    <br><br>
+
+    <h3>Nitrogen Oxides (NOx) in Gavà</h3>
+
+    <br>
+
+    <img src="NOXtotal.png" class="img-fluid">
+
+    <p>
+      This image shows the evolution of nitrogen oxides concentrations in Gavà over time.
+    </p>
+
+    <br><br>
+
+    <h3>Ozone (O₃) in Gavà</h3>
+
+    <br>
+
+    <img src="O3total.png" class="img-fluid">
+
+    <p>
+      This image shows the evolution of ozone concentrations in Gavà over time.
+    </p>
+
+    <br><br>
+
+    <h3>Sulphur Dioxide (SO₂) in Gavà</h3>
+
+    <br>
+
+    <img src="SO2total.png" class="img-fluid">
+
+    <p>
+      This image shows the evolution of sulphur dioxide concentrations in Gavà over time.
+    </p>
+
+    <br><br>
+
+    <h3>FINAL CONCLUSION</h3>
+
+    <br>
+
+    <p>
+      The results of this study show strong temporal relationships between atmospheric pollution,
+      meteorological conditions and respiratory infections in the Baix Llobregat region.
+    </p>
+
+    <br><br>
+
+    <h1>What is the origin of air pollution in Gavà</h1>
+
+    <p>
+      To know the origin of air pollution in Gavà is easy with RStudio.
+    </p>
+
+    <p>
+      We only need columns named ws for wind speed, wd for wind direction and a pollutant variable such as NO₂.
+    </p>
+
+    <p>
+      As you can see in the following image, part of Gavà air pollution comes from the metropolitan area.
+    </p>
+
+    <div class="row">
+
+      <div class="col-md-6">
+        <img src="googlemaps.png" class="img-fluid">
+      </div>
+
+      <div class="col-md-6">
+        <img src="pollutionrose_NO2.png" class="img-fluid">
+      </div>
+
+      <div class="col-md-6">
+        <img src="pollutionrose_so2.png" class="img-fluid">
+      </div>
+
+      <div class="col-md-6">
+        <img src="pollutionrose_o3.png" class="img-fluid">
+      </div>
+
+      <div class="col-md-6">
+        <img src="pollutionrose_nox.png" class="img-fluid">
+      </div>
 
     </div>
 
-  </section>
-
-  <!-- MAIN -->
-  <main class="container">
-
-    <!-- INTRO -->
-    <section class="section-card">
-
-      <h2 class="section-title">
-        Project Objectives
-      </h2>
-
-      <p>
-        This project analyses environmental and epidemiological data from Gavà and the Baix Llobregat region between 2004 and 2025 using RStudio and statistical visualization techniques.
-      </p>
-
-      <ul>
-        <li>
-          Analysis of atmospheric pollutants from the XPVCA network.
-        </li>
-
-        <li>
-          Study of meteorological conditions from Meteocat XEMA stations.
-        </li>
-
-        <li>
-          Epidemiological analysis using SIVIC respiratory infection data.
-        </li>
-
-      </ul>
-
-    </section>
-
-    <!-- AIR POLLUTION -->
-    <section class="section-card">
-
-      <h2 class="section-title">
-        Air Pollutants in Gavà (2004–2025)
-      </h2>
-
-      <img src="Estadisticas.png" class="main-img" alt="Pollutants statistics">
-
-      <p>
-        Traffic-related pollutants such as NO, NO₂ and NOx show clear morning and evening peaks during weekdays due to commuting traffic and urban activity. Ozone behaves differently, reaching maximum concentrations during the afternoon because of photochemical reactions driven by solar radiation.
-      </p>
-
-    </section>
-
-    <!-- POLLUTANTS -->
-    <section class="section-card">
-
-      <h2 class="section-title">
-        Main Pollutants
-      </h2>
-
-      <div class="img-grid">
-
-        <img src="Benzetotal.png" alt="Benzene">
-        <img src="COtotal.png" alt="CO">
-        <img src="NOtotal.png" alt="NO">
-        <img src="NO2total.png" alt="NO2">
-        <img src="NOXtotal.png" alt="NOX">
-        <img src="O3total.png" alt="Ozone">
-        <img src="SO2total.png" alt="SO2">
-
-      </div>
-
-    </section>
-
-    <!-- CALENDAR -->
-    <section class="section-card">
-
-      <h2 class="section-title">
-        2025 Calendar Visualizations
-      </h2>
-
-      <div class="img-grid">
-
-        <img src="CHcalender.png" alt="">
-        <img src="COcalender.png" alt="">
-        <img src="NOcalender.png" alt="">
-        <img src="NO2calender.png" alt="">
-        <img src="NOXcalender.png" alt="">
-        <img src="O3calender.png" alt="">
-        <img src="SO2calender.png" alt="">
-
-      </div>
-
-    </section>
-
-    <!-- COVID -->
-    <section class="section-card">
-
-      <h2 class="section-title">
-        Respiratory Infections (SIVIC)
-      </h2>
-
-      <div class="img-grid">
-
-        <img src="covid1.png" alt="">
-        <img src="covid2.png" alt="">
-        <img src="covid3.png" alt="">
-        <img src="covid4.png" alt="">
-
-      </div>
-
-      <p class="mt-4">
-        The epidemiological data show clear seasonal behaviour for influenza and multiple epidemic waves during the COVID-19 pandemic. Winter periods present the highest respiratory infection rates.
-      </p>
-
-    </section>
-
-    <!-- POLLUTION ORIGIN -->
-    <section class="section-card">
-
-      <h2 class="section-title">
-        Origin of Air Pollution in Gavà
-      </h2>
-
-      <p>
-        Using RStudio and the OpenAir library, pollution roses were created using wind direction and wind speed data in order to identify the main origins of pollutants affecting Gavà.
-      </p>
-
-      <div class="img-grid">
-
-        <img src="googlemaps.png" alt="">
-        <img src="pollutionrose_NO2.png" alt="">
-        <img src="pollutionrose_so2.png" alt="">
-        <img src="pollutionrose_o3.png" alt="">
-        <img src="pollutionrose_nox.png" alt="">
-
-      </div>
-
-    </section>
-
-    <!-- CONCLUSION -->
-    <section class="section-card">
-
-      <h2 class="section-title">
-        Final Conclusion
-      </h2>
-
-      <p>
-        The results demonstrate strong temporal relationships between atmospheric pollution, meteorological conditions and respiratory infections in the Baix Llobregat region. Traffic emissions, seasonal weather patterns and solar radiation play major roles in pollutant behaviour, while respiratory infections show clear epidemic and seasonal cycles. This study highlights the importance of environmental monitoring and epidemiological surveillance for understanding public health risks associated with air pollution.
-      </p>
-
-    </section>
-
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-
-    <p>
-      Research project developed by Marc Berniola Osuna & David
-    </p>
-
-  </footer>
-
-  <!-- JS -->
+  <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Mode clar/fosc -->
   <script>
 
     const themeToggle = document.getElementById('themeToggle');
-    const icon = themeToggle.querySelector('i');
+    const themeIcon = themeToggle.querySelector('i');
 
     themeToggle.addEventListener('click', () => {
 
-      if(document.body.getAttribute('data-bs-theme') === 'dark'){
+      if (document.body.getAttribute('data-bs-theme') === 'dark') {
 
-        document.body.setAttribute('data-bs-theme','light');
+        document.body.setAttribute('data-bs-theme', 'light');
 
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
 
       } else {
 
-        document.body.setAttribute('data-bs-theme','dark');
+        document.body.setAttribute('data-bs-theme', 'dark');
 
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
 
       }
 
