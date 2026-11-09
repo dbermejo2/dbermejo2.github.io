@@ -137,7 +137,43 @@
       en un editor més avançat amb CodeMirror.
     -->
 
-    <textarea id="code"></textarea>
+    <textarea id="code">#include <stdio.h>
+#include <windows.h>
+#include <math.h>
+
+int main(){
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
+    double vo = 5;
+    double yo = 10;
+    double g = -9.81;
+    double gm = -4.905;
+
+    double Ymax,Tfinal1,Tfinal2,Vfinal1,Vfinal2;
+
+    printf("\n");
+    printf("Exercici34\n\n");
+
+    printf("En una prova de olímpic, el saltador s'impulsa verticalment cap a munt amb vo = 5 m·s-1\n");
+    printf("des d'un trampolí que es troba a yo = 10 m sobre el nivell de l'aigua de la piscina\n");
+
+    
+
+    //Calculos
+
+    Tfinal1 = (-vo+sqrt(vo*vo-4*gm*yo)/(2*gm));
+    Tfinal2 = (-vo-sqrt(vo*vo-4*gm*yo)/(2*gm));
+
+    Vfinal1 = (vo + g*Tfinal1);
+    Vfinal2 = (vo + g*Tfinal2);
+
+    printf("a) Quant de temps tarda en arribar a l'aigua? %.2f s\n", Tfinal1, Tfinal2);
+
+    printf("b) A quina velocitat arriba a l'aigua? %.2f m/s\n", Vfinal1, Vfinal2);
+
+    return 0;
+}</textarea>
 
   </div>
 
