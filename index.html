@@ -1,33 +1,86 @@
+```html
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Web de David</title>
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
 
+  <style>
+    body {
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar {
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .dropdown-menu {
+      border-radius: 10px;
+      padding: 8px;
+    }
+
+    .dropdown-item {
+      padding: 9px 12px;
+      border-radius: 6px;
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--bs-primary-bg-subtle);
+    }
+
+    #themeToggle {
+      border: none;
+      background: transparent;
+      font-size: 20px;
+      padding: 8px 12px;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    main {
+      padding-bottom: 50px;
+    }
+
+    .project-list {
+      max-width: 850px;
+      margin: auto;
+    }
+  </style>
 </head>
 
 <body data-bs-theme="light">
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light shadow sticky-top">
+<nav class="navbar navbar-expand-lg shadow sticky-top bg-body">
   <div class="container-fluid">
 
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="logo.png" alt="Logo Web de David" style="width:45px;height:45px;border-radius:50%" class="me-2">
+    <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+      <img src="logo.png" alt="Logo Web de David" class="me-2">
       Web de David
     </a>
 
     <button class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarNav">
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Obrir navegació">
+
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -35,7 +88,7 @@
 
       <ul class="navbar-nav me-auto">
 
-        <!-- PROJECTES DE RECERCA -->
+        <!-- RECERCA IA -->
         <li class="nav-item dropdown">
 
           <a class="nav-link dropdown-toggle"
@@ -44,8 +97,7 @@
              data-bs-toggle="dropdown">
 
             <i class="fa-solid fa-diagram-project me-1"></i>
-            Recerca IA vs. Google Academic
-
+            Recerca IA vs. Google Acadèmic
           </a>
 
           <ul class="dropdown-menu">
@@ -54,13 +106,10 @@
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/cerca/">
 
-                <i class="fa-solid fa-seedling"></i>
-                Recerca Carbasa
-
+                <i class="fa-solid fa-seedling me-2"></i>
+                Recerca Carabassa
               </a>
             </li>
-
-            
 
           </ul>
         </li>
@@ -76,7 +125,6 @@
 
             <i class="fa-solid fa-folder-open me-1"></i>
             Projecte 22 dies en 22 peus
-
           </a>
 
           <ul class="dropdown-menu">
@@ -85,9 +133,8 @@
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/introduccio/">
 
-                <i class="fa-solid fa-file-lines"></i>
-                Introduccio al projecte
-
+                <i class="fa-solid fa-file-lines me-2"></i>
+                Introducció al projecte
               </a>
             </li>
 
@@ -95,9 +142,8 @@
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/vectors/">
 
-                <i class="fa-solid fa-compass"></i>
+                <i class="fa-solid fa-compass me-2"></i>
                 Calculem el rumb
-
               </a>
             </li>
 
@@ -105,16 +151,16 @@
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/distancies/">
 
-                <i class="fa-solid fa-arrows-left-right-to-line"></i>
-                Calculem distancies
-
+                <i class="fa-solid fa-arrows-left-right-to-line me-2"></i>
+                Calculem distàncies
               </a>
             </li>
 
           </ul>
         </li>
 
-        <!-- Projecte 3 -->
+
+        <!-- CONTAMINACIÓ I SALUT -->
         <li class="nav-item dropdown">
 
           <a class="nav-link dropdown-toggle"
@@ -122,9 +168,8 @@
              role="button"
              data-bs-toggle="dropdown">
 
-            <i class="fa-solid fa-folder-open me-1"></i>
-            Contaminacio i salud al Baix Llovregat
-
+            <i class="fa-solid fa-smog me-1"></i>
+            Contaminació i salut
           </a>
 
           <ul class="dropdown-menu">
@@ -133,9 +178,8 @@
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/epi/">
 
-                <i class="fa-solid fa-head-side-mask"></i>
+                <i class="fa-solid fa-head-side-mask me-2"></i>
                 Environmental Epidemiological Analysis
-
               </a>
             </li>
 
@@ -143,9 +187,8 @@
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/dlnm/">
 
-                <i class="fa-solid fa-smog"></i>
+                <i class="fa-solid fa-chart-line me-2"></i>
                 Distributed Lag Non-linear Models
-
               </a>
             </li>
 
@@ -153,82 +196,114 @@
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/epidemiologia/">
 
-                <i class="fa-solid fa-industry"></i>
-                Resultats de Gavà 
-
+                <i class="fa-solid fa-industry me-2"></i>
+                Resultats de Gavà
               </a>
             </li>
-                        <li>
+
+            <li>
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/contaminacio/">
 
-                <i class="fa-solid fa-head-side-mask"></i>
-                Contaminacio i salut respiratoria a Gavà
-
+                <i class="fa-solid fa-lungs me-2"></i>
+                Contaminació i salut respiratòria a Gavà
               </a>
             </li>
 
           </ul>
         </li>
 
-         <li class="nav-item dropdown">
+
+        <!-- VIDEOJOCS -->
+        <li class="nav-item dropdown">
 
           <a class="nav-link dropdown-toggle"
              href="#"
              role="button"
              data-bs-toggle="dropdown">
 
-            <i class="fa-solid fa-diagram-project me-1"></i>
-            videojocs
-
+            <i class="fa-solid fa-gamepad me-1"></i>
+            Videojocs
           </a>
 
-          <ul class="dropdown-menu"><li>
-              <a class="dropdown-item"href="https://dbermejo2.github.io/pong-v1">
+          <!-- TOTES LES VERSIONS DE PONG -->
+          <ul class="dropdown-menu">
 
-                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-                Versio 1 </a></li></ul>
+            <li>
+              <h6 class="dropdown-header">
+                <i class="fa-solid fa-table-tennis-paddle-ball me-1"></i>
+                Joc Pong
+              </h6>
+            </li>
 
-          <ul class="dropdown-menu"><li>
-              <a class="dropdown-item"href="https://dbermejo2.github.io/pong-v2">
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/pong-v1">
 
-                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-                Versio 2 </a></li></ul>
+                <i class="fa-solid fa-play me-2"></i>
+                Versió 1
+              </a>
+            </li>
 
-                           <ul class="dropdown-menu"><li>
-              <a class="dropdown-item"href="https://dbermejo2.github.io/pong-v3">
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/pong-v2">
 
-                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-                Versio 3 </a></li></ul>
+                <i class="fa-solid fa-play me-2"></i>
+                Versió 2
+              </a>
+            </li>
 
-              <ul class="dropdown-menu"><li>
-              <a class="dropdown-item"href="https://dbermejo2.github.io/pong-v4">
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/pong-v3">
 
-                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-                Versio 4 </a></li></ul>
+                <i class="fa-solid fa-play me-2"></i>
+                Versió 3
+              </a>
+            </li>
 
-              <ul class="dropdown-menu"><li>
-              <a class="dropdown-item"href="https://dbermejo2.github.io/pong-v5">
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/pong-v4">
 
-                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-                Versio 5 </a></li></ul>
+                <i class="fa-solid fa-play me-2"></i>
+                Versió 4
+              </a>
+            </li>
 
-                            <ul class="dropdown-menu"><li>
-              <a class="dropdown-item"href="https://dbermejo2.github.io/pong-v6">
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/pong-v5">
 
-                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-                Versio 6 </a></li></ul>
+                <i class="fa-solid fa-play me-2"></i>
+                Versió 5
+              </a>
+            </li>
 
-             <li class="nav-item dropdown">
+            <li>
+              <a class="dropdown-item"
+                 href="https://dbermejo2.github.io/pong-v6">
+
+                <i class="fa-solid fa-play me-2"></i>
+                Versió 6
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+
+        <!-- PROGRAMACIÓ C -->
+        <li class="nav-item dropdown">
 
           <a class="nav-link dropdown-toggle"
              href="#"
              role="button"
              data-bs-toggle="dropdown">
 
-            <i class="fa-solid fa-diagram-project me-1"></i>
-            Programacio C
-
+            <i class="fa-solid fa-code me-1"></i>
+            Programació C
           </a>
 
           <ul class="dropdown-menu">
@@ -237,38 +312,43 @@
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/printf/">
 
-                <i class="fa-solid fa-seedling"></i>
+                <i class="fa-solid fa-terminal me-2"></i>
                 Exercici amb Printf
-
               </a>
             </li>
-       <li>
+
+            <li>
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/scanf/">
 
-                <i class="fa-solid fa-seedling"></i>
-                Exercici amb scanF
-
+                <i class="fa-solid fa-keyboard me-2"></i>
+                Exercici amb Scanf
               </a>
             </li>
 
-             <li>
+            <li>
               <a class="dropdown-item"
                  href="https://dbermejo2.github.io/condicionals/">
 
-                <i class="fa-solid fa-seedling"></i>
-                Exercici amb Condicionals
-
+                <i class="fa-solid fa-code-branch me-2"></i>
+                Exercici amb condicionals
               </a>
             </li>
 
-
+          </ul>
+        </li>
 
       </ul>
 
-      <!-- BOTÓN TEMA -->
-      <button id="themeToggle">
+
+      <!-- BOTÓ MODE FOSC -->
+      <button id="themeToggle"
+              type="button"
+              aria-label="Canviar el tema"
+              title="Canviar el tema">
+
         <i class="fa-solid fa-moon"></i>
+
       </button>
 
     </div>
@@ -276,59 +356,83 @@
 </nav>
 
 
-<!-- CONTENIDO -->
+<!-- CONTINGUT -->
 <main class="container mt-5">
 
-<h1 class="text-center">Benvinguts als Projectes</h1>
+  <h1 class="text-center mb-4">
+    Benvinguts als projectes
+  </h1>
 
-<p class="lead text-center">
-Sóc <b>David</b> de <b>4tA ESO</b> de l'
-<a href="https://agora.xtec.cat/ies-pompeu-fabra-martorell/">
-Institut Pompeu Fabra
-</a>
-</p>
+  <p class="lead text-center">
+    Sóc <b>David</b> de <b>4t A d'ESO</b> de l'
+    <a href="https://agora.xtec.cat/ies-pompeu-fabra-martorell/"
+       target="_blank">
+      Institut Pompeu Fabra
+    </a>
+  </p>
 
-<p class="lead text-center">
-En aquesta web veurem projectes realitzats a la materia de Digitalització:
-</p>
+  <p class="lead text-center mt-4">
+    En aquesta web veurem alguns dels projectes realitzats
+    a la matèria de Digitalització:
+  </p>
 
-<ul>
-<li>
-Projecte 1: Comparar aliments ecològics i convencionals pel que fa al nivell de nutrients
-</li>
+  <div class="project-list mt-4">
 
-<li>
-Projecte 2: 22 dies en 22 peus: una cursa nàutica on aprenem vectors, GPS i distàncies
-</li>
+    <ul class="list-group">
 
+      <li class="list-group-item p-3">
+        <i class="fa-solid fa-seedling me-2 text-success"></i>
+        <b>Projecte 1:</b>
+        Comparar aliments ecològics i convencionals pel que fa
+        al nivell de nutrients.
+      </li>
 
-</ul>
+      <li class="list-group-item p-3">
+        <i class="fa-solid fa-compass me-2 text-primary"></i>
+        <b>Projecte 2:</b>
+        22 dies en 22 peus: una cursa nàutica on aprenem
+        vectors, GPS i distàncies.
+      </li>
+
+    </ul>
+
+  </div>
 
 </main>
 
 
-<!-- BOOTSTRAP -->
+<!-- BOOTSTRAP JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 
+<!-- CANVI DE TEMA -->
 <script>
-const themeToggle = document.getElementById('themeToggle');
-const themeIcon = themeToggle.querySelector('i');
 
-themeToggle.addEventListener('click', () => {
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = themeToggle.querySelector('i');
 
-  if(document.body.getAttribute('data-bs-theme') === 'dark'){
-    document.body.setAttribute('data-bs-theme','light');
-    themeIcon.classList.replace('fa-sun','fa-moon');
-  }
+  themeToggle.addEventListener('click', () => {
 
-  else{
-    document.body.setAttribute('data-bs-theme','dark');
-    themeIcon.classList.replace('fa-moon','fa-sun');
-  }
+    const currentTheme = document.body.getAttribute('data-bs-theme');
 
-});
+    if (currentTheme === 'dark') {
+
+      document.body.setAttribute('data-bs-theme', 'light');
+
+      themeIcon.classList.replace('fa-sun', 'fa-moon');
+
+    } else {
+
+      document.body.setAttribute('data-bs-theme', 'dark');
+
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+
+    }
+
+  });
+
 </script>
 
 </body>
 </html>
+```
